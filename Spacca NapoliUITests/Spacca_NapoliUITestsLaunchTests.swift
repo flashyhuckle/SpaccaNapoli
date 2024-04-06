@@ -1,10 +1,3 @@
-//
-//  Spacca_NapoliUITestsLaunchTests.swift
-//  Spacca NapoliUITests
-//
-//  Created by Marcin Głodzik on 05/04/2024.
-//
-
 import XCTest
 
 final class Spacca_NapoliUITestsLaunchTests: XCTestCase {

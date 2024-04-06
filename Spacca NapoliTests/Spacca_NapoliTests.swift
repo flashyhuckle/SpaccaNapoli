@@ -1,10 +1,3 @@
-//
-//  Spacca_NapoliTests.swift
-//  Spacca NapoliTests
-//
-//  Created by Marcin Głodzik on 05/04/2024.
-//
-
 import XCTest
 @testable import Spacca_Napoli
 
