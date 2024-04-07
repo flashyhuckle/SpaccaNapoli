@@ -11,4 +11,4 @@ This is a just for fun app for a pizzeria: https://spaccanapoli.pl
 
 ## Info
 
-I am in no way associated with the owners, I just like their pizza and decided to create an app as a practise. Please don't sue me :(.
+I am in no way associated with the owners, I just like their pizza and decided to create an app as a practice. Please don't sue me :(.

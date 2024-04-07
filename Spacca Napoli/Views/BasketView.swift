@@ -1,13 +1,13 @@
 import SwiftUI
 
 struct BasketView: View {
-    @Binding var basketItems: [MenuItem]
+    @Binding var basketItems: [NewMenuItem]
     
     var body: some View {
         ZStack {
             List {
                 ForEach(basketItems, id: \.name) { item in
-                    MenuItemView(menuItem: item)
+                    NewMenuItemView(menuItem: item)
                 }.onDelete(perform: { indexSet in
                     deleteItem(at: indexSet)
                 })

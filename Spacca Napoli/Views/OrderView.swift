@@ -4,7 +4,7 @@ struct OrderView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @Binding var basketItems: [MenuItem]
+    @Binding var basketItems: [NewMenuItem]
     
     @State private var street = "Chłodna"
     @State private var building = "51"

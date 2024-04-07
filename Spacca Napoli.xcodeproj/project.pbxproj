@@ -12,6 +12,11 @@
 		A4B9608C2BC15E3200CFF624 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B9608B2BC15E3200CFF624 /* LandingView.swift */; };
 		A4B960922BC1DABF00CFF624 /* ReserveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B960912BC1DABF00CFF624 /* ReserveView.swift */; };
 		A4D336322BC2A17A003014CE /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D336312BC2A17A003014CE /* Date.swift */; };
+		A4D336342BC2AE0F003014CE /* OrderMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D336332BC2AE0F003014CE /* OrderMenuView.swift */; };
+		A4D336362BC2AFA7003014CE /* Loopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D336352BC2AFA7003014CE /* Loopable.swift */; };
+		A4D336382BC2B274003014CE /* NewMenu.json in Resources */ = {isa = PBXBuildFile; fileRef = A4D336372BC2B274003014CE /* NewMenu.json */; };
+		A4D3363A2BC2B3B0003014CE /* NewMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D336392BC2B3B0003014CE /* NewMenuItem.swift */; };
+		A4D3363C2BC320AC003014CE /* NewMenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D3363B2BC320AC003014CE /* NewMenuItemView.swift */; };
 		A4D7CEF02BC01DDF00FA5650 /* Spacca_NapoliApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7CEEF2BC01DDF00FA5650 /* Spacca_NapoliApp.swift */; };
 		A4D7CEF22BC01DDF00FA5650 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7CEF12BC01DDF00FA5650 /* OrderView.swift */; };
 		A4D7CEF42BC01DE200FA5650 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D7CEF32BC01DE200FA5650 /* Assets.xcassets */; };
@@ -51,6 +56,11 @@
 		A4B9608B2BC15E3200CFF624 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		A4B960912BC1DABF00CFF624 /* ReserveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveView.swift; sourceTree = "<group>"; };
 		A4D336312BC2A17A003014CE /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		A4D336332BC2AE0F003014CE /* OrderMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMenuView.swift; sourceTree = "<group>"; };
+		A4D336352BC2AFA7003014CE /* Loopable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loopable.swift; sourceTree = "<group>"; };
+		A4D336372BC2B274003014CE /* NewMenu.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NewMenu.json; sourceTree = "<group>"; };
+		A4D336392BC2B3B0003014CE /* NewMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMenuItem.swift; sourceTree = "<group>"; };
+		A4D3363B2BC320AC003014CE /* NewMenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMenuItemView.swift; sourceTree = "<group>"; };
 		A4D7CEEC2BC01DDF00FA5650 /* Spacca Napoli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spacca Napoli.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D7CEEF2BC01DDF00FA5650 /* Spacca_NapoliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacca_NapoliApp.swift; sourceTree = "<group>"; };
 		A4D7CEF12BC01DDF00FA5650 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
@@ -99,7 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				A4D7CF1F2BC041DD00FA5650 /* Menu.swift */,
+				A4D336392BC2B3B0003014CE /* NewMenuItem.swift */,
 				A4D7CF212BC0438300FA5650 /* Menu.json */,
+				A4D336372BC2B274003014CE /* NewMenu.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,11 +121,13 @@
 			children = (
 				A4B9608B2BC15E3200CFF624 /* LandingView.swift */,
 				A4D7CF232BC0792400FA5650 /* MenuView.swift */,
-				A4D7CF252BC0793A00FA5650 /* MenuViewModel.swift */,
 				A4B960912BC1DABF00CFF624 /* ReserveView.swift */,
+				A4D336332BC2AE0F003014CE /* OrderMenuView.swift */,
+				A4D7CF252BC0793A00FA5650 /* MenuViewModel.swift */,
 				A4B960892BC0894F00CFF624 /* BasketView.swift */,
 				A4D7CEF12BC01DDF00FA5650 /* OrderView.swift */,
 				A4B960872BC083C400CFF624 /* MenuItemView.swift */,
+				A4D3363B2BC320AC003014CE /* NewMenuItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -132,6 +146,7 @@
 			children = (
 				A4D7CF1D2BC0349000FA5650 /* DistanceCalculator.swift */,
 				A4D336312BC2A17A003014CE /* Date.swift */,
+				A4D336352BC2AFA7003014CE /* Loopable.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -300,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4D7CEF72BC01DE200FA5650 /* Preview Assets.xcassets in Resources */,
+				A4D336382BC2B274003014CE /* NewMenu.json in Resources */,
 				A4D7CF222BC0438300FA5650 /* Menu.json in Resources */,
 				A4D7CEF42BC01DE200FA5650 /* Assets.xcassets in Resources */,
 			);
@@ -326,16 +342,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4D336342BC2AE0F003014CE /* OrderMenuView.swift in Sources */,
 				A4B9608A2BC0894F00CFF624 /* BasketView.swift in Sources */,
 				A4D7CF242BC0792400FA5650 /* MenuView.swift in Sources */,
 				A4D7CF1E2BC0349000FA5650 /* DistanceCalculator.swift in Sources */,
 				A4D7CEF22BC01DDF00FA5650 /* OrderView.swift in Sources */,
 				A4D7CF1A2BC029F400FA5650 /* GeocodeResponse.swift in Sources */,
 				A4D7CF202BC041DD00FA5650 /* Menu.swift in Sources */,
+				A4D3363A2BC2B3B0003014CE /* NewMenuItem.swift in Sources */,
+				A4D336362BC2AFA7003014CE /* Loopable.swift in Sources */,
 				A4D7CEF02BC01DDF00FA5650 /* Spacca_NapoliApp.swift in Sources */,
 				A4B960922BC1DABF00CFF624 /* ReserveView.swift in Sources */,
 				A4D7CF1C2BC02C1300FA5650 /* ApiCaller.swift in Sources */,
 				A4B960882BC083C400CFF624 /* MenuItemView.swift in Sources */,
+				A4D3363C2BC320AC003014CE /* NewMenuItemView.swift in Sources */,
 				A4B9608C2BC15E3200CFF624 /* LandingView.swift in Sources */,
 				A4D336322BC2A17A003014CE /* Date.swift in Sources */,
 				A4D7CF262BC0793A00FA5650 /* MenuViewModel.swift in Sources */,

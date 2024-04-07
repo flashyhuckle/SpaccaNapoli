@@ -1,6 +1,7 @@
 import Foundation
 
 struct Menu: Codable {
+    
     let coldApetizersAndSalads: [MenuItem]
     let hotApetizers: [MenuItem]
     let pizzaRossa: [MenuItem]

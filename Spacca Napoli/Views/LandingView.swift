@@ -9,6 +9,7 @@ struct LandingView: View {
                     .scaledToFit()
                     .frame(maxWidth: 300)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .padding(.vertical)
                 
                 NavigationLink {
                     MenuView()
@@ -33,7 +34,7 @@ struct LandingView: View {
                 }
                 
                 NavigationLink {
-                    MenuView()
+                    OrderMenuView()
                 } label: {
                     Text("Order online")
                         .padding()
