@@ -8,6 +8,7 @@ struct LandingView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(maxWidth: 300)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
                 
                 NavigationLink {
                     MenuView()
@@ -21,7 +22,7 @@ struct LandingView: View {
                 }
                 
                 NavigationLink {
-                    MenuView()
+                    ReserveView()
                 } label: {
                     Text("Reserve a table")
                         .padding()

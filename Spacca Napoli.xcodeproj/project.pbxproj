@@ -10,6 +10,8 @@
 		A4B960882BC083C400CFF624 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B960872BC083C400CFF624 /* MenuItemView.swift */; };
 		A4B9608A2BC0894F00CFF624 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B960892BC0894F00CFF624 /* BasketView.swift */; };
 		A4B9608C2BC15E3200CFF624 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B9608B2BC15E3200CFF624 /* LandingView.swift */; };
+		A4B960922BC1DABF00CFF624 /* ReserveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B960912BC1DABF00CFF624 /* ReserveView.swift */; };
+		A4D336322BC2A17A003014CE /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D336312BC2A17A003014CE /* Date.swift */; };
 		A4D7CEF02BC01DDF00FA5650 /* Spacca_NapoliApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7CEEF2BC01DDF00FA5650 /* Spacca_NapoliApp.swift */; };
 		A4D7CEF22BC01DDF00FA5650 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7CEF12BC01DDF00FA5650 /* OrderView.swift */; };
 		A4D7CEF42BC01DE200FA5650 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D7CEF32BC01DE200FA5650 /* Assets.xcassets */; };
@@ -47,6 +49,8 @@
 		A4B960872BC083C400CFF624 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		A4B960892BC0894F00CFF624 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
 		A4B9608B2BC15E3200CFF624 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
+		A4B960912BC1DABF00CFF624 /* ReserveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveView.swift; sourceTree = "<group>"; };
+		A4D336312BC2A17A003014CE /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		A4D7CEEC2BC01DDF00FA5650 /* Spacca Napoli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spacca Napoli.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D7CEEF2BC01DDF00FA5650 /* Spacca_NapoliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacca_NapoliApp.swift; sourceTree = "<group>"; };
 		A4D7CEF12BC01DDF00FA5650 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
@@ -91,6 +95,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4B9608D2BC1D83B00CFF624 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A4D7CF1F2BC041DD00FA5650 /* Menu.swift */,
+				A4D7CF212BC0438300FA5650 /* Menu.json */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A4B9608E2BC1D84F00CFF624 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A4B9608B2BC15E3200CFF624 /* LandingView.swift */,
+				A4D7CF232BC0792400FA5650 /* MenuView.swift */,
+				A4D7CF252BC0793A00FA5650 /* MenuViewModel.swift */,
+				A4B960912BC1DABF00CFF624 /* ReserveView.swift */,
+				A4B960892BC0894F00CFF624 /* BasketView.swift */,
+				A4D7CEF12BC01DDF00FA5650 /* OrderView.swift */,
+				A4B960872BC083C400CFF624 /* MenuItemView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A4B9608F2BC1D85E00CFF624 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A4D7CF1B2BC02C1300FA5650 /* ApiCaller.swift */,
+				A4D7CF192BC029F400FA5650 /* GeocodeResponse.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A4B960902BC1D86A00CFF624 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A4D7CF1D2BC0349000FA5650 /* DistanceCalculator.swift */,
+				A4D336312BC2A17A003014CE /* Date.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
 		A4D7CEE32BC01DDF00FA5650 = {
 			isa = PBXGroup;
 			children = (
@@ -115,17 +160,10 @@
 			isa = PBXGroup;
 			children = (
 				A4D7CEEF2BC01DDF00FA5650 /* Spacca_NapoliApp.swift */,
-				A4B9608B2BC15E3200CFF624 /* LandingView.swift */,
-				A4D7CF232BC0792400FA5650 /* MenuView.swift */,
-				A4B960892BC0894F00CFF624 /* BasketView.swift */,
-				A4D7CEF12BC01DDF00FA5650 /* OrderView.swift */,
-				A4B960872BC083C400CFF624 /* MenuItemView.swift */,
-				A4D7CF252BC0793A00FA5650 /* MenuViewModel.swift */,
-				A4D7CF1B2BC02C1300FA5650 /* ApiCaller.swift */,
-				A4D7CF1D2BC0349000FA5650 /* DistanceCalculator.swift */,
-				A4D7CF192BC029F400FA5650 /* GeocodeResponse.swift */,
-				A4D7CF1F2BC041DD00FA5650 /* Menu.swift */,
-				A4D7CF212BC0438300FA5650 /* Menu.json */,
+				A4B960902BC1D86A00CFF624 /* Modules */,
+				A4B9608D2BC1D83B00CFF624 /* Model */,
+				A4B9608F2BC1D85E00CFF624 /* Networking */,
+				A4B9608E2BC1D84F00CFF624 /* Views */,
 				A4D7CEF32BC01DE200FA5650 /* Assets.xcassets */,
 				A4D7CEF52BC01DE200FA5650 /* Preview Content */,
 			);
@@ -295,9 +333,11 @@
 				A4D7CF1A2BC029F400FA5650 /* GeocodeResponse.swift in Sources */,
 				A4D7CF202BC041DD00FA5650 /* Menu.swift in Sources */,
 				A4D7CEF02BC01DDF00FA5650 /* Spacca_NapoliApp.swift in Sources */,
+				A4B960922BC1DABF00CFF624 /* ReserveView.swift in Sources */,
 				A4D7CF1C2BC02C1300FA5650 /* ApiCaller.swift in Sources */,
 				A4B960882BC083C400CFF624 /* MenuItemView.swift in Sources */,
 				A4B9608C2BC15E3200CFF624 /* LandingView.swift in Sources */,
+				A4D336322BC2A17A003014CE /* Date.swift in Sources */,
 				A4D7CF262BC0793A00FA5650 /* MenuViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
