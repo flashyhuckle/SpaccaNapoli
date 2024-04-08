@@ -2,9 +2,7 @@ import SwiftUI
 
 struct OrderView: View {
     
-    @Environment(\.dismiss) var dismiss
-    
-    @Binding var basketItems: [NewMenuItem]
+    @Binding var basketItems: [MenuItem]
     
     @State private var street = "Chłodna"
     @State private var building = "51"
@@ -43,7 +41,7 @@ struct OrderView: View {
             VStack {
                 Spacer()
                 Button(action: {
-                    isAlertVisible = true
+                    placeOrder()
                 }, label: {
                     Text("Place an order")
                 .foregroundStyle(.white)
@@ -57,7 +55,7 @@ struct OrderView: View {
             
             Button(action: {
                 basketItems.removeAll()
-                dismiss()
+                NavigationPopper.popToRootView()
             }, label: {
                 Text("Ok")
             })
@@ -71,6 +69,7 @@ struct OrderView: View {
         }
         return price
     }
+    
     private func buttonPressed() {
         Task {
             let coordinates = try await ApiCaller().getCoordinates(for: Address(street: street, building: building, city: city, postalCode: postalCode))
@@ -82,6 +81,14 @@ struct OrderView: View {
                 isDeliveryPossible = false
             }
             isLabelVisible = true
+        }
+    }
+    private func placeOrder() {
+        let address = Address(street: street, building: building, city: city, postalCode: postalCode)
+        let order = Order(address: address, deliveryCost: 10, orderedItems: basketItems)
+        Task {
+            try await FirebaseHandler.shared.placeOrder(order)
+            self.isAlertVisible = true
         }
     }
 }

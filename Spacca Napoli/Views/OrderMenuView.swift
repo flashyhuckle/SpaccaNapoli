@@ -1,10 +1,13 @@
 import SwiftUI
 
 struct OrderMenuView: View {
-    @StateObject var vm: MenuViewModel
-    @State private var basketItems: [NewMenuItem] = []
     
-    init(vm: MenuViewModel = MenuViewModel()) {
+    @StateObject var vm: MenuViewModel
+    @State private var basketItems: [MenuItem] = []
+    
+    init(
+        vm: MenuViewModel = MenuViewModel()
+    ) {
         _vm = StateObject(wrappedValue: vm)
     }
     
@@ -12,13 +15,13 @@ struct OrderMenuView: View {
         NavigationStack {
             ZStack {
                 Form {
-                    ForEach(vm.newMenu.categories, id: \.self) { category in
+                    ForEach(vm.menu.categories, id: \.self) { category in
                         Section(content: {
-                            ForEach(vm.newMenu.menu.filter { $0.category == category }) { item in
+                            ForEach(vm.menu.items.filter { $0.category == category }) { item in
                                 Button(action: {
                                     basketItems.append(item)
                                 }, label: {
-                                    NewMenuItemView(menuItem: item)
+                                    MenuItemView(menuItem: item)
                                 })
                             }
                         }, header: {
@@ -47,7 +50,7 @@ struct OrderMenuView: View {
             }
         }
         .onAppear(perform: {
-            vm.getNewMenu()
+            vm.getMenu()
         })
     }
     

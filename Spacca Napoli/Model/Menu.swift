@@ -1,70 +1,23 @@
 import Foundation
 
 struct Menu: Codable {
-    
-    let coldApetizersAndSalads: [MenuItem]
-    let hotApetizers: [MenuItem]
-    let pizzaRossa: [MenuItem]
-    let pizzaBianca: [MenuItem]
-    let pizzaSpecial: [MenuItem]
-    let calzoni: [MenuItem]
-    let pastaFresca: [MenuItem]
-    let desserts: [MenuItem]
-    let drinks: DrinkMenu
+    let categories: [String]
+    let items: [MenuItem]
     
     init(
-        coldApetizersAndSalads: [MenuItem] = [],
-        hotApetizers: [MenuItem] = [],
-        pizzaRossa: [MenuItem] = [],
-        pizzaBianca: [MenuItem] = [],
-        pizzaSpecial: [MenuItem] = [],
-        calzoni: [MenuItem] = [],
-        pastaFresca: [MenuItem] = [],
-        desserts: [MenuItem] = [],
-        drinks: DrinkMenu = DrinkMenu()
+        categories: [String] = [],
+        items: [MenuItem] = []
     ) {
-        self.coldApetizersAndSalads = coldApetizersAndSalads
-        self.hotApetizers = hotApetizers
-        self.pizzaRossa = pizzaRossa
-        self.pizzaBianca = pizzaBianca
-        self.pizzaSpecial = pizzaSpecial
-        self.calzoni = calzoni
-        self.pastaFresca = pastaFresca
-        self.desserts = desserts
-        self.drinks = drinks
+        self.categories = categories
+        self.items = items
     }
 }
 
-struct MenuItem: Codable {
+struct MenuItem: Codable, Identifiable {
+    let id = UUID()
+    
     let name: String
     let price: Int
     let description: String
+    let category: String
 }
-
-struct DrinkMenu: Codable {
-    let coldDrinks: [DrinkMenuItem]
-    let italianColdDrinks: [DrinkMenuItem]
-    let hotDrinks: [DrinkMenuItem]
-    let alcoholFreeDrinks: [DrinkMenuItem]
-    let wine: [DrinkMenuItem]
-    
-    init(
-        coldDrinks: [DrinkMenuItem] = [],
-        italianColdDrinks: [DrinkMenuItem] = [],
-        hotDrinks: [DrinkMenuItem] = [],
-        alcoholFreeDrinks: [DrinkMenuItem] = [],
-        wine: [DrinkMenuItem] = []
-    ) {
-        self.coldDrinks = coldDrinks
-        self.italianColdDrinks = italianColdDrinks
-        self.hotDrinks = hotDrinks
-        self.alcoholFreeDrinks = alcoholFreeDrinks
-        self.wine = wine
-    }
-}
-
-struct DrinkMenuItem: Codable {
-    let name: String
-    let price: Int
-}
-

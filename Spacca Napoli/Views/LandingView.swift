@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct LandingView: View {
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -21,29 +22,54 @@ struct LandingView: View {
                         .clipShape(Capsule())
                         .foregroundStyle(.white)
                 }
-                
-                NavigationLink {
-                    ReserveView()
-                } label: {
-                    Text("Reserve a table")
-                        .padding()
-                        .frame(maxWidth: 150)
-                        .background(.gray)
-                        .clipShape(Capsule())
-                        .foregroundStyle(.white)
+                ZStack {
+                    NavigationLink {
+                        ReserveView()
+                    } label: {
+                        Text("Reserve a table")
+                            .padding()
+                            .frame(maxWidth: 150)
+                            .background(.gray)
+                            .clipShape(Capsule())
+                            .foregroundStyle(.white)
+                    }
+                    
+                    NavigationLink {
+                        ReserveView()
+                    } label: {
+                        Image(systemName: "list.bullet.clipboard")
+                            .padding()
+                            .frame(maxWidth: 50)
+                            .background(.gray)
+                            .clipShape(Circle())
+                            .foregroundStyle(.white)
+                    }.offset(x: 110)
+                    
                 }
                 
-                NavigationLink {
-                    OrderMenuView()
-                } label: {
-                    Text("Order online")
-                        .padding()
-                        .frame(maxWidth: 150)
-                        .background(.red)
-                        .clipShape(Capsule())
-                        .foregroundStyle(.white)
+                ZStack {
+                    NavigationLink {
+                        OrderMenuView()
+                    } label: {
+                        Text("Order online")
+                            .padding()
+                            .frame(maxWidth: 150)
+                            .background(.red)
+                            .clipShape(Capsule())
+                            .foregroundStyle(.white)
+                    }
+                    
+                    NavigationLink {
+                        OrderListView()
+                    } label: {
+                        Image(systemName: "list.bullet.clipboard")
+                            .padding()
+                            .frame(maxWidth: 50)
+                            .background(.red)
+                            .clipShape(Circle())
+                            .foregroundStyle(.white)
+                    }.offset(x: 110)
                 }
-                
             }
         }
     }

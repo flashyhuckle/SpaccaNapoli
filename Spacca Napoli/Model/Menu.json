@@ -1,425 +1,368 @@
 {
-    "coldApetizersAndSalads":[
+    "categories": [
+        "Cold Apetizers and Salads",
+        "Hot Apetizers",
+        "Pizza Rosa",
+        "Pizza Bianca",
+        "Pizza Special",
+        "Calzoni",
+        "Pasta Fresca",
+        "Desserts"
+    ],
+    "items": [
         {
             "name": "PROSCIUTTO E MOZZARELLA",
             "price": 36,
-            "description": "parma ham San Daniele D.O.P., buffalo mozzarella D.O.P. Served with focaccia"
+            "description": "parma ham San Daniele D.O.P., buffalo mozzarella D.O.P. Served with focaccia",
+            "category": "Cold Apetizers and Salads"
         },
         {
             "name": "INSALATA BRESAOLA",
             "price": 39,
-            "description": "bresaola, buffalo mozzarella D.O.P., arugola, cherry tomatoes. Served with focaccia"
+            "description": "bresaola, buffalo mozzarella D.O.P., arugola, cherry tomatoes. Served with focaccia",
+            "category": "Cold Apetizers and Salads"
         },
         {
             "name": "BURRATA CAPRESE",
             "price": 42,
-            "description": "burrata cheese D.O.P., cherry tomatoes, basil, drops of pesto. Served with focaccia"
+            "description": "burrata cheese D.O.P., cherry tomatoes, basil, drops of pesto. Served with focaccia",
+            "category": "Cold Apetizers and Salads"
         },
         {
             "name": "INSALATA D’ORZO",
             "price": 24,
-            "description": "pearl barley, eggplants, zucchini, carrots, cherry tomatoes, mint. Served with focaccia"
+            "description": "pearl barley, eggplants, zucchini, carrots, cherry tomatoes, mint. Served with focaccia",
+            "category": "Cold Apetizers and Salads"
         },
         {
             "name": "INSALATA SPINACINA",
             "price": 28,
-            "description": "spinach, walnuts, pear, pecorino cheese D.O.P. Served with focaccia"
+            "description": "spinach, walnuts, pear, pecorino cheese D.O.P. Served with focaccia",
+            "category": "Cold Apetizers and Salads"
         },
         {
             "name": "INSALATA CESAR",
             "price": 32,
-            "description": "salad mix, chicken strips, corn, croutons of bread, grana padano cheese D.O.P. dressing. Served with focaccia"
+            "description": "salad mix, chicken strips, corn, croutons of bread, grana padano cheese D.O.P. dressing. Served with focaccia",
+            "category": "Cold Apetizers and Salads"
         },
         {
             "name": "INSALATA TONNARELLA",
             "price": 34,
-            "description": "salad mix, cherry tomatoes, black olives, eggs, walnuts, tuna, grana padano cheese D.O.P. Served with focaccia"
-        }
-    ],
-    "hotApetizers": [
+            "description": "salad mix, cherry tomatoes, black olives, eggs, walnuts, tuna, grana padano cheese D.O.P. Served with focaccia",
+            "category": "Cold Apetizers and Salads"
+        },
         {
             "name": "FRITTO MISTO",
             "price": 28,
-            "description": "zeppole, rice arancini, potato croquettes, pasta croquettes"
+            "description": "zeppole, rice arancini, potato croquettes, pasta croquettes",
+            "category": "Hot Apetizers"
         },
         {
             "name": "PARMIGIANA DI MELANZANE",
             "price": 31,
-            "description": "fried eggplants, tomato sauce, mozzarella, grana padano cheese D.O.P., basil. Served with focaccia"
+            "description": "fried eggplants, tomato sauce, mozzarella, grana padano cheese D.O.P., basil. Served with focaccia",
+            "category": "Hot Apetizers"
         },
         {
             "name": "ZUCCHINE ALLA PARMIGIANA",
             "price": 31,
-            "description": "fried zucchini on bechamel cream, ham, grana padano cheese D.O.P, smoked scamorza cheese. Served with focaccia"
+            "description": "fried zucchini on bechamel cream, ham, grana padano cheese D.O.P, smoked scamorza cheese. Served with focaccia",
+            "category": "Hot Apetizers"
         },
         {
             "name": "TRIS DI MONTANARE",
             "price": 46,
-            "description": "tris of deep fried pizza dough: classic with tomato sauce, parmesan cheese, basil - stracciatella cheese, mortadella, pistachios cream - fonduta with taleggio and parmesan cheese, truffles, crispy kale, parmesan chips"
-        }
-    ],
-    "pizzaRossa": [
+            "description": "tris of deep fried pizza dough: classic with tomato sauce, parmesan cheese, basil - stracciatella cheese, mortadella, pistachios cream - fonduta with taleggio and parmesan cheese, truffles, crispy kale, parmesan chips",
+            "category": "Hot Apetizers"
+        },
         {
             "name": "FOCACCIA",
             "price": 18,
-            "description": "pizza dough, salt, oregano"
+            "description": "pizza dough, salt, oregano",
+            "category": "Pizza Rosa"
         },
         {
             "name": "MARINARA",
             "price": 26,
-            "description": "tomato sauce, oregano, garlic"
+            "description": "tomato sauce, oregano, garlic",
+            "category": "Pizza Rosa"
         },
         {
             "name": "MARGHERITA",
             "price": 29,
-            "description": "tomato sauce, mozzarella fiordilatte, grana padano cheese D.O.P., basil"
+            "description": "tomato sauce, mozzarella fiordilatte, grana padano cheese D.O.P., basil",
+            "category": "Pizza Rosa"
         },
         {
             "name": "DIAVOLA",
             "price": 34,
-            "description": "tomato sauce, mozzarella fiordilatte, spicy salame, grana padano cheese D.O.P., basil"
+            "description": "tomato sauce, mozzarella fiordilatte, spicy salame, grana padano cheese D.O.P., basil",
+            "category": "Pizza Rosa"
         },
         {
             "name": "CAPRICCIOSA",
             "price": 36,
-            "description": "tomato sauce, mozzarella fiordilatte, black olives, mushrooms, ham, grana padano cheese D.O.P., basil"
+            "description": "tomato sauce, mozzarella fiordilatte, black olives, mushrooms, ham, grana padano cheese D.O.P., basil",
+            "category": "Pizza Rosa"
         },
         {
             "name": "MARINARA CON SCAROLE",
             "price": 36,
-            "description": "tomato sauce, escarole, garlic, black olives, anchovies"
+            "description": "tomato sauce, escarole, garlic, black olives, anchovies",
+            "category": "Pizza Rosa"
         },
         {
             "name": "NAPOLETANA",
             "price": 34,
-            "description": "tomato sauce, anchovies, capers, oregano, mozzarella fiordilatte"
+            "description": "tomato sauce, anchovies, capers, oregano, mozzarella fiordilatte",
+            "category": "Pizza Rosa"
         },
         {
             "name": "PULCINELLA",
             "price": 36,
-            "description": "tomato sauce, mozzarella fiordilatte, neapolitan salame, ricotta cheese, grana padano cheese D.O.P."
+            "description": "tomato sauce, mozzarella fiordilatte, neapolitan salame, ricotta cheese, grana padano cheese D.O.P.",
+            "category": "Pizza Rosa"
         },
         {
             "name": "BUFALINA",
             "price": 39,
-            "description": "tomato sauce, buffalo mozzarella D.O.P., grana padano cheese D.O.P., basil"
+            "description": "tomato sauce, buffalo mozzarella D.O.P., grana padano cheese D.O.P., basil",
+            "category": "Pizza Rosa"
         },
         {
             "name": "MULIGNANA",
             "price": 39,
-            "description": "eggplant’s parmigiana, tomato sauce, mozzarella fiordilatte, grana padano cheese D.O.P., basil"
+            "description": "eggplant’s parmigiana, tomato sauce, mozzarella fiordilatte, grana padano cheese D.O.P., basil",
+            "category": "Pizza Rosa"
         },
         {
             "name": "CALABRESE",
             "price": 39,
-            "description": "tomato sauce, eggplants, nduja calabrese, mozzarella fiordilatte, smoked provola cheese, grana padano cheese D.O.P, basil"
-        }
-    ],
-    "pizzaBianca":[
+            "description": "tomato sauce, eggplants, nduja calabrese, mozzarella fiordilatte, smoked provola cheese, grana padano cheese D.O.P, basil",
+            "category": "Pizza Rosa"
+        },
         {
             "name": "SFIZIOSA",
             "price": 34,
-            "description": "cherry tomatoes, mozzarella fiordilatte, arugola, grana padano cheese D.O.P."
+            "description": "cherry tomatoes, mozzarella fiordilatte, arugola, grana padano cheese D.O.P.",
+            "category": "Pizza Bianca"
         },
         {
             "name": "FILETTO",
             "price": 36,
-            "description": "cherry tomatoes, buffalo mozzarella D.O.P., mozzarella fiordilatte, basil, grana padano cheese D.O.P."
+            "description": "cherry tomatoes, buffalo mozzarella D.O.P., mozzarella fiordilatte, basil, grana padano cheese D.O.P.",
+            "category": "Pizza Bianca"
         },
         {
             "name": "QUATTRO FORMAGGI",
             "price": 36,
-            "description": "ricotta cheese, smoked provola cheese, mozzarella fiordilatte, gorgonzola cheese D.O.P., grana padano cheese D.O.P."
+            "description": "ricotta cheese, smoked provola cheese, mozzarella fiordilatte, gorgonzola cheese D.O.P., grana padano cheese D.O.P.",
+            "category": "Pizza Bianca"
         },
         {
             "name": "VEGETARIANA",
             "price": 36,
-            "description": "eggplants, peppers, mushrooms, black olives, mozzarella fiordilatte, grana padano cheese D.O.P"
+            "description": "eggplants, peppers, mushrooms, black olives, mozzarella fiordilatte, grana padano cheese D.O.P",
+            "category": "Pizza Bianca"
         },
         {
             "name": "SALSICCIA E FRIARIELLI",
             "price": 38,
-            "description": "„friarielli” broccoli rabe, italian white sausage, mozzarella fiordilatte, grana padano cheese D.O.P."
+            "description": "„friarielli” broccoli rabe, italian white sausage, mozzarella fiordilatte, grana padano cheese D.O.P.",
+            "category": "Pizza Bianca"
         },
         {
             "name": "TERRA MIA",
             "price": 42,
-            "description": "cherry tomatoes, eggplants, italian white sausage, buffalo mozzarella D.O.P., grana padano cheese D.O.P."
+            "description": "cherry tomatoes, eggplants, italian white sausage, buffalo mozzarella D.O.P., grana padano cheese D.O.P.",
+            "category": "Pizza Bianca"
         },
         {
             "name": "REALE",
             "price": 42,
-            "description": "cherry tomatoes , buffalo mozzarella D.O.P., arugola, parma ham, grana padano cheese D.O.P."
+            "description": "cherry tomatoes , buffalo mozzarella D.O.P., arugola, parma ham, grana padano cheese D.O.P.",
+            "category": "Pizza Bianca"
         },
         {
             "name": "TARTUFO",
             "price": 42,
-            "description": "truffles cream, mushrooms, mozzarella fiordilatte, parma ham, grana padano cheese D.O.P."
+            "description": "truffles cream, mushrooms, mozzarella fiordilatte, parma ham, grana padano cheese D.O.P.",
+            "category": "Pizza Bianca"
         },
         {
             "name": "SPACCANAPOLI",
             "price": 38,
-            "description": "arugola, cherry tomatoes, ham, mozzarella fiordilatte , ricotta cheese, grana padano cheese D.O.P."
-        }
-    ],
-    "pizzaSpecial": [
+            "description": "arugola, cherry tomatoes, ham, mozzarella fiordilatte , ricotta cheese, grana padano cheese D.O.P.",
+            "category": "Pizza Bianca"
+        },
         {
             "name": "BURRATA",
             "price": 49,
-            "description": "mozzarella fiordilatte, truffle ham, burrata cheese D.O.P., pistachio cream Bronte D.O.P., pista- chio crumble"
+            "description": "mozzarella fiordilatte, truffle ham, burrata cheese D.O.P., pistachio cream Bronte D.O.P., pista- chio crumble",
+            "category": "Pizza Special"
         },
         {
             "name": "MATTIA’S SPECIAL",
             "price": 49,
-            "description": "truffles cream, crunchy chips made from italian speck, buffalo stracciatella cheese D.O.P, arugola, grana padano cheese D.O.P."
+            "description": "truffles cream, crunchy chips made from italian speck, buffalo stracciatella cheese D.O.P, arugola, grana padano cheese D.O.P.",
+            "category": "Pizza Special"
         },
         {
             "name": "CROCCHE",
             "price": 48,
-            "description": "ham, potato croquettes, mozzarella fiordilatte, ricotta cheese, pistachio crumble, grana padano cheese D.O.P."
-        }
-    ],
-    "calzoni": [
+            "description": "ham, potato croquettes, mozzarella fiordilatte, ricotta cheese, pistachio crumble, grana padano cheese D.O.P.",
+            "category": "Pizza Special"
+        },
         {
             "name": "CALZONE CLASSICO",
             "price": 36,
-            "description": "ricotta cheese, mozzarella fiordilatte, tomato sauce, grana padano cheese D.O.P, basil"
+            "description": "ricotta cheese, mozzarella fiordilatte, tomato sauce, grana padano cheese D.O.P, basil",
+            "category": "Calzoni"
         },
         {
             "name": "CALZONE CON PROSCIUTTO",
             "price": 38,
-            "description": "ricotta cheese, ham, mozzarella fiordilatte, tomato sauce, grana padano cheese D.O.P, basil"
+            "description": "ricotta cheese, ham, mozzarella fiordilatte, tomato sauce, grana padano cheese D.O.P, basil",
+            "category": "Calzoni"
         },
         {
             "name": "CALZONE RIAVOLA",
             "price": 38,
-            "description": "ricotta cheese, tomato sauce, mozzarella fiordilatte, spicy salame, grana padano cheese D.O.P"
+            "description": "ricotta cheese, tomato sauce, mozzarella fiordilatte, spicy salame, grana padano cheese D.O.P",
+            "category": "Calzoni"
         },
         {
             "name": "CALZONE CON SALAME",
             "price": 38,
-            "description": "ricotta chesse, tomato sauce, mozzarella fiordilatte, neapolitan salame, grana padano cheese D.O.P."
+            "description": "ricotta chesse, tomato sauce, mozzarella fiordilatte, neapolitan salame, grana padano cheese D.O.P.",
+            "category": "Calzoni"
         },
         {
             "name": "CALZONE SCAROLE",
             "price": 38,
-            "description": "escarole, ricotta cheese, black olives, capers, anchovies, mozzarella fiordilatte, grana padano cheese D.O.P"
-        }
-    ],
-    "pastaFresca": [
+            "description": "escarole, ricotta cheese, black olives, capers, anchovies, mozzarella fiordilatte, grana padano cheese D.O.P",
+            "category": "Calzoni"
+        },
         {
             "name": "SPAGHETTI ALLA CARBONARA",
             "price": 34,
-            "description": "egg yolk, italian guanciale, fresh black pepper, grana padano cheese D.O.P"
+            "description": "egg yolk, italian guanciale, fresh black pepper, grana padano cheese D.O.P",
+            "category": "Pasta Fresca"
         },
         {
             "name": "SPAGHETTI NDUJONARA",
             "price": 36,
-            "description": "spicy version of carbonara with nduja calabrese"
+            "description": "spicy version of carbonara with nduja calabrese",
+            "category": "Pasta Fresca"
         },
         {
             "name": "SPAGHETTI ALLA CARBONARA AL TARTUFO",
             "price": 48,
-            "description": "truffle version of the classic carbonara with fresh truffles"
+            "description": "truffle version of the classic carbonara with fresh truffles",
+            "category": "Pasta Fresca"
         },
         {
             "name": "PASTA PATATE E PROVOLA",
             "price": 34,
-            "description": "potatoes, italian white sausage, italian guanciale, smoked provola cheese, grana padano cheese D.O.P."
+            "description": "potatoes, italian white sausage, italian guanciale, smoked provola cheese, grana padano cheese D.O.P.",
+            "category": "Pasta Fresca"
         },
         {
             "name": "PACCHERI ALLA GENOVESE",
             "price": 36,
-            "description": "long cooked onion sauce with pulled pork and beef, grana padano cheese D.O.P"
+            "description": "long cooked onion sauce with pulled pork and beef, grana padano cheese D.O.P",
+            "category": "Pasta Fresca"
         },
         {
             "name": "PACCHERI AL RAGU’ NAPOLETANO",
             "price": 36,
-            "description": "long cooked tomato sauce with beef and pork, red wine, grana padano cheese D.O.P"
+            "description": "long cooked tomato sauce with beef and pork, red wine, grana padano cheese D.O.P",
+            "category": "Pasta Fresca"
         },
         {
             "name": "SPAGHETTI ALLA NERANO",
             "price": 36,
-            "description": "creamy sauce with fried zucchini and provolone del monaco cheese, grana padano cheese D.O.P., black pepper"
+            "description": "creamy sauce with fried zucchini and provolone del monaco cheese, grana padano cheese D.O.P., black pepper",
+            "category": "Pasta Fresca"
         },
         {
             "name": "TAGLIATELLE ALLA BOSCAIOLA",
             "price": 42,
-            "description": "italian white sausage, mushrooms, truffles cream, white wine, grana padano cheese D.O.P"
+            "description": "italian white sausage, mushrooms, truffles cream, white wine, grana padano cheese D.O.P",
+            "category": "Pasta Fresca"
         },
         {
             "name": "SPAGHETTI AL PESTO STRACCIATELLA E POMODORI CONFIT",
             "price": 46,
-            "description": "fresh pesto sauce (basil, pine nuts, garlic, extra virgin oil, grana padano cheese D.O.P) cherry tomatoes confit, stracciatella cheese, anchovy breadcrumbs"
-        }
-    ],
-    "desserts": [
+            "description": "fresh pesto sauce (basil, pine nuts, garlic, extra virgin oil, grana padano cheese D.O.P) cherry tomatoes confit, stracciatella cheese, anchovy breadcrumbs",
+            "category": "Pasta Fresca"
+        },
         {
             "name": "SFOGLIATELLA NAPOLETANA RICCIA O FROLLA",
             "price": 13,
-            "description": "french or puff pastry with ricotta cheese, candied orange peel and cinnamon"
+            "description": "french or puff pastry with ricotta cheese, candied orange peel and cinnamon",
+            "category": "Desserts"
         },
         {
             "name": "IL BABA",
             "price": 20,
-            "description": "neapolitan traditional yeast cake soaked in rum served with fresh whipped cream and strawberries or nutella"
+            "description": "neapolitan traditional yeast cake soaked in rum served with fresh whipped cream and strawberries or nutella",
+            "category": "Desserts"
         },
         {
             "name": "TRIS DI PANNA COTTA",
             "price": 22,
-            "description": "three-flavored mini panna cotta: pistachios, classic with caramel and raspberry"
+            "description": "three-flavored mini panna cotta: pistachios, classic with caramel and raspberry",
+            "category": "Desserts"
         },
         {
             "name": "RICOTTA E PERA",
             "price": 22,
-            "description": "puff almond pastry with ricotta cheese and pears"
+            "description": "puff almond pastry with ricotta cheese and pears",
+            "category": "Desserts"
         },
         {
             "name": "CHEESECAKE OREO",
             "price": 24,
-            "description": "oreo cheesecake with nutella and ricotta cheese"
+            "description": "oreo cheesecake with nutella and ricotta cheese",
+            "category": "Desserts"
         },
         {
             "name": "TIRAMISU",
             "price": 20,
-            "description": "classic tiramisu’ with nutella"
+            "description": "classic tiramisu’ with nutella",
+            "category": "Desserts"
         },
         {
             "name": "PASTICCIO AL PISTACCHIO",
             "price": 22,
-            "description": "pastry cake full of pistachio cream"
+            "description": "pastry cake full of pistachio cream",
+            "category": "Desserts"
         },
         {
             "name": "NUTELLOTTA",
             "price": 32,
-            "description": "pizza dough stuffed with Nutella with fresh whipped cream and powdered sugar"
+            "description": "pizza dough stuffed with Nutella with fresh whipped cream and powdered sugar",
+            "category": "Desserts"
         },
         {
             "name": "BON - BON",
             "price": 30,
-            "description": "fried pizza dough balls with Nutella and powdered sugar"
+            "description": "fried pizza dough balls with Nutella and powdered sugar",
+            "category": "Desserts"
         },
         {
             "name": "FIOCCO DI NEVE",
             "price": 12,
-            "description": "small brioche cake with cream made from buffalo ricotta cheese"
+            "description": "small brioche cake with cream made from buffalo ricotta cheese",
+            "category": "Desserts"
         },
         {
             "name": "FIOCCO DI NEVE AL PISTACCHIO",
             "price": 14,
-            "description": "small brioche cake with cream made from buffalo ricotta cheese and pistachios"
+            "description": "small brioche cake with cream made from buffalo ricotta cheese and pistachios",
+            "category": "Desserts"
         }
-    ],
-    "drinks": {
-        "coldDrinks": [
-            {
-                "name": "COCA-COLA",
-                "price": 9,
-            },
-            {
-                "name": "FANTA",
-                "price": 9,
-            },
-            {
-                "name": "KINLEY TONIC",
-                "price": 9,
-            },
-            {
-                "name": "FRESHLY SQUIZED ORANGE JUICE",
-                "price": 15,
-            },
-            {
-                "name": "HOMEMADE LEMONADE",
-                "price": 12,
-            }
-        ],
-        "italianColdDrinks": [
-            {
-                "name": "YOGA JUICE PEAR",
-                "price": 12,
-            },
-            {
-                "name": "YOGA JUICE PEACH",
-                "price": 12,
-            },
-            {
-                "name": "POLARA DRINK CHINOTTO",
-                "price": 14,
-            },
-            {
-                "name": "POLARA DRINK LIMONATA SICILIANA",
-                "price": 14,
-            }
-        ],
-        "hotDrinks": [
-            {
-                "name": "ESPRESSO",
-                "price": 8,
-            },
-            {
-                "name": "ESPRESSO DOPPIO",
-                "price": 12,
-            },
-            {
-                "name": "CAPPUCCINO",
-                "price": 12,
-            },
-            {
-                "name": "CAFFE LATTE",
-                "price": 14,
-            },
-            {
-                "name": "HOT CHOCKOLATE",
-                "price": 12,
-            },
-            {
-                "name": "TEA",
-                "price": 10,
-            }
-        ],
-        "alcoholFreeDrinks": [
-            {
-                "name": "RED WINE 0%",
-                "price": 18,
-            },
-            {
-                "name": "WHITE WINE 0%",
-                "price": 18,
-            },
-            {
-                "name": "PROSECCO 0%",
-                "price": 22,
-            },
-            {
-                "name": "SPRITZ 0%",
-                "price": 28,
-            },
-            {
-                "name": "MOJITO 0%",
-                "price": 24,
-            }
-        ],
-        "wine": [
-            {
-                "name": "PROSECCO",
-                "price": 21,
-            },
-            {
-                "name": "FALANGHINA",
-                "price": 22,
-            },
-            {
-                "name": "AGLIANICO",
-                "price": 24,
-            },
-            {
-                "name": "HOME-MADE RED WINE",
-                "price": 18,
-            },
-            {
-                "name": "HOME-MADE WHITE WINE",
-                "price": 18,
-            }
-        ]
-    }
+    ]
 }

@@ -13,9 +13,4 @@ struct GeocodeResponse: Codable {
     }
 }
 
-struct Address {
-    let street: String
-    let building: String
-    let city: String
-    let postalCode: String
-}
+
