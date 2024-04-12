@@ -35,7 +35,7 @@ struct LandingView: View {
                     }
                     
                     NavigationLink {
-                        ReserveView()
+                        ReservationListView()
                     } label: {
                         Image(systemName: "list.bullet.clipboard")
                             .padding()

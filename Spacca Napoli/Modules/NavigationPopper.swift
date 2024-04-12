@@ -1,9 +1,9 @@
 import UIKit
-struct NavigationPopper {
 
+struct NavigationPopper {
     static func popToRootView() {
-        let scenes = UIApplication.shared.connectedScenes
-        let windowScene = scenes.first as? UIWindowScene
+//        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let windows = windowScene?.windows
         findNavigationController(viewController: windows?.filter { $0.isKeyWindow }.first?.rootViewController)?
             .popToRootViewController(animated: true)

@@ -2,11 +2,11 @@ import SwiftUI
 
 struct OrderMenuView: View {
     
-    @StateObject var vm: MenuViewModel
+    @StateObject var vm: OrderMenuViewModel
     @State private var basketItems: [MenuItem] = []
     
     init(
-        vm: MenuViewModel = MenuViewModel()
+        vm: OrderMenuViewModel = OrderMenuViewModel()
     ) {
         _vm = StateObject(wrappedValue: vm)
     }
@@ -17,9 +17,10 @@ struct OrderMenuView: View {
                 Form {
                     ForEach(vm.menu.categories, id: \.self) { category in
                         Section(content: {
-                            ForEach(vm.menu.items.filter { $0.category == category }) { item in
+                            ForEach(vm.menu.items.filter { $0.category == category }, id: \.name) { item in
                                 Button(action: {
                                     basketItems.append(item)
+                                    vm.tappedOn(item)
                                 }, label: {
                                     MenuItemView(menuItem: item)
                                 })
@@ -35,11 +36,11 @@ struct OrderMenuView: View {
                 VStack {
                     Spacer()
                     NavigationLink {
-                        BasketView(basketItems: $basketItems)
+                        BasketView(vm: BasketViewModel(basketItems: $basketItems), basketItems: $basketItems)
                     } label: {
                         HStack {
                             Image(systemName: "cart")
-                            Text("Basket: \(countPrice()) PLN")
+                            Text(vm.buttonText())
                         }
                         .foregroundStyle(.white)
                         .padding()
@@ -49,20 +50,12 @@ struct OrderMenuView: View {
                 }
             }
         }
-        .onAppear(perform: {
-            vm.getMenu()
-        })
-    }
-    
-    private func countPrice() -> Int {
-        var price = 0
-        for item in basketItems {
-            price += item.price
+        .onAppear {
+            vm.onAppear()
         }
-        return price
     }
 }
 
 #Preview {
-    MenuView()
+    OrderMenuView()
 }

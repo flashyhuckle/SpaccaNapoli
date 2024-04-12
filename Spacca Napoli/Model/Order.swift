@@ -21,25 +21,3 @@ struct Order: Codable, Identifiable {
         self.orderedItems = orderedItems
     }
 }
-
-enum OrderStatus: String, Codable {
-    case placed
-    case accepted
-    case inPreparation
-    case inDelivery
-    case delivered
-    case cancelled
-}
-
-extension UUID {
-    func string() -> String {
-        "\(self)"
-    }
-}
-
-struct Address: Codable {
-    let street: String
-    let building: String
-    let city: String
-    let postalCode: String
-}

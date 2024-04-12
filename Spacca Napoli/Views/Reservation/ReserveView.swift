@@ -1,16 +1,4 @@
-//
-//  ReserveView.swift
-//  Spacca Napoli
-//
-//  Created by Marcin Głodzik on 06/04/2024.
-//
-
 import SwiftUI
-
-enum RestaurantLocations: String, CaseIterable {
-    case swietokrzyska = "Świętokrzyska 30"
-    case ludna = "Ludna 1A"
-}
 
 struct ReserveView: View {
     @Environment(\.dismiss) var dismiss
@@ -19,7 +7,7 @@ struct ReserveView: View {
     @State private var email: String = ""
     @State private var phone: String = ""
     
-    @State private var restaurant: RestaurantLocations = .swietokrzyska
+    @State private var restaurant: RestaurantLocation = .swietokrzyska
     @State private var numberOfPeople = 0
     
     @State private var day: Date = .tomorrow
@@ -34,7 +22,7 @@ struct ReserveView: View {
                 TextField("Your email address", text: $email)
                 TextField("Your phone number", text: $phone)
                 Picker("Restaurant", selection: $restaurant) {
-                    ForEach(RestaurantLocations.allCases, id: \.self) { restaurant in
+                    ForEach(RestaurantLocation.allCases, id: \.self) { restaurant in
                         Text(restaurant.rawValue)
                     }
                 }
@@ -61,15 +49,22 @@ struct ReserveView: View {
         .onAppear {
             UIDatePicker.appearance().minuteInterval = 30
         }
-        .alert("Your request is sent", isPresented: $isAlertShowing) {
-            Button(action: {
+//        .alert("Your request is sent", isPresented: $isAlertShowing) {
+//            Button(action: {
+//                dismiss()
+//            }, label: {
+//                Text("Ok")
+//            })
+//        } message: {
+//            Text("Your reservation for \(createDate()) for \(numberOfPeople + 1) has been requested. Please wait for a confirmation.")
+//        }
+        .oneButtonAlert(
+            title: "Request sent",
+            message: "Your reservation for \(createDate()) for \(numberOfPeople + 1) has been requested. Please wait for a confirmation.",
+            isPresented: $isAlertShowing) {
                 dismiss()
-            }, label: {
-                Text("Ok")
-            })
-        } message: {
-            Text("Your reservation for \(createDate()) for \(numberOfPeople + 1) has been requested. Please wait for a confirmation.")
-        }
+            }
+
 
     }
     
@@ -89,8 +84,10 @@ struct ReserveView: View {
     }
     
     private func reserveTable() {
-        //add 1 to number of people
-        //Send a reservation to firebase
+        let reservation = Reservation(id: UUID(), name: name, email: email, phone: phone, numberOfPeople: numberOfPeople + 1, date: createDate(), status: .placed, restaurant: restaurant)
+        Task {
+            try await FirebaseHandler.shared.placeReservation(reservation)
+        }
     }
 }
 

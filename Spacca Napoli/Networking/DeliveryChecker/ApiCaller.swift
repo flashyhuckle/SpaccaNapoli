@@ -1,7 +1,3 @@
-enum ApiError: Error {
-    case noData
-}
-
 import Foundation
 
 final class ApiCaller {

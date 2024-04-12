@@ -10,12 +10,11 @@ struct MenuView: View {
     var body: some View {
         NavigationStack {
             Form {
-//                ForEach(Array(Set(vm.newMenu.compactMap{ $0[keyPath: \.category] })), id: \.self) { category in
                 ForEach(vm.menu.categories, id: \.self) { category in
                     Section(content: {
-                        ForEach(vm.menu.items.filter { $0.category == category }) { item in
-                            Button(action: {
-                                
+                        ForEach(vm.menu.items.filter { $0.category == category }, id: \.name) { item in
+                            NavigationLink(destination: {
+                                MenuDetailView(menuItem: item)
                             }, label: {
                                 MenuItemView(menuItem: item)
                             })
