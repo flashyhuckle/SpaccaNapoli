@@ -2,7 +2,7 @@ import Foundation
 
 final class ReservationListViewModel: ObservableObject {
     private let communicator: DataCommunicatorType
-    @Published private var reservations = [Reservation]()
+    @Published var reservations = [Reservation]()
     
     init(
         communicator: DataCommunicatorType = DataCommunicator()
@@ -19,7 +19,7 @@ final class ReservationListViewModel: ObservableObject {
     }
     
     private func getReservations() {
-        Task {
+        Task { @MainActor in
             reservations = try await communicator.loadReservations()
         }
     }

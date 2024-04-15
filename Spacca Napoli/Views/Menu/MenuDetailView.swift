@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct MenuDetailView: View {
-//    let menuItem: MenuItem
-    
     let vm: MenuDetailViewModel
     
     var body: some View {
@@ -24,5 +22,14 @@ struct MenuDetailView: View {
 }
 
 #Preview {
-    MenuDetailView(vm: MenuDetailViewModel(menuItem: MenuItem(name: "SPAGHETTI AL PESTO STRACCIATELLA E POMODORI CONFIT", price: 29, description: "tomato sauce, mozzarella fiordilatte, grana padano cheese D.O.P., basil", category: "Pizza Bianca")))
+    MenuDetailView(
+        vm: MenuDetailViewModel(
+            menuItem: MenuItem(
+                name: "SPAGHETTI AL PESTO STRACCIATELLA E POMODORI CONFIT",
+                price: 29,
+                description: "tomato sauce, mozzarella fiordilatte, grana padano cheese D.O.P., basil",
+                category: "Pizza Bianca"
+            )
+        )
+    )
 }

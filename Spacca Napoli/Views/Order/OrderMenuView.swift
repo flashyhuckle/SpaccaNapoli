@@ -1,9 +1,7 @@
 import SwiftUI
 
 struct OrderMenuView: View {
-    
     @StateObject var vm: OrderMenuViewModel
-    @State private var basketItems: [MenuItem] = []
     
     init(
         vm: OrderMenuViewModel = OrderMenuViewModel()
@@ -19,7 +17,6 @@ struct OrderMenuView: View {
                         Section(content: {
                             ForEach(vm.menu.items.filter { $0.category == category }, id: \.name) { item in
                                 Button(action: {
-                                    basketItems.append(item)
                                     vm.tappedOn(item)
                                 }, label: {
                                     MenuItemView(menuItem: item)
@@ -36,7 +33,7 @@ struct OrderMenuView: View {
                 VStack {
                     Spacer()
                     NavigationLink {
-                        BasketView(vm: BasketViewModel(basketItems: $basketItems), basketItems: $basketItems)
+                        BasketView(vm: BasketViewModel(basket: $vm.basket))
                     } label: {
                         HStack {
                             Image(systemName: "cart")

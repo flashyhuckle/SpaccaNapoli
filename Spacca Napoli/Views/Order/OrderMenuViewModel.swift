@@ -5,8 +5,7 @@ final class OrderMenuViewModel: ObservableObject {
     let decoder = JSONDecoder()
     
     @Published var menu = Menu()
-    
-    @Published var basketItems: [MenuItem] = []
+    @Published var basket = Basket()
     
     let colours: [String: Color] = [
         "Cold Apetizers and Salads" : .green,
@@ -32,12 +31,12 @@ final class OrderMenuViewModel: ObservableObject {
     }
     
     func tappedOn(_ item: MenuItem) {
-        basketItems.append(item)
+        basket.items.append(item)
     }
     
     func buttonText() -> String {
         var price = 0
-        for item in basketItems {
+        for item in basket.items {
             price += item.price
         }
         return "Basket: \(price) PLN"

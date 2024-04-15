@@ -2,7 +2,7 @@ import Foundation
 
 final class OrderListViewModel: ObservableObject {
     private let communicator: DataCommunicatorType
-    @Published private var orders = [Order]()
+    @Published var orders = [Order]()
     
     init(
         communicator: DataCommunicatorType = DataCommunicator()
@@ -19,7 +19,7 @@ final class OrderListViewModel: ObservableObject {
     }
     
     private func loadOrders() {
-        Task {
+        Task { @MainActor in
             orders = try await communicator.loadOrders()
         }
     }

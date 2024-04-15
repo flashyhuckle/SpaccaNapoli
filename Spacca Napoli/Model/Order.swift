@@ -1,11 +1,20 @@
 import Foundation
 
-struct Order: Codable, Identifiable {
-    let id: UUID
+@Observable
+class Order: Codable, Identifiable {
+    var id: UUID
     var status: OrderStatus
     var address: Address
     var deliveryCost: Int
     var orderedItems: [MenuItem]
+    
+    enum CodingKeys: String, CodingKey {
+        case _id = "id"
+        case _status = "status"
+        case _address = "address"
+        case _deliveryCost = "deliveryCost"
+        case _orderedItems = "orderedItems"
+    }
     
     init(
         id: UUID = UUID(),

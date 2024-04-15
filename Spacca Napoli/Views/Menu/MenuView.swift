@@ -14,7 +14,7 @@ struct MenuView: View {
                     Section(content: {
                         ForEach(vm.menu.items.filter { $0.category == category }, id: \.name) { item in
                             NavigationLink(destination: {
-                                MenuDetailView(menuItem: item)
+                                MenuDetailView(vm: MenuDetailViewModel(menuItem: item))
                             }, label: {
                                 MenuItemView(menuItem: item)
                             })

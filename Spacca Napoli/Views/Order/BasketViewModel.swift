@@ -2,21 +2,21 @@ import Foundation
 import SwiftUI
 
 final class BasketViewModel: ObservableObject {
-    @Binding var basketItems: [MenuItem]
+    @Binding var basket: Basket
     
     init(
-        basketItems: Binding<[MenuItem]>
+        basket: Binding<Basket>
     ) {
-        _basketItems = basketItems
+        _basket = basket
     }
     
     func onDelete(_ indexSet: IndexSet) {
-        basketItems.remove(atOffsets: indexSet)
+        basket.items.remove(atOffsets: indexSet)
     }
     
     func buttonText() -> String {
         var price = 0
-        for item in basketItems {
+        for item in basket.items {
             price += item.price
         }
         return "Basket: \(price) PLN"

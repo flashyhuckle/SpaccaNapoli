@@ -1,12 +1,18 @@
 import SwiftUI
 
 struct ReservationListView: View {
-    @State private var reservations = [Reservation]()
+    @StateObject var vm: ReservationListViewModel
+    
+    init(
+        vm: ReservationListViewModel = ReservationListViewModel()
+    ) {
+        _vm = StateObject(wrappedValue: vm)
+    }
     
     var body: some View {
         List {
-            if !reservations.isEmpty {
-                ForEach(reservations, id: \.date) { reservation in
+            if !vm.reservations.isEmpty {
+                ForEach(vm.reservations, id: \.id) { reservation in
                     HStack {
                         Text(reservation.date.formatted())
                         Text("\(reservation.status)")
@@ -17,16 +23,10 @@ struct ReservationListView: View {
             }
         }
         .onAppear {
-            getReservations()
+            vm.onAppear()
         }
         .refreshable {
-            getReservations()
-        }
-    }
-    
-    private func getReservations() {
-        Task {
-            reservations = try await FirebaseHandler.shared.loadReservations()
+            vm.refresh()
         }
     }
 }

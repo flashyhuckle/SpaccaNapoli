@@ -137,32 +137,6 @@ struct CustomAlertView: View {
     }
 }
 
-//extension View {
-//    func customAlert(
-//        _ titleKey: LocalizedStringKey,
-//        isPresented: Binding<Bool>,
-//        actionText: LocalizedStringKey,
-//        action: @escaping () -> (),
-//        cancelAction: @escaping () -> ()
-//    ) -> some View {
-//        fullScreenCover(isPresented: isPresented) {
-//            CustomAlertView(
-//                titleKey: titleKey,
-//                isPresented: isPresented,
-//                actionTextKey: actionText,
-//                action: action,
-//                cancelAction: cancelAction
-//            )
-//            .presentationBackground(.clear)
-//        }
-//        .transaction { transaction in
-//            if isPresented.wrappedValue {
-//                transaction.disablesAnimations = true
-//            }
-//        }
-//    }
-//}
-
 extension View {
     func oneButtonAlert(
         title: LocalizedStringKey,
@@ -193,24 +167,24 @@ extension View {
 
 #Preview {
     //OneButton Preview
-//    CustomAlertView(
-//        titleKey: "Your request is sent",
-//        messageKey: "Your reservation for 20/05/2024 12:00 for 12 has been requested. Please wait for a confirmation.",
-//        isPresented: .constant(true),
-//        configuration: .oneButton,
-//        actionTextKey: "Ok",
-//        action: {},
-//        cancelAction: {}
-//    )
-    
-    //TwoButton Preview
     CustomAlertView(
-        titleKey: "Request sent",
+        titleKey: "Your request is sent",
         messageKey: "Your reservation for 20/05/2024 12:00 for 12 has been requested. Please wait for a confirmation.",
         isPresented: .constant(true),
-        configuration: .twoButton,
+        configuration: .oneButton,
         actionTextKey: "Ok",
         action: {},
         cancelAction: {}
     )
+    
+    //TwoButton Preview
+//    CustomAlertView(
+//        titleKey: "Request sent",
+//        messageKey: "Your reservation for 20/05/2024 12:00 for 12 has been requested. Please wait for a confirmation.",
+//        isPresented: .constant(true),
+//        configuration: .twoButton,
+//        actionTextKey: "Ok",
+//        action: {},
+//        cancelAction: {}
+//    )
 }

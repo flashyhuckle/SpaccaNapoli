@@ -2,8 +2,7 @@ import Foundation
 import SwiftUI
 
 final class OrderViewModel: ObservableObject {
-    
-    @Binding var basketItems: [MenuItem]
+    @Binding var basket: Basket
     
     private let deliveryChecker: DeliveryCheckerType
     private let dataCommunicator: DataCommunicatorType
@@ -30,11 +29,11 @@ final class OrderViewModel: ObservableObject {
     @Published var isAlertVisible = false
     
     init(
-        basketItems: Binding<[MenuItem]>,
+        basket: Binding<Basket>,
         deliveryChecker: DeliveryCheckerType = DeliveryChecker(),
         dataCommunicator: DataCommunicatorType = DataCommunicator()
     ) {
-        _basketItems = basketItems
+        _basket = basket
         self.deliveryChecker = deliveryChecker
         self.dataCommunicator = dataCommunicator
     }
@@ -43,12 +42,11 @@ final class OrderViewModel: ObservableObject {
         isDeliveryPossible = false
         deliveryCost = 0
         buttonState = .unchecked
-        print("onChangeAddress")
     }
     
-    private func countPrice() -> Int {
+    func countPrice() -> Int {
         var price = deliveryCost
-        for item in basketItems {
+        for item in basket.items {
             price += item.price
         }
         return price
@@ -77,7 +75,7 @@ final class OrderViewModel: ObservableObject {
     }
     
     func checkAddress() {
-        Task {
+        Task { @MainActor in
             let deliveryOption = try await deliveryChecker.check(address)
             switch deliveryOption {
             case .free:
@@ -92,39 +90,18 @@ final class OrderViewModel: ObservableObject {
                 buttonState = .notPossible
             }
         }
-        
-        //Old code
-        
-//        Task {
-//            let coordinates = try await ApiCaller().getCoordinates(for: address)
-//            let distance = DistanceCalculator.calculateDistance(from: coordinates).rounded()
-//            print(distance)
-//            if distance < 2000 {
-//                isDeliveryPossible = true
-//                buttonState = .possible
-//            } else if distance < 10000 {
-//                isDeliveryPossible = true
-//                deliveryCost = 10
-//                buttonState = .possible
-//            } else {
-//                isDeliveryPossible = false
-//                buttonState = .notPossible
-//            }
-//        }
     }
     
     func placeOrder() {
-        let order = Order(address: address, deliveryCost: deliveryCost, orderedItems: basketItems)
-        Task {
+        let order = Order(address: address, deliveryCost: deliveryCost, orderedItems: basket.items)
+        Task { @MainActor in
             try await dataCommunicator.place(order)
             self.isAlertVisible = true
         }
-        
-        //Old Code
-        
-//        Task {
-//            try await FirebaseHandler.shared.placeOrder(order)
-//            self.isAlertVisible = true
-//        }
+    }
+    
+    func alertActionButtonPressed() {
+        basket.items.removeAll()
+        NavigationPopper.popToRootView()
     }
 }

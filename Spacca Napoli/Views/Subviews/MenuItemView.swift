@@ -30,5 +30,12 @@ struct MenuItemView: View {
 }
 
 #Preview {
-    MenuItemView(menuItem: MenuItem(name: "SPAGHETTI AL PESTO STRACCIATELLA E POMODORI CONFIT", price: 29, description: "tomato sauce, mozzarella fiordilatte, grana padano cheese D.O.P., basil", category: "Pizza Bianca"))
+    MenuItemView(
+        menuItem: MenuItem(
+            name: "SPAGHETTI AL PESTO STRACCIATELLA E POMODORI CONFIT",
+            price: 29,
+            description: "tomato sauce, mozzarella fiordilatte, grana padano cheese D.O.P., basil",
+            category: "Pizza Bianca"
+        )
+    )
 }

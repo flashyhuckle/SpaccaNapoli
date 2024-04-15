@@ -2,7 +2,6 @@ import SwiftUI
 
 struct OrderListView: View {
     @StateObject var vm: OrderListViewModel
-    @State private var orders = [Order]()
     
     init(
         vm: OrderListViewModel = OrderListViewModel()
@@ -13,10 +12,10 @@ struct OrderListView: View {
     var body: some View {
         NavigationStack {
             List {
-                if !orders.isEmpty {
-                    ForEach($orders) { $order in
+                if !vm.orders.isEmpty {
+                    ForEach($vm.orders) { $order in
                         NavigationLink {
-                            OrderDetailView(order: $order)
+                            OrderDetailView(vm: OrderDetailViewModel(order: $order))
                         } label: {
                             HStack {
                                 Text(order.address.street)
@@ -30,14 +29,10 @@ struct OrderListView: View {
             }
         }
         .onAppear {
-            Task {
-                orders = try await FirebaseHandler.shared.loadOrders()
-            }
+            vm.onAppear()
         }
         .refreshable {
-            Task {
-                orders = try await FirebaseHandler.shared.loadOrders()
-            }
+            vm.refresh()
         }
     }
 }

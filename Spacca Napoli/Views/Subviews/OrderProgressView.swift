@@ -34,9 +34,9 @@ struct OrderProgressSubview: View {
         }
         .foregroundStyle(satisfied ? .green : .black)
         
-        .onAppear(perform: {
+        .onAppear {
             isSatisfied()
-        })
+        }
         .onChange(of: status) {
             isSatisfied()
         }
