@@ -10,16 +10,25 @@ struct ReservationListView: View {
     }
     
     var body: some View {
-        List {
+        NavigationStack {
             if !vm.reservations.isEmpty {
-                ForEach(vm.reservations, id: \.id) { reservation in
-                    HStack {
-                        Text(reservation.date.formatted())
-                        Text("\(reservation.status)")
+                List {
+                    ForEach(vm.reservations, id: \.id) { reservation in
+                        HStack {
+                            Text(reservation.date.formatted())
+                            Text("\(reservation.status)")
+                        }
                     }
                 }
             } else {
-                Text("You have no reservations yet.")
+                VStack {
+                    Image(systemName: "list.bullet.clipboard")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: 100)
+                        .padding()
+                    Text("You have no reservations.")
+                }
             }
         }
         .onAppear {

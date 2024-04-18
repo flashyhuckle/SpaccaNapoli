@@ -2,12 +2,12 @@ import Foundation
 import SwiftUI
 
 final class OrderDetailViewModel: ObservableObject {
-    private let communicator: DataCommunicatorType
+    private let communicator: OrderCommunicatorType
     @Binding var order: Order
     
     init(
         order: Binding<Order>,
-        communicator: DataCommunicatorType = DataCommunicator()
+        communicator: OrderCommunicatorType = OrderCommunicator()
     ) {
         _order = order
         self.communicator = communicator
@@ -29,7 +29,7 @@ final class OrderDetailViewModel: ObservableObject {
     private func refreshOrder() {
         Task { @MainActor in
             let refreshedOrder = try await communicator.refresh(order)
-            order.status = refreshedOrder.status
+                order.status = refreshedOrder.status
         }
     }
     

@@ -11,8 +11,8 @@ struct OrderListView: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                if !vm.orders.isEmpty {
+            if !vm.orders.isEmpty {
+                List {
                     ForEach($vm.orders) { $order in
                         NavigationLink {
                             OrderDetailView(vm: OrderDetailViewModel(order: $order))
@@ -23,8 +23,15 @@ struct OrderListView: View {
                             }
                         }
                     }
-                } else {
-                    Text("You have no order history.")
+                }
+            } else {
+                VStack {
+                    Image(systemName: "basket")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: 100)
+                        .padding()
+                    Text("You have no orders.")
                 }
             }
         }

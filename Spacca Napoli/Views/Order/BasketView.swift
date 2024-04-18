@@ -11,26 +11,53 @@ struct BasketView: View {
                 }.onDelete { indexSet in
                     vm.onDelete(indexSet)
                 }
+                Section(header: Text("")) {
+                    EmptyView()
+                }
             }
             VStack {
                 Spacer()
-                NavigationLink {
-                    OrderView(vm: OrderViewModel(basket: $vm.basket))
-                } label: {
-                    VStack {
-                        HStack {
-                            Image(systemName: "cart")
-                            Text(vm.buttonText())
+                ZStack {
+                    if vm.orderPossible {
+                        NavigationLink {
+                            OrderView(vm: OrderViewModel(basket: $vm.basket))
+                        } label: {
+                            VStack {
+                                HStack {
+                                    Image(systemName: "cart")
+                                    Text(vm.buttonText())
+                                }
+                                Text("Checkout")
+                            }
+                            .foregroundStyle(.white)
+                            .padding()
+                            .background(Color.basketButtonActive)
+                            .clipShape(Capsule())
                         }
-                        Text("Checkout")
+                    } else {
+                        Button(action: {
+                            vm.buttonPressed()
+                        }, label: {
+                            Text("Minimum 2 items")
+                                .foregroundStyle(.white)
+                                .padding()
+                                .background(Color.basketButtonDisabled)
+                                .clipShape(Capsule())
+                        })
                     }
-                    .foregroundStyle(.white)
-                    .padding()
-                    .background(Color(red: 0.8, green: 0, blue: 0))
-                    .clipShape(Capsule())
                 }
             }
         }
+        .onAppear {
+            vm.onAppear()
+        }
+        
+        .oneButtonAlert(
+            title: "Basket too small",
+            message: "You need to order at least 2 items",
+            isPresented: $vm.alertShowing,
+            action: {}
+        )
     }
 }
 

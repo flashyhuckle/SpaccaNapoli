@@ -1,7 +1,21 @@
 import Foundation
 import Firebase
 
-final class FirebaseHandler {
+protocol FirebaseHandlerType {
+    func placeOrder(_ order: Order) async throws
+    func loadOrders() async throws -> [Order]
+    func refreshOrder(_ order: Order) async throws -> Order
+    
+    func observeOrder(_ order: Order, onReceive: @escaping ((Order) -> Void))
+    func stopObserving()
+    
+    func placeReservation(_ reservation: Reservation) async throws
+    func loadReservations() async throws -> [Reservation]
+    
+    func loadMenu() async throws -> Menu
+}
+
+final class FirebaseHandler: FirebaseHandlerType {
     private let db = Firestore.firestore()
     
     private let orderCollection = "Orders"
@@ -9,6 +23,12 @@ final class FirebaseHandler {
     
     private let reservationCollection = "Reservations"
     private let reservationKey = "Reservation"
+    
+    private let menuCollection = "Menu"
+    private let menuKey = "Menu"
+    
+    private let encoder = JSONEncoder()
+    private let decoder = JSONDecoder()
     
     static let shared = FirebaseHandler()
     private init() {}
@@ -21,10 +41,10 @@ extension FirebaseHandler {
     
     func placeOrder(_ order: Order) async throws {
         do {
-            let encoded = try JSONEncoder().encode(order)
+            let encoded = try encoder.encode(order)
             try await db.collection(orderCollection).document(order.id.uuidString).setData([orderKey: encoded])
         } catch {
-            throw error
+            throw NetworkingError.cantPlaceOrder
         }
     }
     
@@ -34,13 +54,12 @@ extension FirebaseHandler {
             let documents = query.documents
             var orders = [Order]()
             for document in documents {
-                let data = document.data()
-                let decoded = try JSONDecoder().decode(Order.self, from: data[orderKey] as! Data)
+                let decoded = try decoder.decode(Order.self, from: document.data()[orderKey] as! Data)
                 orders.append(decoded)
             }
             return orders
         } catch {
-            throw error
+            throw NetworkingError.cantLoadOrders
         }
     }
     
@@ -49,8 +68,7 @@ extension FirebaseHandler {
         do {
             let document = try await docRef.getDocument()
             if document.exists {
-                let data = document.data()!
-                let decoded = try JSONDecoder().decode(Order.self, from: data[orderKey] as! Data)
+                let decoded = try decoder.decode(Order.self, from: document.data()![orderKey] as! Data)
                 return decoded
             } else {
                 throw NetworkingError.cantLoadOrder
@@ -60,10 +78,7 @@ extension FirebaseHandler {
         }
     }
     
-    func observeOrder(
-        _ order: Order,
-        onReceive: @escaping ((Order) -> Void)
-    ) {
+    func observeOrder(_ order: Order, onReceive: @escaping ((Order) -> Void)) {
         listener = db.collection(orderCollection).document(order.id.uuidString)
             .addSnapshotListener { documentSnapshot, error in
                 guard let document = documentSnapshot else {
@@ -74,7 +89,7 @@ extension FirebaseHandler {
                     print("Document data was empty.")
                     return
                 }
-                guard let decoded = try? JSONDecoder().decode(Order.self, from: data[self.orderKey] as! Data) else { return }
+                guard let decoded = try? self.decoder.decode(Order.self, from: data[self.orderKey] as! Data) else { return }
                 onReceive(decoded)
             }
     }
@@ -88,7 +103,7 @@ extension FirebaseHandler {
 extension FirebaseHandler {
     func placeReservation(_ reservation: Reservation) async throws {
         do {
-            let encoded = try JSONEncoder().encode(reservation)
+            let encoded = try encoder.encode(reservation)
             try await db.collection(reservationCollection).document(reservation.id.uuidString).setData([reservationKey: encoded])
         } catch {
             throw error
@@ -101,11 +116,37 @@ extension FirebaseHandler {
             let documents = query.documents
             var reservations = [Reservation]()
             for document in documents {
-                let data = document.data()
-                let decoded = try JSONDecoder().decode(Reservation.self, from: data[reservationKey] as! Data)
+                let decoded = try decoder.decode(Reservation.self, from: document.data()[reservationKey] as! Data)
                 reservations.append(decoded)
             }
             return reservations
+        } catch {
+            throw error
+        }
+    }
+}
+
+//Menu handling
+extension FirebaseHandler {
+//    func postMenu(menu: Menu) async throws {
+//        do {
+//            let encoded = try encoder.encode(menu)
+//            try await db.collection(menuCollection).document(menuKey).setData([menuKey: encoded])
+//        } catch {
+//            throw error
+//        }
+//    }
+    
+    func loadMenu() async throws -> Menu {
+        let docRef = db.collection(menuCollection).document(menuKey)
+        do {
+            let document = try await docRef.getDocument()
+            if document.exists {
+                let decoded = try decoder.decode(Menu.self, from: document.data()![menuKey] as! Data)
+                return decoded
+            } else {
+                throw NetworkingError.cantLoadMenu
+            }
         } catch {
             throw error
         }

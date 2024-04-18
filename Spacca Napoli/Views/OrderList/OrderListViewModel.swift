@@ -1,11 +1,11 @@
 import Foundation
 
 final class OrderListViewModel: ObservableObject {
-    private let communicator: DataCommunicatorType
+    private let communicator: OrderCommunicatorType
     @Published var orders = [Order]()
     
     init(
-        communicator: DataCommunicatorType = DataCommunicator()
+        communicator: OrderCommunicatorType = OrderCommunicator()
     ) {
         self.communicator = communicator
     }

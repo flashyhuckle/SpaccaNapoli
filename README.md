@@ -5,8 +5,8 @@ This is a just for fun app for a pizzeria: https://spaccanapoli.pl
 ## Planned features
 
 - In-app version of the menu
-- A reservation system for 2 locations (required login)
-- An online ordering system (required login)
+- A reservation system for 2 locations
+- An online ordering system
 - Geocoding API cheking if you are within delivery range
 
 ## Info

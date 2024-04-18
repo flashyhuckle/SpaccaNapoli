@@ -157,9 +157,7 @@ extension View {
             .presentationBackground(.clear)
         }
         .transaction { transaction in
-            if isPresented.wrappedValue {
-                transaction.disablesAnimations = true
-            }
+            transaction.disablesAnimations = true
         }
     }
 }

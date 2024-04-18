@@ -9,65 +9,54 @@ struct LandingView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(maxWidth: 300)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .clipShape(RoundedRectangle(cornerRadius: 50))
                     .padding(.vertical)
                 
                 NavigationLink {
                     MenuView()
                 } label: {
-                    Text("View Menu")
-                        .padding()
-                        .frame(maxWidth: 150)
-                        .background(.green)
-                        .clipShape(Capsule())
-                        .foregroundStyle(.white)
+                    LandingViewButtonSubview(
+                        color: .neapolitanGreen,
+                        title: "View Menu"
+                    )
                 }
                 ZStack {
                     NavigationLink {
                         ReserveView()
                     } label: {
-                        Text("Reserve a table")
-                            .padding()
-                            .frame(maxWidth: 150)
-                            .background(.gray)
-                            .clipShape(Capsule())
-                            .foregroundStyle(.white)
+                        LandingViewButtonSubview(
+                            color: .neapolitanGray,
+                            title: "Reserve a table"
+                        )
                     }
                     
                     NavigationLink {
                         ReservationListView()
                     } label: {
-                        Image(systemName: "list.bullet.clipboard")
-                            .padding()
-                            .frame(maxWidth: 50)
-                            .background(.gray)
-                            .clipShape(Circle())
-                            .foregroundStyle(.white)
+                        LandingViewListButtonSubview(
+                            color: .neapolitanGray,
+                            icon: "list.bullet.clipboard"
+                        )
                     }.offset(x: 110)
                     
                 }
-                
                 ZStack {
                     NavigationLink {
                         OrderMenuView()
                     } label: {
-                        Text("Order online")
-                            .padding()
-                            .frame(maxWidth: 150)
-                            .background(.red)
-                            .clipShape(Capsule())
-                            .foregroundStyle(.white)
+                        LandingViewButtonSubview(
+                            color: .neapolitanRed,
+                            title: "Order online"
+                        )
                     }
                     
                     NavigationLink {
                         OrderListView()
                     } label: {
-                        Image(systemName: "list.bullet.clipboard")
-                            .padding()
-                            .frame(maxWidth: 50)
-                            .background(.red)
-                            .clipShape(Circle())
-                            .foregroundStyle(.white)
+                        LandingViewListButtonSubview(
+                            color: .neapolitanRed,
+                            icon: "list.bullet.clipboard"
+                        )
                     }.offset(x: 110)
                 }
             }
@@ -77,4 +66,32 @@ struct LandingView: View {
 
 #Preview {
     LandingView()
+}
+
+struct LandingViewButtonSubview: View {
+    let color: Color
+    let title: String
+    
+    var body: some View {
+        Text(title)
+            .padding()
+            .frame(maxWidth: 150)
+            .background(color)
+            .clipShape(Capsule())
+            .foregroundStyle(.white)
+    }
+}
+
+struct LandingViewListButtonSubview: View {
+    let color: Color
+    let icon: String
+    
+    var body: some View {
+        Image(systemName: icon)
+            .padding()
+            .frame(maxWidth: 50)
+            .background(color)
+            .clipShape(Circle())
+            .foregroundStyle(.white)
+    }
 }

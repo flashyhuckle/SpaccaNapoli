@@ -5,7 +5,7 @@ final class OrderViewModel: ObservableObject {
     @Binding var basket: Basket
     
     private let deliveryChecker: DeliveryCheckerType
-    private let dataCommunicator: DataCommunicatorType
+    private let communicator: OrderCommunicatorType
     
     @Published var address = Address(
         street: "Chłodna",
@@ -31,11 +31,11 @@ final class OrderViewModel: ObservableObject {
     init(
         basket: Binding<Basket>,
         deliveryChecker: DeliveryCheckerType = DeliveryChecker(),
-        dataCommunicator: DataCommunicatorType = DataCommunicator()
+        communicator: OrderCommunicatorType = OrderCommunicator()
     ) {
         _basket = basket
         self.deliveryChecker = deliveryChecker
-        self.dataCommunicator = dataCommunicator
+        self.communicator = communicator
     }
     
     private func onChangeAddress() {
@@ -95,7 +95,7 @@ final class OrderViewModel: ObservableObject {
     func placeOrder() {
         let order = Order(address: address, deliveryCost: deliveryCost, orderedItems: basket.items)
         Task { @MainActor in
-            try await dataCommunicator.place(order)
+            try await communicator.place(order)
             self.isAlertVisible = true
         }
     }

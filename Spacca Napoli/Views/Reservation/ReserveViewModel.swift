@@ -1,7 +1,7 @@
 import Foundation
 
 final class ReserveViewModel: ObservableObject {
-    private let communicator: DataCommunicatorType
+    private let communicator: ReservationCommunicatorType
     
     @Published var name: String = ""
     @Published var email: String = ""
@@ -16,7 +16,7 @@ final class ReserveViewModel: ObservableObject {
     @Published var isAlertShowing = false
     
     init(
-        communicator: DataCommunicatorType = DataCommunicator()
+        communicator: ReservationCommunicatorType = ReservationCommunicator()
     ) {
         self.communicator = communicator
     }

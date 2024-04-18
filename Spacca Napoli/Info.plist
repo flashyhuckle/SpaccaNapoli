@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>GeocodeApiBaseURL</key>
+	<string>https://geocode.maps.co/search?</string>
+	<key>GeocodeApiKey</key>
+	<string>660fef4eeebf7252862194rbxc97d25</string>
+</dict>
+</plist>

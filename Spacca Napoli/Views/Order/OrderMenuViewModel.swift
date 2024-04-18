@@ -2,10 +2,18 @@ import Foundation
 import SwiftUI
 
 final class OrderMenuViewModel: ObservableObject {
-    let decoder = JSONDecoder()
+    private let communicator: MenuCommunicatorType
     
     @Published var menu = Menu()
     @Published var basket = Basket()
+    @Published var basketButtonDisabled = true
+    @Published var animation = false
+    
+    init(
+        communicator: MenuCommunicatorType = MenuCommunicator()
+    ) {
+        self.communicator = communicator
+    }
     
     let colours: [String: Color] = [
         "Cold Apetizers and Salads" : .green,
@@ -20,18 +28,38 @@ final class OrderMenuViewModel: ObservableObject {
     
     func onAppear() {
         getMenu()
+        checkBasket()
     }
     
     private func getMenu() {
-        let bundle = Bundle(for: MenuViewModel.self)
-        guard let path = bundle.path(forResource: "Menu", ofType: "json") else { fatalError("Menu.json not found.") }
-        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else { fatalError("Menu.json has bad data.") }
-        guard let decoded = try? decoder.decode(Menu.self, from: data) else { fatalError("Menu.json cant be decoded") }
-        menu = decoded
+        Task { @MainActor in
+            self.menu = try await communicator.loadMenu()
+        }
+    }
+    
+    func menuFilteredBy(_ category: String) -> [MenuItem] {
+        menu.items.filter { $0.category == category }
     }
     
     func tappedOn(_ item: MenuItem) {
         basket.items.append(item)
+        checkBasket()
+        animateButton()
+    }
+    
+    private func animateButton() {
+        withAnimation {
+            animation = true
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+            withAnimation {
+                self.animation = false
+            }
+        }
+    }
+    
+    private func checkBasket() {
+        basketButtonDisabled = basket.items.isEmpty
     }
     
     func buttonText() -> String {

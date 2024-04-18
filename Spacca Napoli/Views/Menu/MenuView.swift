@@ -12,7 +12,7 @@ struct MenuView: View {
             Form {
                 ForEach(vm.menu.categories, id: \.self) { category in
                     Section(content: {
-                        ForEach(vm.menu.items.filter { $0.category == category }, id: \.name) { item in
+                        ForEach(vm.menuFilteredBy(category), id: \.name) { item in
                             NavigationLink(destination: {
                                 MenuDetailView(vm: MenuDetailViewModel(menuItem: item))
                             }, label: {
@@ -27,9 +27,9 @@ struct MenuView: View {
                 }
             }
         }
-        .onAppear(perform: {
-            vm.getMenu()
-        })
+        .onAppear {
+            vm.onAppear()
+        }
     }
 }
 

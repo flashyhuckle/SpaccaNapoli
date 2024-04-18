@@ -1,11 +1,11 @@
 import Foundation
 
 final class ReservationListViewModel: ObservableObject {
-    private let communicator: DataCommunicatorType
+    private let communicator: ReservationCommunicatorType
     @Published var reservations = [Reservation]()
     
     init(
-        communicator: DataCommunicatorType = DataCommunicator()
+        communicator: ReservationCommunicatorType = ReservationCommunicator()
     ) {
         self.communicator = communicator
     }

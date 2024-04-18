@@ -6,33 +6,72 @@ enum ButtonState {
     case notPossible
 }
 
+enum Field {
+    case street, building, apartment, city, postal
+}
+
 struct OrderView: View {
     @StateObject var vm: OrderViewModel
+    
+    @FocusState private var focusedField: Field?
     
     var body: some View {
         ZStack {
             VStack {
-                VStack(alignment: .leading) {
-                    ForEach(vm.basket.items, id: \.name) { item in
-                        HStack {
-                            Text(item.name)
-                            Spacer()
-                            Text("\(item.price)")
-                        }.padding(.horizontal)
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        ForEach(vm.basket.items, id: \.name) { item in
+                            HStack {
+                                Text(item.name)
+                                Spacer()
+                                Text("\(item.price)")
+                            }.padding(.horizontal)
+                        }
                     }
                 }
                 VStack {
+                    
                     TextField("Street", text: $vm.address.street)
+                        .focused($focusedField, equals: .street)
+                        .submitLabel(.next)
+                        .onSubmit {
+                            focusedField = .building
+                        }
+                    
                     TextField("Building", text: $vm.address.building)
+                        .focused($focusedField, equals: .building)
+                        .submitLabel(.next)
+                        .onSubmit {
+                            focusedField = .apartment
+                        }
+                    
                     TextField("Apartment number", text: $vm.address.apartment)
+                        .focused($focusedField, equals: .apartment)
+                        .submitLabel(.next)
+                        .onSubmit {
+                            focusedField = .city
+                        }
+                    
                     TextField("City", text: $vm.address.city)
+                        .focused($focusedField, equals: .city)
+                        .submitLabel(.next)
+                        .onSubmit {
+                            focusedField = .postal
+                        }
+                    
                     TextField("Postal Code", text: $vm.address.postalCode)
+                        .focused($focusedField, equals: .postal)
+                        .submitLabel(.go)
+                        .onSubmit {
+                            vm.checkAddress()
+                            focusedField = nil
+                        }
                 }
                 .padding()
                 
-                
                 Button(action: {
                     vm.checkAddress()
+                    focusedField = nil
                 }, label: {
                     Text(vm.getButtonText())
                         .foregroundStyle(.white)
