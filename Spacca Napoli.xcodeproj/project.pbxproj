@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4263BBA2BD806BB00A09FDF /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BB92BD806BB00A09FDF /* UINavigationController.swift */; };
+		A4263BBC2BD8075E00A09FDF /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BBB2BD8075E00A09FDF /* CustomBackButton.swift */; };
+		A4263BBE2BD81EEF00A09FDF /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BBD2BD81EEF00A09FDF /* EmptyListView.swift */; };
+		A4263BC02BD82EFF00A09FDF /* OrderListSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BBF2BD82EFF00A09FDF /* OrderListSubview.swift */; };
 		A44B9CF42BC51886008D9EC7 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B9CF32BC51886008D9EC7 /* Reservation.swift */; };
 		A44B9CF62BC518EC008D9EC7 /* RestaurantLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B9CF52BC518EC008D9EC7 /* RestaurantLocation.swift */; };
 		A44B9CF82BC518FE008D9EC7 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B9CF72BC518FE008D9EC7 /* MenuItem.swift */; };
 		A44B9CFE2BC53E83008D9EC7 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B9CFD2BC53E83008D9EC7 /* OrderDetailView.swift */; };
-		A44B9D002BC5424E008D9EC7 /* OrderProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B9CFF2BC5424E008D9EC7 /* OrderProgressView.swift */; };
 		A44B9D022BC5B05D008D9EC7 /* OrderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B9D012BC5B05C008D9EC7 /* OrderStatus.swift */; };
 		A44B9D042BC5B06C008D9EC7 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B9D032BC5B06C008D9EC7 /* Address.swift */; };
 		A44B9D062BC5B09C008D9EC7 /* ReservationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B9D052BC5B09C008D9EC7 /* ReservationStatus.swift */; };
@@ -64,6 +67,8 @@
 		A4D7CF1E2BC0349000FA5650 /* DistanceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7CF1D2BC0349000FA5650 /* DistanceCalculator.swift */; };
 		A4D7CF242BC0792400FA5650 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7CF232BC0792400FA5650 /* MenuView.swift */; };
 		A4D7CF262BC0793A00FA5650 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7CF252BC0793A00FA5650 /* MenuViewModel.swift */; };
+		A4E2E2D92BD18736005297EE /* OrderProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2E2D82BD18736005297EE /* OrderProgressView.swift */; };
+		A4E2E2DB2BD2A2C3005297EE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2E2DA2BD2A2C3005297EE /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,11 +102,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A4263BB92BD806BB00A09FDF /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		A4263BBB2BD8075E00A09FDF /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
+		A4263BBD2BD81EEF00A09FDF /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
+		A4263BBF2BD82EFF00A09FDF /* OrderListSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListSubview.swift; sourceTree = "<group>"; };
 		A44B9CF32BC51886008D9EC7 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		A44B9CF52BC518EC008D9EC7 /* RestaurantLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLocation.swift; sourceTree = "<group>"; };
 		A44B9CF72BC518FE008D9EC7 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		A44B9CFD2BC53E83008D9EC7 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
-		A44B9CFF2BC5424E008D9EC7 /* OrderProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProgressView.swift; sourceTree = "<group>"; };
 		A44B9D012BC5B05C008D9EC7 /* OrderStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatus.swift; sourceTree = "<group>"; };
 		A44B9D032BC5B06C008D9EC7 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		A44B9D052BC5B09C008D9EC7 /* ReservationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationStatus.swift; sourceTree = "<group>"; };
@@ -158,6 +166,8 @@
 		A4D7CF1D2BC0349000FA5650 /* DistanceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculator.swift; sourceTree = "<group>"; };
 		A4D7CF232BC0792400FA5650 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		A4D7CF252BC0793A00FA5650 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		A4E2E2D82BD18736005297EE /* OrderProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProgressView.swift; sourceTree = "<group>"; };
+		A4E2E2DA2BD2A2C3005297EE /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,8 +201,10 @@
 			isa = PBXGroup;
 			children = (
 				A4D336312BC2A17A003014CE /* Date.swift */,
+				A4263BB92BD806BB00A09FDF /* UINavigationController.swift */,
 				A44B9D622BCDAF6F008D9EC7 /* Color.swift */,
 				A44B9D642BCE7B74008D9EC7 /* Bundle.swift */,
+				A4E2E2DA2BD2A2C3005297EE /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -201,8 +213,11 @@
 			isa = PBXGroup;
 			children = (
 				A4D3363B2BC320AC003014CE /* MenuItemView.swift */,
-				A44B9CFF2BC5424E008D9EC7 /* OrderProgressView.swift */,
 				A44B9D2A2BC7E055008D9EC7 /* CustomAlertView.swift */,
+				A4263BBF2BD82EFF00A09FDF /* OrderListSubview.swift */,
+				A4E2E2D82BD18736005297EE /* OrderProgressView.swift */,
+				A4263BBB2BD8075E00A09FDF /* CustomBackButton.swift */,
+				A4263BBD2BD81EEF00A09FDF /* EmptyListView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -547,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4D336342BC2AE0F003014CE /* OrderMenuView.swift in Sources */,
+				A4263BBA2BD806BB00A09FDF /* UINavigationController.swift in Sources */,
 				A4A94B652BC4479300E163ED /* OrderListView.swift in Sources */,
 				A44B9D042BC5B06C008D9EC7 /* Address.swift in Sources */,
 				A44B9D292BC7BC8C008D9EC7 /* OrderViewModel.swift in Sources */,
@@ -559,11 +575,13 @@
 				A44B9D6B2BCE8669008D9EC7 /* GeocodeAPI.swift in Sources */,
 				A44B9D352BC81C77008D9EC7 /* MenuDetailViewModel.swift in Sources */,
 				A4D7CF242BC0792400FA5650 /* MenuView.swift in Sources */,
+				A4263BC02BD82EFF00A09FDF /* OrderListSubview.swift in Sources */,
 				A44B9CF62BC518EC008D9EC7 /* RestaurantLocation.swift in Sources */,
 				A44B9D692BCE863C008D9EC7 /* URLSessionHandler.swift in Sources */,
 				A4D336842BC3F743003014CE /* FirebaseHandler.swift in Sources */,
 				A44B9D372BC82000008D9EC7 /* ReservationListViewModel.swift in Sources */,
 				A44B9D392BC822AA008D9EC7 /* ReserveViewModel.swift in Sources */,
+				A4E2E2DB2BD2A2C3005297EE /* String.swift in Sources */,
 				A44B9D312BC7F3B8008D9EC7 /* OrderListViewModel.swift in Sources */,
 				A44B9D2D2BC7E8FE008D9EC7 /* BasketViewModel.swift in Sources */,
 				A4D7CF1E2BC0349000FA5650 /* DistanceCalculator.swift in Sources */,
@@ -579,14 +597,16 @@
 				A44B9D212BC720B9008D9EC7 /* DeliveryChecker.swift in Sources */,
 				A44B9D2B2BC7E055008D9EC7 /* CustomAlertView.swift in Sources */,
 				A4D3363A2BC2B3B0003014CE /* Menu.swift in Sources */,
+				A4E2E2D92BD18736005297EE /* OrderProgressView.swift in Sources */,
 				A44B9D3D2BC98B45008D9EC7 /* Basket.swift in Sources */,
-				A44B9D002BC5424E008D9EC7 /* OrderProgressView.swift in Sources */,
 				A4A94B632BC42A2B00E163ED /* NavigationPopper.swift in Sources */,
 				A4D7CEF02BC01DDF00FA5650 /* Spacca_NapoliApp.swift in Sources */,
 				A4B960922BC1DABF00CFF624 /* ReserveView.swift in Sources */,
 				A44B9D652BCE7B74008D9EC7 /* Bundle.swift in Sources */,
 				A44B9D022BC5B05D008D9EC7 /* OrderStatus.swift in Sources */,
+				A4263BBC2BD8075E00A09FDF /* CustomBackButton.swift in Sources */,
 				A44B9D082BC5B0C1008D9EC7 /* ApiError.swift in Sources */,
+				A4263BBE2BD81EEF00A09FDF /* EmptyListView.swift in Sources */,
 				A44B9D062BC5B09C008D9EC7 /* ReservationStatus.swift in Sources */,
 				A4D3363C2BC320AC003014CE /* MenuItemView.swift in Sources */,
 				A4B9608C2BC15E3200CFF624 /* LandingView.swift in Sources */,

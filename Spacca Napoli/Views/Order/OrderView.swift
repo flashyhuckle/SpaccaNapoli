@@ -6,7 +6,7 @@ enum ButtonState {
     case notPossible
 }
 
-enum Field {
+enum Field: Hashable {
     case street, building, apartment, city, postal
 }
 
@@ -16,6 +16,9 @@ struct OrderView: View {
     @FocusState private var focusedField: Field?
     
     var body: some View {
+        
+#warning ("improve look of this view")
+        
         ZStack {
             VStack {
                 ScrollView {
@@ -34,38 +37,49 @@ struct OrderView: View {
                     TextField("Street", text: $vm.address.street)
                         .focused($focusedField, equals: .street)
                         .submitLabel(.next)
-                        .onSubmit {
-                            focusedField = .building
-                        }
+                        .bordered()
+                        
                     
                     TextField("Building", text: $vm.address.building)
                         .focused($focusedField, equals: .building)
                         .submitLabel(.next)
-                        .onSubmit {
-                            focusedField = .apartment
-                        }
+                        .bordered()
                     
                     TextField("Apartment number", text: $vm.address.apartment)
                         .focused($focusedField, equals: .apartment)
                         .submitLabel(.next)
-                        .onSubmit {
-                            focusedField = .city
-                        }
+                        .bordered()
                     
                     TextField("City", text: $vm.address.city)
                         .focused($focusedField, equals: .city)
                         .submitLabel(.next)
-                        .onSubmit {
-                            focusedField = .postal
-                        }
+                        .bordered()
                     
                     TextField("Postal Code", text: $vm.address.postalCode)
                         .focused($focusedField, equals: .postal)
                         .submitLabel(.go)
-                        .onSubmit {
-                            vm.checkAddress()
-                            focusedField = nil
-                        }
+                        .bordered()
+                }
+                .onSubmit {
+                    switch focusedField {
+                    case .street:
+                        focusedField = .building
+                    case .building:
+                        focusedField = .apartment
+                    case .apartment:
+                        focusedField = .city
+                    case .city:
+                        focusedField = .postal
+                    case .postal:
+                        focusedField = nil
+                        vm.checkAddress()
+                    case nil:
+                        focusedField = nil
+                    }
+                }
+                //Override whole screen onTapGesture with nothing
+                .onTapGesture {
+                    
                 }
                 .padding()
                 
@@ -105,6 +119,11 @@ struct OrderView: View {
                 .disabled(!vm.isDeliveryPossible)
             }
         }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            focusedField = nil
+        }
+        
         .oneButtonAlert(
             title: "Your order has been placed!",
             message: "",
@@ -116,6 +135,24 @@ struct OrderView: View {
         .navigationTitle("Your order")
     }
 }
+
+extension View {
+    func bordered() -> some View {
+        modifier(CustomBorder())
+    }
+}
+
+struct CustomBorder: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(5)
+            .overlay(
+                RoundedRectangle(cornerRadius: 7)
+                    .stroke(Color(UIColor.lightGray), lineWidth: 2)
+            )
+    }
+}
+
 
 #Preview {
     OrderView(

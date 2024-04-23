@@ -10,8 +10,13 @@ struct ReservationListView: View {
     }
     
     var body: some View {
+        
+    #warning ("improve look of this view")
+        
         NavigationStack {
-            if !vm.reservations.isEmpty {
+            if vm.reservations.isEmpty {
+                EmptyListViewCreator.emptyReservationList()
+            } else {
                 List {
                     ForEach(vm.reservations, id: \.id) { reservation in
                         HStack {
@@ -20,19 +25,11 @@ struct ReservationListView: View {
                         }
                     }
                 }
-            } else {
-                VStack {
-                    Image(systemName: "list.bullet.clipboard")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 100)
-                        .padding()
-                    Text("You have no reservations.")
-                }
             }
         }
+        .customBackButton(color: .neapolitanGray)
         .onAppear {
-            vm.onAppear()
+//            vm.onAppear()
         }
         .refreshable {
             vm.refresh()

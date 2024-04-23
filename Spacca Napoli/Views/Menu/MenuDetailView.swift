@@ -4,6 +4,9 @@ struct MenuDetailView: View {
     let vm: MenuDetailViewModel
     
     var body: some View {
+        
+    #warning ("improve look of this view")
+        
         VStack {
             Text(vm.menuItem.name)
                 .font(.title)

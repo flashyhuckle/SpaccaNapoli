@@ -11,6 +11,9 @@ struct ReserveView: View {
     }
     
     var body: some View {
+        
+    #warning ("improve look of this view")
+        
         Form {
             Section {
                 TextField("Your name", text: $vm.name)
@@ -38,6 +41,7 @@ struct ReserveView: View {
                 })
             }
         }
+        .customBackButton(color: .neapolitanGray)
         .onAppear {
             UIDatePicker.appearance().minuteInterval = 30
         }

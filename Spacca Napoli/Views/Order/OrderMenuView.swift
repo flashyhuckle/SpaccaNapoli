@@ -56,6 +56,7 @@ struct OrderMenuView: View {
                 }
             }
         }
+        .customBackButton(color: .neapolitanRed)
         .onAppear {
             vm.onAppear()
         }
@@ -67,7 +68,7 @@ struct OrderMenuView: View {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             withAnimation {
-                _ = self.toBasketViews.remove(at: 0)
+                _ = self.toBasketViews.removeFirst()
             }
         }
     }
@@ -94,6 +95,7 @@ struct ItemToBasketView: View {
                 .onAppear {
                     animate = true
                 }
+                .allowsHitTesting(false)
         }
     }
 }

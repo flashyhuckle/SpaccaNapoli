@@ -1,10 +1,10 @@
 import Foundation
 
-enum OrderStatus: String, Codable {
-    case placed
-    case accepted
-    case inPreparation
-    case inDelivery
-    case delivered
-    case cancelled
+enum OrderStatus: String, Codable, CaseIterable {
+    case placed = "placed"
+    case accepted = "accepted"
+    case inPreparation = "in preparation"
+    case inDelivery = "in delivery"
+    case delivered = "delivered"
+    case cancelled = "cancelled"
 }

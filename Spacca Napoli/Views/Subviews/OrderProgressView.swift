@@ -30,9 +30,9 @@ struct OrderProgressSubview: View {
     var body: some View {
         HStack {
             Image(systemName: satisfied ? "checkmark.circle" : "circle")
-            Text(getTitle())
+            Text(orderStatusText())
         }
-        .foregroundStyle(satisfied ? .green : .black)
+        .foregroundStyle(satisfied ? .green : .clear)
         
         .onAppear {
             isSatisfied()
@@ -42,57 +42,41 @@ struct OrderProgressSubview: View {
         }
     }
     
-    private func getTitle() -> String {
-        switch expectedStatus {
+    private func isSatisfied() {
+        let statusArray = OrderStatus.allCases
+        
+        switch status {
         case .placed:
-            "Your order has been placed"
+            satisfied = checkArray(statusArray[0..<1], status: expectedStatus)
         case .accepted:
-            "Your order has been accepted"
+            satisfied = checkArray(statusArray[0...1], status: expectedStatus)
         case .inPreparation:
-            "We are preparing your order"
+            satisfied = checkArray(statusArray[0...2], status: expectedStatus)
         case .inDelivery:
-            "Your order is on the way"
+            satisfied = checkArray(statusArray[0...3], status: expectedStatus)
         case .delivered:
-            "Delivery completed"
+            satisfied = checkArray(statusArray[0...4], status: expectedStatus)
         case .cancelled:
-            "Your order was cancelled"
+            satisfied = false
         }
     }
     
-    private func isSatisfied() {
-        switch status {
-        case .placed:
-            if expectedStatus == .placed {
-                satisfied = true
-            } else {
-                satisfied = false
-            }
-        case .accepted:
-            if expectedStatus == .placed || expectedStatus == .accepted {
-                satisfied = true
-            } else {
-                satisfied = false
-            }
-        case .inPreparation:
-            if expectedStatus == .placed || expectedStatus == .accepted || expectedStatus == .inPreparation {
-                satisfied = true
-            } else {
-                satisfied = false
-            }
-        case .inDelivery:
-            if expectedStatus == .placed || expectedStatus == .accepted || expectedStatus == .inPreparation || expectedStatus == .inDelivery {
-                satisfied = true
-            } else {
-                satisfied = false
-            }
-        case .delivered:
-            if expectedStatus == .placed || expectedStatus == .accepted || expectedStatus == .inPreparation || expectedStatus == .inDelivery || expectedStatus == .delivered {
-                satisfied = true
-            } else {
-                satisfied = false
-            }
-        case .cancelled:
-            return
+    private func checkArray(_ array: ArraySlice<OrderStatus>, status: OrderStatus) -> Bool {
+        if array.contains(where: {$0 == status}) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    private func orderStatusText() -> String {
+        switch expectedStatus {
+            case .placed: "Order has been placed"
+            case .accepted: "Restaurant accepted your order"
+            case .inPreparation: "Restaurant is preparing your order"
+            case .inDelivery: "Your order is on the way"
+            case .delivered: "Your order is delivered"
+            case .cancelled: "Your order has been cancelled"
         }
     }
 }

@@ -10,31 +10,34 @@ struct OrderListView: View {
     }
     
     var body: some View {
+        
+#warning ("improve look of this view")
+        
         NavigationStack {
-            if !vm.orders.isEmpty {
-                List {
-                    ForEach($vm.orders) { $order in
-                        NavigationLink {
-                            OrderDetailView(vm: OrderDetailViewModel(order: $order))
-                        } label: {
-                            HStack {
-                                Text(order.address.street)
-                                Text(order.status.rawValue)
+            Group {
+                if vm.orders.isEmpty {
+                    EmptyListViewCreator.emptyOrderList()
+                } else {
+                    ScrollView {
+                        ForEach($vm.orders) { $order in
+                            NavigationLink {
+                                OrderDetailView(vm: OrderDetailViewModel(order: $order))
+                            } label: {
+                                OrderListSubview(order: order)
                             }
                         }
                     }
                 }
-            } else {
-                VStack {
-                    Image(systemName: "basket")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 100)
-                        .padding()
-                    Text("You have no orders.")
-                }
             }
+            .navigationTitle("Orders")
+            .navigationBarTitleDisplayMode(.large)
+            .navigationBarColor(.neapolitanRed)
         }
+        .navigationTitle("Orders")
+        .navigationBarTitleDisplayMode(.large)
+        .navigationBarColor(.neapolitanRed)
+        
+        .customBackButton(color: .neapolitanRed)
         .onAppear {
             vm.onAppear()
         }
@@ -43,6 +46,8 @@ struct OrderListView: View {
         }
     }
 }
+
+
 
 #Preview {
     OrderListView()

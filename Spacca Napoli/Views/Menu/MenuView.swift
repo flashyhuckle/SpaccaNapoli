@@ -22,16 +22,20 @@ struct MenuView: View {
                     }, header: {
                         Text(category)
                             .font(.title)
-                            .foregroundStyle(vm.colours[category] ?? .blue)
+                            .foregroundStyle(vm.colorFor(category))
                     })
                 }
             }
         }
+        .customBackButton(color: .neapolitanGreen)
+        
         .onAppear {
             vm.onAppear()
         }
     }
 }
+
+
 
 #Preview {
     MenuView()

@@ -52,9 +52,11 @@ struct CustomAlertView: View {
                         .font(.title2).bold()
                         .foregroundStyle(.green)
                         .padding(8)
+                        .multilineTextAlignment(.center)
                     
                     Text(messageKey)
                         .foregroundStyle(.green)
+                        .multilineTextAlignment(.center)
                     
                     HStack {
                         if configuration == .twoButton {
