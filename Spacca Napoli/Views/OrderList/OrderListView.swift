@@ -7,19 +7,20 @@ struct OrderListView: View {
         vm: OrderListViewModel = OrderListViewModel()
     ) {
         _vm = StateObject(wrappedValue: vm)
+        navigationBarColor(.neapolitanRed)
     }
     
     var body: some View {
         
-#warning ("improve look of this view")
-        
         NavigationStack {
-            Group {
+            if vm.isFirstLoading {
+                EmptyListViewCreator.loadingOrderList()
+            } else {
                 if vm.orders.isEmpty {
                     EmptyListViewCreator.emptyOrderList()
                 } else {
                     ScrollView {
-                        ForEach($vm.orders) { $order in
+                        ForEach($vm.orders, id: \.placedDate) { $order in
                             NavigationLink {
                                 OrderDetailView(vm: OrderDetailViewModel(order: $order))
                             } label: {
@@ -29,15 +30,12 @@ struct OrderListView: View {
                     }
                 }
             }
-            .navigationTitle("Orders")
-            .navigationBarTitleDisplayMode(.large)
-            .navigationBarColor(.neapolitanRed)
         }
         .navigationTitle("Orders")
         .navigationBarTitleDisplayMode(.large)
-        .navigationBarColor(.neapolitanRed)
         
         .customBackButton(color: .neapolitanRed)
+        
         .onAppear {
             vm.onAppear()
         }

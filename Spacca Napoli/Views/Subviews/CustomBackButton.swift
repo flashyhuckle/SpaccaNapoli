@@ -3,6 +3,7 @@ import SwiftUI
 struct CustomBackButtonView: View {
     @Environment(\.dismiss) var dismiss
     let color: Color
+    let text: String
     
     var body: some View {
         Button {
@@ -10,7 +11,11 @@ struct CustomBackButtonView: View {
         } label: {
             HStack {
                 Image(systemName: "chevron.left")
-                Image(systemName: "line.3.horizontal")
+                if text.isEmpty {
+                    Image(systemName: "line.3.horizontal")
+                } else {
+                    Text(text)
+                }
             }.tint(color)
         }
     }
@@ -18,12 +23,13 @@ struct CustomBackButtonView: View {
 
 struct CustomBackButtonModifier: ViewModifier {
     let color: Color
+    let text: String
     
     func body(content: Content) -> some View {
         content
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    CustomBackButtonView(color: color)
+                    CustomBackButtonView(color: color, text: text)
                 }
             }
             .navigationBarBackButtonHidden()
@@ -32,6 +38,11 @@ struct CustomBackButtonModifier: ViewModifier {
 
 extension View {
     func customBackButton(color: Color) -> some View {
-        modifier(CustomBackButtonModifier(color: color))
+        modifier(CustomBackButtonModifier(color: color, text: ""))
+    }
+    
+    func customBackButtonWithText(_ text: String, color: Color) -> some View {
+        modifier(CustomBackButtonModifier(color: color, text: text))
     }
 }
+

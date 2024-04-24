@@ -23,6 +23,7 @@ struct OrderProgressView: View {
 }
 
 struct OrderProgressSubview: View {
+    @Environment(\.colorScheme) var colorScheme
     @State private var satisfied: Bool = false
     @Binding var status: OrderStatus
     let expectedStatus: OrderStatus
@@ -30,9 +31,10 @@ struct OrderProgressSubview: View {
     var body: some View {
         HStack {
             Image(systemName: satisfied ? "checkmark.circle" : "circle")
+                .foregroundStyle(satisfied ? .green : (colorScheme == .dark ? .white : .black))
             Text(orderStatusText())
+                .foregroundStyle(satisfied ? .green : .clear)
         }
-        .foregroundStyle(satisfied ? .green : .clear)
         
         .onAppear {
             isSatisfied()

@@ -48,6 +48,8 @@ struct BasketView: View {
                 }
             }
         }
+        .customBackButton(color: .neapolitanRed)
+        
         .onAppear {
             vm.onAppear()
         }

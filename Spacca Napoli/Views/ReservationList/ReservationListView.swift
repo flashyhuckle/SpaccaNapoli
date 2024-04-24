@@ -10,18 +10,28 @@ struct ReservationListView: View {
     }
     
     var body: some View {
-        
-    #warning ("improve look of this view")
-        
         NavigationStack {
             if vm.reservations.isEmpty {
                 EmptyListViewCreator.emptyReservationList()
             } else {
                 List {
-                    ForEach(vm.reservations, id: \.id) { reservation in
-                        HStack {
-                            Text(reservation.date.formatted())
-                            Text("\(reservation.status)")
+                    if !vm.upcomingReservations().isEmpty {
+                        Section {
+                            ForEach(vm.upcomingReservations(), id: \.id) { reservation in
+                                ReservationListSubview(reservation: reservation)
+                            }
+                        } header: {
+                            SectionHeaderView(text: "Upcoming", color: .neapolitanGreen)
+                        }
+                    }
+
+                    if !vm.pastReservations().isEmpty {
+                        Section {
+                            ForEach(vm.pastReservations(), id: \.id) { reservation in
+                                ReservationListSubview(reservation: reservation)
+                            }
+                        } header: {
+                            SectionHeaderView(text: "Past", color: .neapolitanGray)
                         }
                     }
                 }
@@ -29,7 +39,7 @@ struct ReservationListView: View {
         }
         .customBackButton(color: .neapolitanGray)
         .onAppear {
-//            vm.onAppear()
+            vm.onAppear()
         }
         .refreshable {
             vm.refresh()

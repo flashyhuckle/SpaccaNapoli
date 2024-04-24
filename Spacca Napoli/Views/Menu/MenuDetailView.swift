@@ -21,6 +21,7 @@ struct MenuDetailView: View {
             Text("\(vm.menuItem.price),-")
                 .font(.title)
         }
+        .customBackButton(color: .neapolitanGreen)
     }
 }
 

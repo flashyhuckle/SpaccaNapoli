@@ -22,7 +22,7 @@ final class MenuViewModel: ObservableObject {
         "Desserts" : .pink
     ]
     
-    func onAppear() {
+    func onLoad() {
         getMenu()
     }
     

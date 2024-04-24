@@ -20,21 +20,18 @@ struct MenuView: View {
                             })
                         }
                     }, header: {
-                        Text(category)
-                            .font(.title)
-                            .foregroundStyle(vm.colorFor(category))
+                        SectionHeaderView(text: category, color: vm.colorFor(category))
                     })
                 }
             }
         }
         .customBackButton(color: .neapolitanGreen)
-        
-        .onAppear {
-            vm.onAppear()
+                
+        .onLoad {
+            vm.onLoad()
         }
     }
 }
-
 
 
 #Preview {

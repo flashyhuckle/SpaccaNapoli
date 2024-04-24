@@ -5,20 +5,45 @@ struct OrderDetailView: View {
     @StateObject var vm: OrderDetailViewModel
     
     var body: some View {
-        VStack {
-            List {
-                Section(content: {
-                    ForEach(vm.order.orderedItems, id: \.name) { item in
-                        MenuItemView(menuItem: item)
-                    }
-                }, header: {
-                    Text("Ordered items")
-                        .font(.title)
-                        .foregroundStyle(.blue)
-                })
+        NavigationStack {
+            VStack {
+                List {
+                    Section(content: {
+                        OrderDetailSubview(items: vm.order.orderedItems, deliveryCost: vm.order.deliveryCost)
+//                        NavigationLink {
+//                            OrderItemListView(items: vm.order.orderedItems)
+//                        } label: {
+//                            OrderPriceListSubview(title: "Items", price: vm.itemsTotal())
+//                        }
+//                        
+//                        OrderPriceListSubview(title: "Delivery", price: vm.order.deliveryCost)
+//                        OrderPriceListSubview(title: "Total", price: vm.orderTotal())
+                    }, header: {
+                        SectionHeaderView(text: "Order", color: .neapolitanRed)
+                    })
+                    
+                    Section(content: {
+                        NavigationLink {
+                            AddressDetailView(vm: AddressDetailViewModel(address: vm.order.address))
+                        } label: {
+                            AddressView(address: vm.order.address)
+                        }
+                    }, header: {
+                        SectionHeaderView(text: "Delivery", color: .neapolitanRed)
+                    })
+                    
+                    Section(content: {
+                        OrderProgressView(status: $vm.order.status)
+                    }, header: {
+                        SectionHeaderView(text: "Status", color: .neapolitanRed)
+                    })
+                }
+                
             }
-            OrderProgressView(status: $vm.order.status)
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .customBackButton(color: .neapolitanRed)
+        
         .onAppear {
             vm.onAppear()
         }
@@ -31,17 +56,19 @@ struct OrderDetailView: View {
     }
 }
 
+
 #Preview {
     OrderDetailView(
         vm: OrderDetailViewModel(
             order: .constant(
                 Order(
+                    status: .inDelivery,
                     address: Address(
-                        street: "Towarowa",
-                        building: "10",
+                        street: "Chłodna",
+                        building: "51",
                         apartment: "100",
-                        city: "Warsaw",
-                        postalCode: "01-016"
+                        city: "Warszawa",
+                        postalCode: "00-867"
                     ),
                     deliveryCost: 10,
                     orderedItems: [

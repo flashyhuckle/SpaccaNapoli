@@ -15,7 +15,7 @@ final class OrderMenuViewModel: ObservableObject {
         self.communicator = communicator
     }
     
-    let colours: [String: Color] = [
+    private let colors: [String: Color] = [
         "Cold Apetizers and Salads" : .green,
         "Hot Apetizers" : .red,
         "Pizza Rosa" : .red,
@@ -26,14 +26,25 @@ final class OrderMenuViewModel: ObservableObject {
         "Desserts" : .pink
     ]
     
-    func onAppear() {
+    func onLoad() {
         getMenu()
+    }
+    
+    func onAppear() {
         checkBasket()
     }
     
     private func getMenu() {
         Task { @MainActor in
             self.menu = try await communicator.loadMenu()
+        }
+    }
+    
+    func colorFor(_ category: String) -> Color {
+        if let color = colors[category] {
+            return color
+        } else {
+            return .blue
         }
     }
     

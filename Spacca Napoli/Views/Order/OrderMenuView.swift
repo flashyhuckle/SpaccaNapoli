@@ -25,9 +25,7 @@ struct OrderMenuView: View {
                                     }
                             }
                         }, header: {
-                            Text(category)
-                                .font(.title)
-                                .foregroundStyle(vm.colours[category] ?? .blue)
+                            SectionHeaderView(text: category, color: vm.colorFor(category))
                         })
                     }
                     Section(header: Text("")) {
@@ -60,6 +58,9 @@ struct OrderMenuView: View {
         .onAppear {
             vm.onAppear()
         }
+        .onLoad {
+            vm.onLoad()
+        }
     }
     
     func spawnView(item: MenuItem, location: CGPoint) {
@@ -81,7 +82,7 @@ struct ItemToBasketView: View {
     @State private var animate = false
     
     var body: some View {
-        GeometryReader { proxy in
+        GeometryReader { screen in
             Image(imageName)
                 .resizable()
                 .scaledToFit()
@@ -89,7 +90,7 @@ struct ItemToBasketView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 15))
                 .scaleEffect(animate ? CGSize(width: 0.1, height: 0.1) : CGSize(width: 1.0, height: 1.0))
                 .rotationEffect(.degrees(animate ? 90 : 0))
-                .position(x: animate ? proxy.size.width / 2 : offset.x , y: animate ? proxy.size.height - 50 : (offset.y - 80))
+                .position(x: animate ? screen.size.width / 2 : offset.x , y: animate ? screen.size.height - 50 : (offset.y - 80))
                 .animation(.easeIn(duration: 0.4), value: animate)
             
                 .onAppear {

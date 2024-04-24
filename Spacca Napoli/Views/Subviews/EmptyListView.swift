@@ -8,6 +8,10 @@ class EmptyListViewCreator {
     static func emptyOrderList() -> EmptyListView {
         EmptyListView(icon: "basket", title: "You have no orders", message: "Pull to refresh or try again after ordering something.")
     }
+    
+    static func loadingOrderList() -> EmptyListView {
+        EmptyListView(icon: "basket", title: "Loading orders", message: "Pull to refresh or try again after ordering something.")
+    }
 }
 
 struct EmptyListView: View {

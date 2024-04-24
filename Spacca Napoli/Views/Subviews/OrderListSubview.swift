@@ -13,7 +13,7 @@ struct OrderListSubview: View {
                         .scaledToFit()
                         .frame(maxWidth: 70)
                         .clipShape(RoundedRectangle(cornerRadius: 15))
-                        .padding(5)
+                        .padding(.leading)
                 }
                 
                 VStack(alignment: .leading) {

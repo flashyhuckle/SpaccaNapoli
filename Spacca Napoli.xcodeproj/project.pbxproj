@@ -11,6 +11,17 @@
 		A4263BBC2BD8075E00A09FDF /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BBB2BD8075E00A09FDF /* CustomBackButton.swift */; };
 		A4263BBE2BD81EEF00A09FDF /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BBD2BD81EEF00A09FDF /* EmptyListView.swift */; };
 		A4263BC02BD82EFF00A09FDF /* OrderListSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BBF2BD82EFF00A09FDF /* OrderListSubview.swift */; };
+		A4263BC22BD845F900A09FDF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BC12BD845F900A09FDF /* View.swift */; };
+		A4263BC42BD918B500A09FDF /* OrderPriceListSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BC32BD918B500A09FDF /* OrderPriceListSubview.swift */; };
+		A4263BC62BD91D5000A09FDF /* OrderItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BC52BD91D5000A09FDF /* OrderItemListView.swift */; };
+		A4263BC82BD91D6900A09FDF /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BC72BD91D6900A09FDF /* AddressView.swift */; };
+		A4263BCA2BD91D9700A09FDF /* AddressDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BC92BD91D9700A09FDF /* AddressDetailView.swift */; };
+		A4263BCC2BD9291100A09FDF /* AddressDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BCB2BD9291100A09FDF /* AddressDetailViewModel.swift */; };
+		A4263BCE2BD93BA900A09FDF /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BCD2BD93BA900A09FDF /* SectionHeaderView.swift */; };
+		A4263BD02BD94AC300A09FDF /* ReservationListSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BCF2BD94AC300A09FDF /* ReservationListSubview.swift */; };
+		A4263BD22BD94D4F00A09FDF /* OrderDetailSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BD12BD94D4F00A09FDF /* OrderDetailSubview.swift */; };
+		A4263BD42BD954B700A09FDF /* AddressTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BD32BD954B700A09FDF /* AddressTextfieldView.swift */; };
+		A4263BD62BD9581500A09FDF /* AddressTextfieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4263BD52BD9581400A09FDF /* AddressTextfieldViewModel.swift */; };
 		A44B9CF42BC51886008D9EC7 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B9CF32BC51886008D9EC7 /* Reservation.swift */; };
 		A44B9CF62BC518EC008D9EC7 /* RestaurantLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B9CF52BC518EC008D9EC7 /* RestaurantLocation.swift */; };
 		A44B9CF82BC518FE008D9EC7 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B9CF72BC518FE008D9EC7 /* MenuItem.swift */; };
@@ -106,6 +117,17 @@
 		A4263BBB2BD8075E00A09FDF /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		A4263BBD2BD81EEF00A09FDF /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		A4263BBF2BD82EFF00A09FDF /* OrderListSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListSubview.swift; sourceTree = "<group>"; };
+		A4263BC12BD845F900A09FDF /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		A4263BC32BD918B500A09FDF /* OrderPriceListSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPriceListSubview.swift; sourceTree = "<group>"; };
+		A4263BC52BD91D5000A09FDF /* OrderItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemListView.swift; sourceTree = "<group>"; };
+		A4263BC72BD91D6900A09FDF /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		A4263BC92BD91D9700A09FDF /* AddressDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDetailView.swift; sourceTree = "<group>"; };
+		A4263BCB2BD9291100A09FDF /* AddressDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDetailViewModel.swift; sourceTree = "<group>"; };
+		A4263BCD2BD93BA900A09FDF /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		A4263BCF2BD94AC300A09FDF /* ReservationListSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationListSubview.swift; sourceTree = "<group>"; };
+		A4263BD12BD94D4F00A09FDF /* OrderDetailSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailSubview.swift; sourceTree = "<group>"; };
+		A4263BD32BD954B700A09FDF /* AddressTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTextfieldView.swift; sourceTree = "<group>"; };
+		A4263BD52BD9581400A09FDF /* AddressTextfieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTextfieldViewModel.swift; sourceTree = "<group>"; };
 		A44B9CF32BC51886008D9EC7 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		A44B9CF52BC518EC008D9EC7 /* RestaurantLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLocation.swift; sourceTree = "<group>"; };
 		A44B9CF72BC518FE008D9EC7 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
@@ -202,6 +224,7 @@
 			children = (
 				A4D336312BC2A17A003014CE /* Date.swift */,
 				A4263BB92BD806BB00A09FDF /* UINavigationController.swift */,
+				A4263BC12BD845F900A09FDF /* View.swift */,
 				A44B9D622BCDAF6F008D9EC7 /* Color.swift */,
 				A44B9D642BCE7B74008D9EC7 /* Bundle.swift */,
 				A4E2E2DA2BD2A2C3005297EE /* String.swift */,
@@ -213,10 +236,16 @@
 			isa = PBXGroup;
 			children = (
 				A4D3363B2BC320AC003014CE /* MenuItemView.swift */,
+				A4263BCD2BD93BA900A09FDF /* SectionHeaderView.swift */,
 				A44B9D2A2BC7E055008D9EC7 /* CustomAlertView.swift */,
 				A4263BBF2BD82EFF00A09FDF /* OrderListSubview.swift */,
+				A4263BC72BD91D6900A09FDF /* AddressView.swift */,
+				A4263BC32BD918B500A09FDF /* OrderPriceListSubview.swift */,
+				A4263BC52BD91D5000A09FDF /* OrderItemListView.swift */,
+				A4263BD12BD94D4F00A09FDF /* OrderDetailSubview.swift */,
 				A4E2E2D82BD18736005297EE /* OrderProgressView.swift */,
 				A4263BBB2BD8075E00A09FDF /* CustomBackButton.swift */,
+				A4263BCF2BD94AC300A09FDF /* ReservationListSubview.swift */,
 				A4263BBD2BD81EEF00A09FDF /* EmptyListView.swift */,
 			);
 			path = Subviews;
@@ -260,6 +289,8 @@
 				A44B9D2C2BC7E8FE008D9EC7 /* BasketViewModel.swift */,
 				A4D7CEF12BC01DDF00FA5650 /* OrderView.swift */,
 				A44B9D282BC7BC8C008D9EC7 /* OrderViewModel.swift */,
+				A4263BD32BD954B700A09FDF /* AddressTextfieldView.swift */,
+				A4263BD52BD9581400A09FDF /* AddressTextfieldViewModel.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -271,6 +302,8 @@
 				A44B9D302BC7F3B8008D9EC7 /* OrderListViewModel.swift */,
 				A44B9CFD2BC53E83008D9EC7 /* OrderDetailView.swift */,
 				A44B9D322BC81357008D9EC7 /* OrderDetailViewModel.swift */,
+				A4263BC92BD91D9700A09FDF /* AddressDetailView.swift */,
+				A4263BCB2BD9291100A09FDF /* AddressDetailViewModel.swift */,
 			);
 			path = OrderList;
 			sourceTree = "<group>";
@@ -567,30 +600,39 @@
 				A44B9D042BC5B06C008D9EC7 /* Address.swift in Sources */,
 				A44B9D292BC7BC8C008D9EC7 /* OrderViewModel.swift in Sources */,
 				A44B9D2F2BC7ED34008D9EC7 /* OrderMenuViewModel.swift in Sources */,
+				A4263BCA2BD91D9700A09FDF /* AddressDetailView.swift in Sources */,
+				A4263BCE2BD93BA900A09FDF /* SectionHeaderView.swift in Sources */,
 				A44B9CF42BC51886008D9EC7 /* Reservation.swift in Sources */,
 				A4B9608A2BC0894F00CFF624 /* BasketView.swift in Sources */,
+				A4263BC82BD91D6900A09FDF /* AddressView.swift in Sources */,
+				A4263BC42BD918B500A09FDF /* OrderPriceListSubview.swift in Sources */,
 				A44B9D632BCDAF6F008D9EC7 /* Color.swift in Sources */,
 				A4D3363E2BC3F08B003014CE /* Order.swift in Sources */,
 				A44B9CFE2BC53E83008D9EC7 /* OrderDetailView.swift in Sources */,
 				A44B9D6B2BCE8669008D9EC7 /* GeocodeAPI.swift in Sources */,
 				A44B9D352BC81C77008D9EC7 /* MenuDetailViewModel.swift in Sources */,
 				A4D7CF242BC0792400FA5650 /* MenuView.swift in Sources */,
+				A4263BC22BD845F900A09FDF /* View.swift in Sources */,
 				A4263BC02BD82EFF00A09FDF /* OrderListSubview.swift in Sources */,
 				A44B9CF62BC518EC008D9EC7 /* RestaurantLocation.swift in Sources */,
 				A44B9D692BCE863C008D9EC7 /* URLSessionHandler.swift in Sources */,
+				A4263BD42BD954B700A09FDF /* AddressTextfieldView.swift in Sources */,
 				A4D336842BC3F743003014CE /* FirebaseHandler.swift in Sources */,
 				A44B9D372BC82000008D9EC7 /* ReservationListViewModel.swift in Sources */,
 				A44B9D392BC822AA008D9EC7 /* ReserveViewModel.swift in Sources */,
+				A4263BCC2BD9291100A09FDF /* AddressDetailViewModel.swift in Sources */,
 				A4E2E2DB2BD2A2C3005297EE /* String.swift in Sources */,
 				A44B9D312BC7F3B8008D9EC7 /* OrderListViewModel.swift in Sources */,
 				A44B9D2D2BC7E8FE008D9EC7 /* BasketViewModel.swift in Sources */,
 				A4D7CF1E2BC0349000FA5650 /* DistanceCalculator.swift in Sources */,
 				A44B9D0C2BC6BC1C008D9EC7 /* MenuDetailView.swift in Sources */,
+				A4263BD02BD94AC300A09FDF /* ReservationListSubview.swift in Sources */,
 				A44B9D332BC81357008D9EC7 /* OrderDetailViewModel.swift in Sources */,
 				A44B9D712BCEC296008D9EC7 /* MenuCommunicator.swift in Sources */,
 				A44B9D6F2BCE8DC3008D9EC7 /* ReservationCommunicator.swift in Sources */,
 				A44B9D0E2BC6C4C0008D9EC7 /* ReservationListView.swift in Sources */,
 				A4D7CEF22BC01DDF00FA5650 /* OrderView.swift in Sources */,
+				A4263BD22BD94D4F00A09FDF /* OrderDetailSubview.swift in Sources */,
 				A4D7CF1A2BC029F400FA5650 /* GeocodeResponse.swift in Sources */,
 				A44B9D0A2BC5B18D008D9EC7 /* NetworkingError.swift in Sources */,
 				A44B9D6D2BCE8D66008D9EC7 /* OrderCommunicator.swift in Sources */,
@@ -605,12 +647,14 @@
 				A44B9D652BCE7B74008D9EC7 /* Bundle.swift in Sources */,
 				A44B9D022BC5B05D008D9EC7 /* OrderStatus.swift in Sources */,
 				A4263BBC2BD8075E00A09FDF /* CustomBackButton.swift in Sources */,
+				A4263BD62BD9581500A09FDF /* AddressTextfieldViewModel.swift in Sources */,
 				A44B9D082BC5B0C1008D9EC7 /* ApiError.swift in Sources */,
 				A4263BBE2BD81EEF00A09FDF /* EmptyListView.swift in Sources */,
 				A44B9D062BC5B09C008D9EC7 /* ReservationStatus.swift in Sources */,
 				A4D3363C2BC320AC003014CE /* MenuItemView.swift in Sources */,
 				A4B9608C2BC15E3200CFF624 /* LandingView.swift in Sources */,
 				A44B9D1F2BC71C1E008D9EC7 /* DataCommunicator.swift in Sources */,
+				A4263BC62BD91D5000A09FDF /* OrderItemListView.swift in Sources */,
 				A44B9CF82BC518FE008D9EC7 /* MenuItem.swift in Sources */,
 				A4D336322BC2A17A003014CE /* Date.swift in Sources */,
 				A4D7CF262BC0793A00FA5650 /* MenuViewModel.swift in Sources */,

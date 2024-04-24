@@ -26,6 +26,23 @@ final class OrderDetailViewModel: ObservableObject {
         stopObserving()
     }
     
+    func itemsTotal() -> Int {
+        var price = 0
+        for item in order.orderedItems {
+            price += item.price
+        }
+        return price
+    }
+    
+    func orderTotal() -> Int {
+        var price = 0
+        for item in order.orderedItems {
+            price += item.price
+        }
+        price += order.deliveryCost
+        return price
+    }
+    
     private func refreshOrder() {
         Task { @MainActor in
             let refreshedOrder = try await communicator.refresh(order)

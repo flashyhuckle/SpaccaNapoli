@@ -4,11 +4,11 @@ struct GeocodeResponse: Codable {
     let lat: String
     let lon: String
     
-    var latFloat: Double {
+    var latDouble: Double {
         Double(lat) ?? 0.0
     }
     
-    var lonFloat: Double {
+    var lonDouble: Double {
         Double(lon) ?? 0.0
     }
 }
