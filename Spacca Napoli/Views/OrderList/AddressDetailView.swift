@@ -2,24 +2,35 @@ import CoreLocation
 import MapKit
 import SwiftUI
 
+extension Marker: Identifiable {
+    public var id: UUID {
+        UUID()
+    }
+}
+
+extension MapPolyline: Identifiable {
+    public var id: UUID {
+        UUID()
+    }
+}
+
 struct AddressDetailView: View {
     @StateObject var vm: AddressDetailViewModel
     
-    
     var body: some View {
         ZStack {
-            Map {
-                Marker("Spacca", systemImage: "fork.knife", coordinate: vm.spacca)
-                    .tint(.neapolitanRed)
-                if let user = vm.user {
-                    Marker("You", systemImage: "person", coordinate: user)
+            Map(position: $vm.position) {
+                ForEach(vm.markerArray) { item in
+                    item
                         .tint(.neapolitanRed)
                 }
-                if let route = vm.route {
-                        MapPolyline(route)
-                            .stroke(.neapolitanRed, lineWidth: 2)
+                
+                ForEach(vm.routeArray) { route in
+                    route
+                        .stroke(.neapolitanRed, lineWidth: 2)
                 }
             }.allowsHitTesting(false)
+            
             VStack {
                 Spacer()
                 AddressView(address: vm.address)
@@ -27,6 +38,7 @@ struct AddressDetailView: View {
                     .background(.neapolitanGray.opacity(0.7))
                     .clipShape(RoundedRectangle(cornerRadius: 25))
             }
+            
         }
         .navigationTitle("Delivery")
         .navigationBarTitleDisplayMode(.inline)

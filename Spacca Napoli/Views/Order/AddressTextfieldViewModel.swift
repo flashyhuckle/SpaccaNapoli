@@ -60,7 +60,6 @@ class AddressTextfieldViewModel: ObservableObject {
     }
     
     func getAlertTitle() -> String {
-        print(deliveryPossible)
         switch deliveryPossible {
         case .free:
             return "Delivery is possible"
