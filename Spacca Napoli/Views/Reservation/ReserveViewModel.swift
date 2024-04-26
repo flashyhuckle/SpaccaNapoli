@@ -3,9 +3,26 @@ import Foundation
 final class ReserveViewModel: ObservableObject {
     private let communicator: ReservationCommunicatorType
     
-    @Published var name: String = ""
-    @Published var email: String = ""
-    @Published var phone: String = ""
+    @Published var name: String = "" {
+        didSet {
+            isNameValid = name.isValidName
+        }
+    }
+    @Published var isNameValid: Bool = false
+    
+    @Published var email: String = "" {
+        didSet {
+            isEmailValid = email.isValidEmail
+        }
+    }
+    @Published var isEmailValid: Bool = false
+    
+    @Published var phone: String = "" {
+        didSet {
+            isPhoneValid = !phone.isValidPhoneNumber
+        }
+    }
+    @Published var isPhoneValid: Bool = false
     
     @Published var restaurant: RestaurantLocation = .swietokrzyska
     @Published var numberOfPeople = 0
@@ -40,6 +57,19 @@ final class ReserveViewModel: ObservableObject {
         return date
     }
     
+    func reserveButtonPressed() {
+        if allFieldsValid() {
+            reserveTable()
+        } else {
+            isAlertShowing = true
+        }
+    }
+    
+    func allFieldsValid() -> Bool {
+        guard isNameValid, isEmailValid, isPhoneValid else { return false }
+        return true
+    }
+    
     func reserveTable() {
         let reservation = Reservation(
             id: UUID(),
@@ -57,7 +87,19 @@ final class ReserveViewModel: ObservableObject {
         isAlertShowing = true
     }
     
+    func alertTitle() -> String {
+        if allFieldsValid() {
+            "Your request is sent"
+        } else {
+            "Cannot process your request"
+        }
+    }
+    
     func alertMessage() -> String {
-        "Your reservation for \(createDate()) for \(numberOfPeople + 1) has been requested. Please wait for a confirmation."
+        if allFieldsValid() {
+            "Your reservation for \(createDate().formatted()) for \(numberOfPeople + 1) has been requested. Please wait for a confirmation."
+        } else {
+            "Please check your data, something's not right."
+        }
     }
 }

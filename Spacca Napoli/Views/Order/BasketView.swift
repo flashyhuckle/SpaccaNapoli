@@ -4,7 +4,7 @@ struct BasketView: View {
     @StateObject var vm: BasketViewModel
     
     var body: some View {
-        ZStack {
+        NavigationStack {
             List {
                 ForEach(vm.basket.items, id: \.name) { item in
                     MenuItemView(menuItem: item)
@@ -15,37 +15,19 @@ struct BasketView: View {
                     EmptyView()
                 }
             }
-            VStack {
-                Spacer()
-                ZStack {
-                    if vm.orderPossible {
-                        NavigationLink {
-                            OrderView(vm: OrderViewModel(basket: $vm.basket))
-                        } label: {
-                            VStack {
-                                HStack {
-                                    Image(systemName: "cart")
-                                    Text(vm.buttonText())
-                                }
-                                Text("Checkout")
-                            }
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(Color.basketButtonActive)
-                            .clipShape(Capsule())
-                        }
-                    } else {
-                        Button(action: {
-                            vm.buttonPressed()
-                        }, label: {
-                            Text("Minimum 2 items")
-                                .foregroundStyle(.white)
-                                .padding()
-                                .background(Color.basketButtonDisabled)
-                                .clipShape(Capsule())
-                        })
-                    }
-                }
+            .withBottomNavLink(
+                vm.buttonText(),
+                icon: "cart",
+                visible: vm.orderPossible
+            ) {
+                OrderView(vm: OrderViewModel(basket: $vm.basket))
+            }
+            .withBottomButton(
+                "Minimum 2 items",
+                color: .neapolitanGray,
+                visible: !vm.orderPossible
+            ) {
+                vm.buttonPressed()
             }
         }
         .customBackButton(color: .neapolitanRed)

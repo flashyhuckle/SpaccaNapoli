@@ -26,7 +26,7 @@ final class BasketViewModel: ObservableObject {
         for item in basket.items {
             price += item.price
         }
-        return "Basket: \(price) PLN"
+        return "Checkout: \(price) PLN"
     }
     
     func checkBasket() {

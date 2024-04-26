@@ -10,14 +10,6 @@ struct OrderDetailView: View {
                 List {
                     Section(content: {
                         OrderDetailSubview(items: vm.order.orderedItems, deliveryCost: vm.order.deliveryCost)
-//                        NavigationLink {
-//                            OrderItemListView(items: vm.order.orderedItems)
-//                        } label: {
-//                            OrderPriceListSubview(title: "Items", price: vm.itemsTotal())
-//                        }
-//                        
-//                        OrderPriceListSubview(title: "Delivery", price: vm.order.deliveryCost)
-//                        OrderPriceListSubview(title: "Total", price: vm.orderTotal())
                     }, header: {
                         SectionHeaderView(text: "Order", color: .neapolitanRed)
                     })

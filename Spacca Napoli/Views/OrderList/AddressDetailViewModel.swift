@@ -48,11 +48,9 @@ class AddressDetailViewModel: ObservableObject {
         let directions = MKDirections(request: request)
         let response = try await directions.calculate()
         
-        withAnimation {
-            DispatchQueue.main.async {
-                self.route = response.routes.first
-                self.user = destination
-            }
+        DispatchQueue.main.async {
+            self.route = response.routes.first
+            self.user = destination
         }
     }
 }

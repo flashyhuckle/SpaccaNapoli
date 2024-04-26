@@ -4,6 +4,8 @@ struct OrderMenuView: View {
     @StateObject var vm: OrderMenuViewModel
     @State private var toBasketViews = [ItemToBasketView]()
     
+    @State private var action: Int? = 0
+    
     init(
         vm: OrderMenuViewModel = OrderMenuViewModel()
     ) {
@@ -20,8 +22,7 @@ struct OrderMenuView: View {
                                 MenuItemView(menuItem: item)
                                     .contentShape(Rectangle())
                                     .onTapGesture(coordinateSpace: .global) { location in
-                                        vm.tappedOn(item)
-                                        spawnView(item: item, location: location)
+                                        vm.tappedOn(item, in: location)
                                     }
                             }
                         }, header: {
@@ -32,26 +33,18 @@ struct OrderMenuView: View {
                         EmptyView()
                     }
                 }
-                
-                VStack {
-                    Spacer()
-                    NavigationLink {
-                        BasketView(vm: BasketViewModel(basket: $vm.basket))
-                    } label: {
-                        HStack {
-                            Image(systemName: "cart")
-                            Text(vm.buttonText())
-                        }
-                        .foregroundStyle(.white)
-                        .padding()
-                        .background(vm.basketButtonDisabled ? Color.basketButtonDisabled : Color.basketButtonActive)
-                        .clipShape(Capsule())
-                        .scaleEffect(vm.animation ? CGSize(width: 1.2, height: 1.2) : CGSize(width: 1, height: 1))
-                    }.disabled(vm.basketButtonDisabled)
-                }
-                ForEach(toBasketViews, id: \.id) { view in
+                ForEach(vm.toBasketViews, id: \.id) { view in
                     view
                 }
+            }
+            .withBottomNavLink(
+                vm.buttonText(),
+                icon: "cart",
+                color: vm.basketButtonDisabled ? Color.neapolitanGray : Color.neapolitanRed,
+                disabled: vm.basketButtonDisabled,
+                bounce: vm.animation
+            ) {
+                BasketView(vm: BasketViewModel(basket: $vm.basket))
             }
         }
         .customBackButton(color: .neapolitanRed)
@@ -62,44 +55,9 @@ struct OrderMenuView: View {
             vm.onLoad()
         }
     }
-    
-    func spawnView(item: MenuItem, location: CGPoint) {
-        let view = ItemToBasketView(imageName: item.name, offset: location)
-        toBasketViews.append(view)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            withAnimation {
-                _ = self.toBasketViews.removeFirst()
-            }
-        }
-    }
 }
 
-struct ItemToBasketView: View {
-    let id = UUID()
-    let imageName: String
-    let offset: CGPoint
-    @State private var animate = false
-    
-    var body: some View {
-        GeometryReader { screen in
-            Image(imageName)
-                .resizable()
-                .scaledToFit()
-                .frame(maxWidth: 80)
-                .clipShape(RoundedRectangle(cornerRadius: 15))
-                .scaleEffect(animate ? CGSize(width: 0.1, height: 0.1) : CGSize(width: 1.0, height: 1.0))
-                .rotationEffect(.degrees(animate ? 90 : 0))
-                .position(x: animate ? screen.size.width / 2 : offset.x , y: animate ? screen.size.height - 50 : (offset.y - 80))
-                .animation(.easeIn(duration: 0.4), value: animate)
-            
-                .onAppear {
-                    animate = true
-                }
-                .allowsHitTesting(false)
-        }
-    }
-}
+
 
 #Preview {
     OrderMenuView()

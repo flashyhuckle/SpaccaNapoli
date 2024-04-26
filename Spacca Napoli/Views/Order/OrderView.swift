@@ -4,52 +4,43 @@ struct OrderView: View {
     @StateObject var vm: OrderViewModel
     
     var body: some View {
-        
         NavigationStack {
-            ZStack {
-                List {
-                    Section {
-                        NavigationLink {
-                            AddressTextfieldView(
-                                vm: AddressTextfieldViewModel(
-                                    address: $vm.address,
-                                    deliveryPossible: $vm.deliveryPossible
-                                )
+            List {
+                Section {
+                    NavigationLink {
+                        AddressTextfieldView(
+                            vm: AddressTextfieldViewModel(
+                                address: $vm.address,
+                                deliveryPossible: $vm.deliveryPossible
                             )
-                        } label: {
-                            AddressView(address: vm.address, isValidated: $vm.isDeliveryPossible)
-                        }
-
-                    } header: {
-                        SectionHeaderView(text: "Address", color: .neapolitanGreen)
+                        )
+                    } label: {
+                        AddressView(address: vm.address)
+                            .indicated($vm.isDeliveryPossible)
                     }
                     
-                    Section {
-                        OrderDetailSubview(items: vm.basket.items, deliveryCost: vm.deliveryCost)
-                    } header: {
-                        SectionHeaderView(text: "Summary", color: .neapolitanRed)
-                    }
+                } header: {
+                    SectionHeaderView(text: "Address", color: .neapolitanGreen)
                 }
-                VStack {
-                    Spacer()
-                    Button(action: {
-                        vm.placeOrder()
-                    }, label: {
-                        Text("Place an order")
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(vm.isDeliveryPossible ? Color(red: 0.8, green: 0, blue: 0) : Color(red: 0.8, green: 0.8, blue: 0.8))
-                            .clipShape(Capsule())
-                    })
-                    .disabled(!vm.isDeliveryPossible)
+                
+                Section {
+                    OrderDetailSubview(items: vm.basket.items, deliveryCost: vm.deliveryCost)
+                } header: {
+                    SectionHeaderView(text: "Summary", color: .neapolitanRed)
                 }
             }
+            .withBottomButton(
+                "Place an order",
+                color: vm.isDeliveryPossible ? .neapolitanRed : .neapolitanGray) {
+                    vm.buttonPressed()
+                }
         }
         .contentShape(Rectangle())
+        .customBackButton(color: .neapolitanRed)
         
         .oneButtonAlert(
-            title: "Your order has been placed!",
-            message: "",
+            title: vm.alertTitle(),
+            message: vm.alertMessage(),
             isPresented: $vm.isAlertVisible
         ) {
             vm.alertActionButtonPressed()

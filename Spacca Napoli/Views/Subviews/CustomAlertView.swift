@@ -7,12 +7,12 @@ enum CustomAlertConfiguration {
 
 struct CustomAlertView: View {
     @Binding private var isPresented: Bool
-    @State private var titleKey: LocalizedStringKey
-    @State private var messageKey: LocalizedStringKey
+    @State private var titleKey: String
+    @State private var messageKey: String
     
     @State private var configuration: CustomAlertConfiguration
     
-    @State private var actionTextKey: LocalizedStringKey
+    @State private var actionTextKey: String
     
     @State private var isAnimating = false
     private let animationDuration = 0.25
@@ -21,11 +21,11 @@ struct CustomAlertView: View {
     private var cancelAction: (() -> ())?
     
     init(
-        titleKey: LocalizedStringKey,
-        messageKey: LocalizedStringKey,
+        titleKey: String,
+        messageKey: String,
         isPresented: Binding<Bool>,
         configuration: CustomAlertConfiguration,
-        actionTextKey: LocalizedStringKey,
+        actionTextKey: String,
         action: @escaping () -> (),
         cancelAction: @escaping () -> ()
     ) {
@@ -50,12 +50,12 @@ struct CustomAlertView: View {
                 VStack {
                     Text(titleKey)
                         .font(.title2).bold()
-                        .foregroundStyle(.green)
+                        .foregroundStyle(.neapolitanRed)
                         .padding(8)
                         .multilineTextAlignment(.center)
                     
                     Text(messageKey)
-                        .foregroundStyle(.green)
+                        .foregroundStyle(.neapolitanGray)
                         .multilineTextAlignment(.center)
                     
                     HStack {
@@ -92,7 +92,7 @@ struct CustomAlertView: View {
                 .padding()
                 .multilineTextAlignment(.center)
                 .frame(maxWidth: 125)
-                .background(.green)
+                .background(.neapolitanGreen)
                 .clipShape(RoundedRectangle(cornerRadius: 15))
         }
     }
@@ -141,8 +141,8 @@ struct CustomAlertView: View {
 
 extension View {
     func oneButtonAlert(
-        title: LocalizedStringKey,
-        message: LocalizedStringKey,
+        title: String,
+        message: String,
         isPresented: Binding<Bool>,
         action: @escaping () -> ()
     ) -> some View {

@@ -2,14 +2,11 @@ import SwiftUI
 
 struct AddressView: View {
     let address: Address
-    @Binding var isValidated: Bool
     
     init(
-        address: Address,
-        isValidated: Binding<Bool> = .constant(true)
+        address: Address
     ) {
         self.address = address
-        _isValidated = isValidated
     }
     
     var body: some View {
@@ -26,11 +23,6 @@ struct AddressView: View {
                     Text(address.postalCode)
                     Text(address.city)
                 }
-            }
-            if !isValidated {
-                Spacer()
-                Image(systemName: "exclamationmark.circle")
-                    .foregroundStyle(Color.neapolitanRed)
             }
         }
     }
@@ -52,7 +44,6 @@ struct AddressView: View {
             apartment: "100",
             city: "Warszawa",
             postalCode: "00-867"
-        ),
-        isValidated: .constant(false)
+        )
     )
 }

@@ -4,22 +4,28 @@ struct MenuDetailView: View {
     let vm: MenuDetailViewModel
     
     var body: some View {
-        
-    #warning ("improve look of this view")
-        
-        VStack {
-            Text(vm.menuItem.name)
-                .font(.title)
-                .padding(.horizontal)
+        ZStack {
             Image(vm.menuItem.name)
                 .resizable()
-                .scaledToFit()
-                .frame(maxWidth: 300)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-            Text(vm.menuItem.description)
-                .padding()
-            Text("\(vm.menuItem.price),-")
-                .font(.title)
+                .scaledToFill()
+                .ignoresSafeArea()
+                .opacity(0.1)
+                
+            VStack {
+                Text(vm.menuItem.name)
+                    .font(.title)
+                    .padding()
+                Image(vm.menuItem.name)
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                Text(vm.menuItem.description)
+                    .padding()
+                Text("\(vm.menuItem.price),-")
+                    .font(.title)
+            }
+            .frame(maxWidth: 300)
+            .multilineTextAlignment(.center)
         }
         .customBackButton(color: .neapolitanGreen)
     }
@@ -29,7 +35,7 @@ struct MenuDetailView: View {
     MenuDetailView(
         vm: MenuDetailViewModel(
             menuItem: MenuItem(
-                name: "SPAGHETTI AL PESTO STRACCIATELLA E POMODORI CONFIT",
+                name: "PROSCIUTTO E MOZZARELLA",
                 price: 29,
                 description: "tomato sauce, mozzarella fiordilatte, grana padano cheese D.O.P., basil",
                 category: "Pizza Bianca"

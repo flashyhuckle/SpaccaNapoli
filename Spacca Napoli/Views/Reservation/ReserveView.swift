@@ -8,17 +8,28 @@ struct ReserveView: View {
         vm: ReserveViewModel = ReserveViewModel()
     ) {
         _vm = StateObject(wrappedValue: vm)
+        UIDatePicker.appearance().minuteInterval = 30
     }
     
     var body: some View {
-        
-    #warning ("improve look of this view")
-        
         Form {
-            Section {
+            Section(content: {
                 TextField("Your name", text: $vm.name)
+                    .indicated($vm.isNameValid)
                 TextField("Your email address", text: $vm.email)
+                    .keyboardType(.emailAddress)
+                    .indicated($vm.isEmailValid)
                 TextField("Your phone number", text: $vm.phone)
+                    .keyboardType(.numberPad)
+                    .onChange(of: vm.phone) {
+                        vm.phone = vm.phone.formatPhoneNumber()
+                    }
+                    .indicated($vm.isPhoneValid)
+            }, header: {
+                SectionHeaderView(text: "Your data", color: .neapolitanGray)
+            })
+            
+            Section(content: {
                 Picker("Restaurant", selection: $vm.restaurant) {
                     ForEach(RestaurantLocation.allCases, id: \.self) { restaurant in
                         Text(restaurant.rawValue)
@@ -34,23 +45,22 @@ struct ReserveView: View {
                     DatePicker("Pick hour", selection: $vm.hour, in: vm.hourRange(), displayedComponents: .hourAndMinute)
                         .labelsHidden()
                 }
-                Button(action: {
-                    vm.reserveTable()
-                }, label: {
-                    Text("Reserve your table")
-                })
-            }
+            }, header: {
+                SectionHeaderView(text: "Reservation", color: .neapolitanGray)
+            })
+        }
+        .withBottomButton("Reserve your table", icon: "list.bullet.clipboard") {
+            vm.reserveButtonPressed()
         }
         .customBackButton(color: .neapolitanGray)
-        .onAppear {
-            UIDatePicker.appearance().minuteInterval = 30
-        }
         .oneButtonAlert(
-            title: "Request sent",
-            message: "Your reservation for \(vm.createDate()) for \(vm.numberOfPeople + 1) has been requested. Please wait for a confirmation.",
+            title: vm.alertTitle(),
+            message: vm.alertMessage(),
             isPresented: $vm.isAlertShowing
         ) {
-            dismiss()
+            if vm.allFieldsValid() {
+                dismiss()
+            }
         }
     }
 }

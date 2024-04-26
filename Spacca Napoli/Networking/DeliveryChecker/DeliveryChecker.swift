@@ -32,7 +32,7 @@ final class DeliveryChecker: DeliveryCheckerType {
         switch distance {
         case ..<2000:
             return .free
-        case ..<10000:
+        case ..<5000:
             return .paid
         default:
             return .notPossible

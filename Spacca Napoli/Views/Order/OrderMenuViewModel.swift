@@ -8,6 +8,7 @@ final class OrderMenuViewModel: ObservableObject {
     @Published var basket = Basket()
     @Published var basketButtonDisabled = true
     @Published var animation = false
+    @Published var toBasketViews = [ItemToBasketView]()
     
     init(
         communicator: MenuCommunicatorType = MenuCommunicator()
@@ -52,10 +53,22 @@ final class OrderMenuViewModel: ObservableObject {
         menu.items.filter { $0.category == category }
     }
     
-    func tappedOn(_ item: MenuItem) {
+    func tappedOn(_ item: MenuItem, in location: CGPoint) {
+        spawnView(item: item, location: location)
         basket.items.append(item)
         checkBasket()
         animateButton()
+    }
+    
+    private func spawnView(item: MenuItem, location: CGPoint) {
+        let view = ItemToBasketView(imageName: item.name, offset: location)
+        toBasketViews.append(view)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            withAnimation {
+                _ = self.toBasketViews.removeFirst()
+            }
+        }
     }
     
     private func animateButton() {

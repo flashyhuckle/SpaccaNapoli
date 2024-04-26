@@ -16,7 +16,11 @@ final class OrderViewModel: ObservableObject {
     @Published var isDeliveryPossible = false
     @Published var deliveryCost = 0
     
-    @Published var deliveryPossible: DeliveryOption = .notPossible
+    @Published var deliveryPossible: DeliveryOption = .notPossible {
+        didSet {
+            print("orderVM \(deliveryPossible)")
+        }
+    }
     
     @Published var isAlertVisible = false
     
@@ -42,7 +46,31 @@ final class OrderViewModel: ObservableObject {
         }
     }
     
-    func placeOrder() {
+    func buttonPressed() {
+        if isDeliveryPossible {
+            placeOrder()
+        } else {
+            isAlertVisible = true
+        }
+    }
+    
+    func alertTitle() -> String {
+        if isDeliveryPossible {
+            "Your order has been placed!"
+        } else {
+            "Delivery is not possible"
+        }
+    }
+    
+    func alertMessage() -> String {
+        if isDeliveryPossible {
+            "You can observe it's status on order list"
+        } else {
+            "Make sure your address is correct and verified"
+        }
+    }
+    
+    private func placeOrder() {
         let order = Order(address: address, deliveryCost: deliveryCost, orderedItems: basket.items)
         Task { @MainActor in
             try await communicator.place(order)
@@ -51,6 +79,12 @@ final class OrderViewModel: ObservableObject {
     }
     
     func alertActionButtonPressed() {
+        if isDeliveryPossible {
+            finishOrdering()
+        }
+    }
+    
+    private func finishOrdering() {
         basket.items.removeAll()
         NavigationPopper.popToRootView()
     }

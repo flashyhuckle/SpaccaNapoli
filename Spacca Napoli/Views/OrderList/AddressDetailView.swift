@@ -9,9 +9,11 @@ struct AddressDetailView: View {
     var body: some View {
         ZStack {
             Map {
-                Marker("Spacca", coordinate: vm.spacca)
+                Marker("Spacca", systemImage: "fork.knife", coordinate: vm.spacca)
+                    .tint(.neapolitanRed)
                 if let user = vm.user {
-                    Marker("You", coordinate: user)
+                    Marker("You", systemImage: "person", coordinate: user)
+                        .tint(.neapolitanRed)
                 }
                 if let route = vm.route {
                         MapPolyline(route)

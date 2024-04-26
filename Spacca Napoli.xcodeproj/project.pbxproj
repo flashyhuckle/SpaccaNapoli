@@ -78,6 +78,7 @@
 		A4D7CF1E2BC0349000FA5650 /* DistanceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7CF1D2BC0349000FA5650 /* DistanceCalculator.swift */; };
 		A4D7CF242BC0792400FA5650 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7CF232BC0792400FA5650 /* MenuView.swift */; };
 		A4D7CF262BC0793A00FA5650 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7CF252BC0793A00FA5650 /* MenuViewModel.swift */; };
+		A4E072CF2BDA619B00421C2C /* ItemToBasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E072CE2BDA619A00421C2C /* ItemToBasketView.swift */; };
 		A4E2E2D92BD18736005297EE /* OrderProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2E2D82BD18736005297EE /* OrderProgressView.swift */; };
 		A4E2E2DB2BD2A2C3005297EE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2E2DA2BD2A2C3005297EE /* String.swift */; };
 /* End PBXBuildFile section */
@@ -188,6 +189,7 @@
 		A4D7CF1D2BC0349000FA5650 /* DistanceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculator.swift; sourceTree = "<group>"; };
 		A4D7CF232BC0792400FA5650 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		A4D7CF252BC0793A00FA5650 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		A4E072CE2BDA619A00421C2C /* ItemToBasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemToBasketView.swift; sourceTree = "<group>"; };
 		A4E2E2D82BD18736005297EE /* OrderProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProgressView.swift; sourceTree = "<group>"; };
 		A4E2E2DA2BD2A2C3005297EE /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				A4D3363B2BC320AC003014CE /* MenuItemView.swift */,
+				A4E072CE2BDA619A00421C2C /* ItemToBasketView.swift */,
 				A4263BCD2BD93BA900A09FDF /* SectionHeaderView.swift */,
 				A44B9D2A2BC7E055008D9EC7 /* CustomAlertView.swift */,
 				A4263BBF2BD82EFF00A09FDF /* OrderListSubview.swift */,
@@ -628,6 +631,7 @@
 				A44B9D0C2BC6BC1C008D9EC7 /* MenuDetailView.swift in Sources */,
 				A4263BD02BD94AC300A09FDF /* ReservationListSubview.swift in Sources */,
 				A44B9D332BC81357008D9EC7 /* OrderDetailViewModel.swift in Sources */,
+				A4E072CF2BDA619B00421C2C /* ItemToBasketView.swift in Sources */,
 				A44B9D712BCEC296008D9EC7 /* MenuCommunicator.swift in Sources */,
 				A44B9D6F2BCE8DC3008D9EC7 /* ReservationCommunicator.swift in Sources */,
 				A44B9D0E2BC6C4C0008D9EC7 /* ReservationListView.swift in Sources */,

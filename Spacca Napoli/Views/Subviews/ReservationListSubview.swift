@@ -22,7 +22,7 @@ struct ReservationListSubview: View {
                 .frame(maxWidth: 75, maxHeight: 15)
                 .lineLimit(1)
                 .padding()
-                .background(statusColor())
+                .background(statusColor().opacity(0.6))
                 .clipShape(Capsule())
         }
         
