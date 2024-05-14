@@ -48,5 +48,5 @@ struct ReservationListView: View {
 }
 
 #Preview {
-    ReservationListView()
+    ReservationListView(vm: ReservationListViewModel(communicator: ReservationCommunicatorMock()))
 }

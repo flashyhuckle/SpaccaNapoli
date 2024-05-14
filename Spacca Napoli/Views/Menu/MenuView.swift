@@ -35,5 +35,5 @@ struct MenuView: View {
 
 
 #Preview {
-    MenuView()
+    MenuView(vm: MenuViewModel(communicator: MenuCommunicatorMock()))
 }

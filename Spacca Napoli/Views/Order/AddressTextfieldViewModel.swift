@@ -17,7 +17,6 @@ class AddressTextfieldViewModel: ObservableObject {
     
     @Published var buttonState = ButtonState.unchecked
     
-    @Published var readyToDismiss = false
     @Published var isAlertShowing = false
     
     private let deliveryChecker: DeliveryCheckerType
@@ -94,16 +93,18 @@ class AddressTextfieldViewModel: ObservableObject {
     
     func checkAddress() {
         Task { @MainActor in
-            let deliveryOption = try await deliveryChecker.check(address)
-            deliveryPossible = deliveryOption
-            switch deliveryPossible {
-            case .free, .paid:
-                buttonState = .possible
-                readyToDismiss = true
-                isAlertShowing = true
-            case .notPossible:
-                buttonState = .notPossible
-            }
+            deliveryPossible = try await deliveryChecker.check(address)
+            processDelivery()
+        }
+    }
+    
+    func processDelivery() {
+        switch deliveryPossible {
+        case .free, .paid:
+            buttonState = .possible
+            isAlertShowing = true
+        case .notPossible:
+            buttonState = .notPossible
         }
     }
 }

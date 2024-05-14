@@ -30,5 +30,7 @@ final class ReservationListViewModel: ObservableObject {
         Task { @MainActor in
             reservations = try await communicator.loadReservations().sorted(by: {$0.date > $1.date})
         }
+        let reservationsMock = Reservation.mockReservationResponse()
+        print(reservationsMock)
     }
 }

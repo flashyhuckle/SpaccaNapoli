@@ -31,7 +31,6 @@ final class URLSessionHandler: URLSessionHandlerType {
                 throw RequestError.cannotBuildURL
             }
         }
-        
         let request = URLRequest(url: url)
         
         let (data, response) = try await session.data(for: request)

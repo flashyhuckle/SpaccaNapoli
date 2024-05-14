@@ -48,5 +48,5 @@ struct OrderListView: View {
 
 
 #Preview {
-    OrderListView()
+    OrderListView(vm: OrderListViewModel(communicator: OrderCommunicatorMock()))
 }

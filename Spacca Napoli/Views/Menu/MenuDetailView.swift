@@ -32,14 +32,5 @@ struct MenuDetailView: View {
 }
 
 #Preview {
-    MenuDetailView(
-        vm: MenuDetailViewModel(
-            menuItem: MenuItem(
-                name: "PROSCIUTTO E MOZZARELLA",
-                price: 29,
-                description: "tomato sauce, mozzarella fiordilatte, grana padano cheese D.O.P., basil",
-                category: "Pizza Bianca"
-            )
-        )
-    )
+    MenuDetailView(vm: MenuDetailViewModel(menuItem: Menu.mockMenuItem()))
 }

@@ -60,5 +60,5 @@ struct OrderMenuView: View {
 
 
 #Preview {
-    OrderMenuView()
+    OrderMenuView(vm: OrderMenuViewModel(communicator: MenuCommunicatorMock()))
 }

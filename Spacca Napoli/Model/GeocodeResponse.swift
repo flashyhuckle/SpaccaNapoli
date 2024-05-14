@@ -1,4 +1,4 @@
-import Foundation
+import CoreLocation
 
 struct GeocodeResponse: Codable {
     let lat: String
@@ -10,6 +10,10 @@ struct GeocodeResponse: Codable {
     
     var lonDouble: Double {
         Double(lon) ?? 0.0
+    }
+    
+    var CLLC2D: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latDouble, longitude: lonDouble)
     }
 }
 

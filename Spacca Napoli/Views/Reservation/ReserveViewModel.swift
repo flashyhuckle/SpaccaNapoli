@@ -19,7 +19,7 @@ final class ReserveViewModel: ObservableObject {
     
     @Published var phone: String = "" {
         didSet {
-            isPhoneValid = !phone.isValidPhoneNumber
+            isPhoneValid = phone.isValidPhoneNumber
         }
     }
     @Published var isPhoneValid: Bool = false

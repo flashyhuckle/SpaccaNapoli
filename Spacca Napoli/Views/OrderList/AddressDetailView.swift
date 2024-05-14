@@ -20,8 +20,8 @@ struct AddressDetailView: View {
     var body: some View {
         ZStack {
             Map(position: $vm.position) {
-                ForEach(vm.markerArray) { item in
-                    item
+                ForEach(vm.markerArray) { marker in
+                    marker
                         .tint(.neapolitanRed)
                 }
                 
@@ -51,15 +51,5 @@ struct AddressDetailView: View {
 }
 
 #Preview {
-    AddressDetailView(
-        vm: AddressDetailViewModel(
-            address: Address(
-                street: "Chłodna",
-                building: "51",
-                apartment: "100",
-                city: "Warszawa",
-                postalCode: "00-867"
-            )
-        )
-    )
+    AddressDetailView(vm: AddressDetailViewModel(address: Order.mockOrder().address))
 }

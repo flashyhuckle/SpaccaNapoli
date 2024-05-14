@@ -2,12 +2,14 @@
 
 This is a just for fun app for a pizzeria: https://spaccanapoli.pl
 
-## Planned features
+## Features
 
 - In-app version of the menu
 - A reservation system for 2 locations
-- An online ordering system
+- An online ordering system with order status tracking
 - Geocoding API cheking if you are within delivery range
+
+Order and reservations, as well as menu data is handled via Firebase. There will be second app (from restaurant side - PizzaOperator) to process orders and accept reservations.
 
 ## Info
 

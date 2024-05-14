@@ -70,18 +70,13 @@ struct AddressTextfieldView: View {
 }
 
 #Preview {
-    AddressTextfieldView(
-        vm: AddressTextfieldViewModel(
-            address: .constant(
-                Address(
-                    street: "Chłodna",
-                    building: "51",
-                    apartment: "100",
-                    city: "Warszawa",
-                    postalCode: "00-867"
-                )
-            ),
-            deliveryPossible: .constant(DeliveryOption.notPossible)
+    PreviewBindingWrapperDouble(DeliveryOption.notPossible, Order.mockOrder().address) { deliveryOptionBinding, addressBinding in
+        AddressTextfieldView(
+            vm: AddressTextfieldViewModel(
+                address: addressBinding,
+                deliveryPossible: deliveryOptionBinding,
+                deliveryChecker: DeliveryCheckerMock()
+            )
         )
-    )
+    }
 }

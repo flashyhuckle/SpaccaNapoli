@@ -44,7 +44,7 @@ extension FirebaseHandler {
             let encoded = try encoder.encode(order)
             try await db.collection(orderCollection).document(order.id.uuidString).setData([orderKey: encoded])
         } catch {
-            throw NetworkingError.cantPlaceOrder
+            throw FirebaseError.cantPlaceOrder
         }
     }
     
@@ -59,10 +59,11 @@ extension FirebaseHandler {
             }
             return orders
         } catch {
-            throw NetworkingError.cantLoadOrders
+            throw FirebaseError.cantLoadOrders
         }
     }
     
+    #warning("nested error?")
     func refreshOrder(_ order: Order) async throws -> Order {
         let docRef = db.collection(orderCollection).document(order.id.uuidString)
         do {
@@ -71,16 +72,19 @@ extension FirebaseHandler {
                 let decoded = try decoder.decode(Order.self, from: document.data()![orderKey] as! Data)
                 return decoded
             } else {
-                throw NetworkingError.cantLoadOrder
+                throw FirebaseError.cantLoadOrder
             }
         } catch {
-            throw error
+            throw FirebaseError.cantLoadOrder
         }
     }
     
+    
+    #warning("error inside closure?")
     func observeOrder(_ order: Order, onReceive: @escaping ((Order) -> Void)) {
         listener = db.collection(orderCollection).document(order.id.uuidString)
-            .addSnapshotListener { documentSnapshot, error in
+            .addSnapshotListener { [weak self] documentSnapshot, error in
+                guard let self = self else { return }
                 guard let document = documentSnapshot else {
                     print("Error fetching document: \(error!)")
                     return
@@ -106,10 +110,11 @@ extension FirebaseHandler {
             let encoded = try encoder.encode(reservation)
             try await db.collection(reservationCollection).document(reservation.id.uuidString).setData([reservationKey: encoded])
         } catch {
-            throw error
+            throw FirebaseError.cantPlaceReservation
         }
     }
     
+    #warning("error fetching vs error decoding")
     func loadReservations() async throws -> [Reservation] {
         do {
             let query = try await db.collection(reservationCollection).getDocuments()
@@ -121,22 +126,13 @@ extension FirebaseHandler {
             }
             return reservations
         } catch {
-            throw error
+            throw FirebaseError.cantLoadReservationList
         }
     }
 }
 
 //Menu handling
 extension FirebaseHandler {
-//    func postMenu(menu: Menu) async throws {
-//        do {
-//            let encoded = try encoder.encode(menu)
-//            try await db.collection(menuCollection).document(menuKey).setData([menuKey: encoded])
-//        } catch {
-//            throw error
-//        }
-//    }
-    
     func loadMenu() async throws -> Menu {
         let docRef = db.collection(menuCollection).document(menuKey)
         do {
@@ -145,7 +141,7 @@ extension FirebaseHandler {
                 let decoded = try decoder.decode(Menu.self, from: document.data()![menuKey] as! Data)
                 return decoded
             } else {
-                throw NetworkingError.cantLoadMenu
+                throw FirebaseError.cantLoadMenu
             }
         } catch {
             throw error

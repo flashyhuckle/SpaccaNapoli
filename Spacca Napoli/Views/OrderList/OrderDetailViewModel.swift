@@ -51,7 +51,8 @@ final class OrderDetailViewModel: ObservableObject {
     }
     
     private func observeOrder() {
-        communicator.observe(order) { order in
+        communicator.observe(order) { [weak self] order in
+            guard let self = self else { return }
             self.order.status = order.status
         }
     }

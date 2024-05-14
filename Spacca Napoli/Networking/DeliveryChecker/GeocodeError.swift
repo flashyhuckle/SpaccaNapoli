@@ -1,10 +1,6 @@
 import Foundation
 
-enum ApiError: Error {
-    case noData
-}
-
-enum RequestError: Error {
+enum RequestError: Error, Equatable {
     case cannotBuildURL
     case badResponse
     case unauthorized
@@ -12,6 +8,6 @@ enum RequestError: Error {
     case serverError(statusCode: Int)
 }
 
-enum DecodeError: Error {
+enum DecodeError: Error, Equatable {
     case cannotDecodeData
 }

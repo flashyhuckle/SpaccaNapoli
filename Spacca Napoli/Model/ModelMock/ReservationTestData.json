@@ -1,0 +1,92 @@
+[
+    {
+        "id": "A94B55D2-E603-479C-9705-3E706DD9CEE7",
+        "name": "Adam Kowalski",
+        "email": "Adam@adam.com",
+        "phone": "123 456",
+        "numberOfPeople": 4,
+        "dateInt": 1715077502,
+        "status": "placed",
+        "restaurant": "Świętokrzyska 30"
+    },
+    {
+        "id": "FFF31C57-CB82-453A-9FB7-96449778D967",
+        "name": "Adam Kowalski",
+        "email": "Adam@adam.com",
+        "phone": "123 456 789",
+        "numberOfPeople": 4,
+        "dateInt": 1715077502,
+        "status": "placed",
+        "restaurant": "Świętokrzyska 30"
+    },
+    {
+        "id": "229B16E0-3EDE-463F-B12F-7EF0B8DD1828",
+        "name": "Adam Kowalski",
+        "email": "",
+        "phone": "",
+        "numberOfPeople": 9,
+        "dateInt": 1715077502,
+        "status": "placed",
+        "restaurant": "Ludna 1A"
+    },
+    {
+        "id": "1C74F6EA-CE17-4EC0-A2DA-135497483F44",
+        "name": "Adam Kowalski",
+        "email": "",
+        "phone": "",
+        "numberOfPeople": 1,
+        "dateInt": 1715077502,
+        "status": "placed",
+        "restaurant": "Świętokrzyska 30"
+    },
+    {
+        "id": "6E7602A7-D017-441D-95D2-3D35DA4D9B43",
+        "name": "Adam Kowalski",
+        "email": "",
+        "phone": "",
+        "numberOfPeople": 6,
+        "dateInt": 1715077502,
+        "status": "cancelled",
+        "restaurant": "Świętokrzyska 30"
+    },
+    {
+        "id": "3BEAE449-04B4-49B3-94B5-808A8EC22B9C",
+        "name": "",
+        "email": "",
+        "phone": "",
+        "numberOfPeople": 1,
+        "dateInt": 1715077502,
+        "status": "placed",
+        "restaurant": "Świętokrzyska 30"
+    },
+    {
+        "id": "24311F7A-0A15-457D-AA59-BD8169E70C67",
+        "name": "",
+        "email": "",
+        "phone": "",
+        "numberOfPeople": 1,
+        "dateInt": 1715077502,
+        "status": "accepted",
+        "restaurant": "Świętokrzyska 30"
+    },
+    {
+        "id": "7BC10CA0-8A4E-4742-B371-909487C12298",
+        "name": "",
+        "email": "",
+        "phone": "",
+        "numberOfPeople": 1,
+        "dateInt": 1715077502,
+        "status": "placed",
+        "restaurant": "Świętokrzyska 30"
+    },
+    {
+        "id": "F2F6B42E-2A5C-4F19-986E-4730F561A52B",
+        "name": "",
+        "email": "",
+        "phone": "",
+        "numberOfPeople": 1,
+        "dateInt": 1715077502,
+        "status": "placed",
+        "restaurant": "Świętokrzyska 30"
+    }
+]

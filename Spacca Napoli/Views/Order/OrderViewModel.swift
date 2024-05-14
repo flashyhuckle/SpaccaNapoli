@@ -5,30 +5,29 @@ final class OrderViewModel: ObservableObject {
     @Binding var basket: Basket
     private let communicator: OrderCommunicatorType
     
-    @Published var address = Address(
-        street: "Chłodna",
-        building: "51",
-        apartment: "100",
-        city: "Warszawa",
-        postalCode: "00-867"
-    )
+    @Published var address: Address
     
     @Published var isDeliveryPossible = false
     @Published var deliveryCost = 0
     
-    @Published var deliveryPossible: DeliveryOption = .notPossible {
-        didSet {
-            print("orderVM \(deliveryPossible)")
-        }
-    }
+    @Published var deliveryPossible: DeliveryOption = .notPossible
     
     @Published var isAlertVisible = false
     
+#warning("user address from defaults?")
     init(
+        communicator: OrderCommunicatorType = OrderCommunicator(),
         basket: Binding<Basket>,
-        communicator: OrderCommunicatorType = OrderCommunicator()
+        address: Address = Address(
+            street: "Chłodna",
+            building: "51",
+            apartment: "100",
+            city: "Warszawa",
+            postalCode: "00-867"
+        )
     ) {
         _basket = basket
+        self.address = address
         self.communicator = communicator
     }
     

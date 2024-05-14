@@ -66,5 +66,5 @@ struct ReserveView: View {
 }
 
 #Preview {
-    ReserveView()
+    ReserveView(vm: ReserveViewModel(communicator: ReservationCommunicatorMock()))
 }
