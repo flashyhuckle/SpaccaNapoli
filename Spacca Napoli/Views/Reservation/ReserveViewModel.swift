@@ -57,9 +57,9 @@ final class ReserveViewModel: ObservableObject {
         return date
     }
     
-    func reserveButtonPressed() {
+    func reserveButtonPressed() async throws {
         if allFieldsValid() {
-            reserveTable()
+            try await reserveTable()
         } else {
             isAlertShowing = true
         }
@@ -70,7 +70,7 @@ final class ReserveViewModel: ObservableObject {
         return true
     }
     
-    func reserveTable() {
+    func reserveTable() async throws {
         let reservation = Reservation(
             id: UUID(),
             name: name,
@@ -81,25 +81,23 @@ final class ReserveViewModel: ObservableObject {
             status: .placed,
             restaurant: restaurant
         )
-        Task {
-            try await communicator.place(reservation)
-        }
+        try await communicator.place(reservation)
         isAlertShowing = true
     }
     
     func alertTitle() -> String {
         if allFieldsValid() {
-            "Your request is sent"
+            ReservationAlertTitle.requestSent
         } else {
-            "Cannot process your request"
+            ReservationAlertTitle.cannotProcess
         }
     }
     
     func alertMessage() -> String {
         if allFieldsValid() {
-            "Your reservation for \(createDate().formatted()) for \(numberOfPeople + 1) has been requested. Please wait for a confirmation."
+            ReservationAlertMessage.requestSent(date: createDate(), people: numberOfPeople + 1)
         } else {
-            "Please check your data, something's not right."
+            ReservationAlertMessage.badData
         }
     }
 }

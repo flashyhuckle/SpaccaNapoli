@@ -95,6 +95,7 @@
 		A4E072E12BDD193900421C2C /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E072E02BDD193900421C2C /* NetworkError.swift */; };
 		A4E2E2D92BD18736005297EE /* OrderProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2E2D82BD18736005297EE /* OrderProgressView.swift */; };
 		A4E2E2DB2BD2A2C3005297EE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2E2DA2BD2A2C3005297EE /* String.swift */; };
+		A4FFB6F22C0F442A00931689 /* ReserveViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FFB6F12C0F442A00931689 /* ReserveViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,6 +221,7 @@
 		A4E072E02BDD193900421C2C /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A4E2E2D82BD18736005297EE /* OrderProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProgressView.swift; sourceTree = "<group>"; };
 		A4E2E2DA2BD2A2C3005297EE /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		A4FFB6F12C0F442A00931689 /* ReserveViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -488,6 +490,7 @@
 			children = (
 				A4D7CF002BC01DE300FA5650 /* Spacca_NapoliTests.swift */,
 				A4E072D42BDD071100421C2C /* Mock */,
+				A4FFB6F12C0F442A00931689 /* ReserveViewModelTests.swift */,
 			);
 			path = "Spacca NapoliTests";
 			sourceTree = "<group>";
@@ -749,6 +752,7 @@
 				A4E072DB2BDD0DB800421C2C /* GeocodeAPIMock.swift in Sources */,
 				A4D7CF012BC01DE300FA5650 /* Spacca_NapoliTests.swift in Sources */,
 				A4E072D32BDD070D00421C2C /* URLSessionHandlerMock.swift in Sources */,
+				A4FFB6F22C0F442A00931689 /* ReserveViewModelTests.swift in Sources */,
 				A4E072DD2BDD10A300421C2C /* DeliveryCheckerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

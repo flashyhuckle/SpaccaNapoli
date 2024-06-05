@@ -50,7 +50,9 @@ struct ReserveView: View {
             })
         }
         .withBottomButton("Reserve your table", icon: "list.bullet.clipboard") {
-            vm.reserveButtonPressed()
+            Task {
+                try await vm.reserveButtonPressed()
+            }
         }
         .customBackButton(color: .neapolitanGray)
         .oneButtonAlert(
