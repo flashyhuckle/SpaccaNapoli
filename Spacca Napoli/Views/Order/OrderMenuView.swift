@@ -52,7 +52,9 @@ struct OrderMenuView: View {
             vm.onAppear()
         }
         .onLoad {
-            vm.onLoad()
+            Task {
+                await vm.onLoad()
+            }
         }
     }
 }

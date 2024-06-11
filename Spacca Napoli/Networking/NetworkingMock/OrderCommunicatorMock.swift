@@ -1,8 +1,10 @@
 import Foundation
 
 final class OrderCommunicatorMock: OrderCommunicatorType {
+    var orderPlaced = false
+    
     func place(_ order: Order) async throws {
-        print("Order placed")
+        orderPlaced = true
     }
     
     func loadOrders() async throws -> [Order] {

@@ -45,9 +45,9 @@ final class OrderViewModel: ObservableObject {
         }
     }
     
-    func buttonPressed() {
+    func buttonPressed() async {
         if isDeliveryPossible {
-            placeOrder()
+            await placeOrder()
         } else {
             isAlertVisible = true
         }
@@ -55,25 +55,27 @@ final class OrderViewModel: ObservableObject {
     
     func alertTitle() -> String {
         if isDeliveryPossible {
-            "Your order has been placed!"
+            OrderAlertTitle.orderPlaced
         } else {
-            "Delivery is not possible"
+            OrderAlertTitle.orderNotPossible
         }
     }
     
     func alertMessage() -> String {
         if isDeliveryPossible {
-            "You can observe it's status on order list"
+            OrderAlertMessage.orderPlaced
         } else {
-            "Make sure your address is correct and verified"
+            OrderAlertMessage.orderNotPossible
         }
     }
     
-    private func placeOrder() {
+    private func placeOrder() async {
         let order = Order(address: address, deliveryCost: deliveryCost, orderedItems: basket.items)
-        Task { @MainActor in
+        do {
             try await communicator.place(order)
-            self.isAlertVisible = true
+            isAlertVisible = true
+        } catch {
+            
         }
     }
     
@@ -84,7 +86,9 @@ final class OrderViewModel: ObservableObject {
     }
     
     private func finishOrdering() {
-        basket.items.removeAll()
+        DispatchQueue.main.async {
+            self.basket.items.removeAll()
+        }
         NavigationPopper.popToRootView()
     }
 }

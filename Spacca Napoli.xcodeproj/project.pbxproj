@@ -96,6 +96,10 @@
 		A4E2E2D92BD18736005297EE /* OrderProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2E2D82BD18736005297EE /* OrderProgressView.swift */; };
 		A4E2E2DB2BD2A2C3005297EE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E2E2DA2BD2A2C3005297EE /* String.swift */; };
 		A4FFB6F22C0F442A00931689 /* ReserveViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FFB6F12C0F442A00931689 /* ReserveViewModelTests.swift */; };
+		A4FFB6F42C107BAD00931689 /* OrderViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FFB6F32C107BAD00931689 /* OrderViewModelTests.swift */; };
+		A4FFB6F62C171A4C00931689 /* OrderMenuViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FFB6F52C171A4C00931689 /* OrderMenuViewModelTests.swift */; };
+		A4FFB6F82C1725BE00931689 /* BasketViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FFB6F72C1725BE00931689 /* BasketViewModelTests.swift */; };
+		A4FFB6FA2C185ABE00931689 /* AddressTextfieldViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FFB6F92C185ABE00931689 /* AddressTextfieldViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -222,6 +226,10 @@
 		A4E2E2D82BD18736005297EE /* OrderProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProgressView.swift; sourceTree = "<group>"; };
 		A4E2E2DA2BD2A2C3005297EE /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		A4FFB6F12C0F442A00931689 /* ReserveViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveViewModelTests.swift; sourceTree = "<group>"; };
+		A4FFB6F32C107BAD00931689 /* OrderViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModelTests.swift; sourceTree = "<group>"; };
+		A4FFB6F52C171A4C00931689 /* OrderMenuViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMenuViewModelTests.swift; sourceTree = "<group>"; };
+		A4FFB6F72C1725BE00931689 /* BasketViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewModelTests.swift; sourceTree = "<group>"; };
+		A4FFB6F92C185ABE00931689 /* AddressTextfieldViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTextfieldViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -491,6 +499,10 @@
 				A4D7CF002BC01DE300FA5650 /* Spacca_NapoliTests.swift */,
 				A4E072D42BDD071100421C2C /* Mock */,
 				A4FFB6F12C0F442A00931689 /* ReserveViewModelTests.swift */,
+				A4FFB6F52C171A4C00931689 /* OrderMenuViewModelTests.swift */,
+				A4FFB6F72C1725BE00931689 /* BasketViewModelTests.swift */,
+				A4FFB6F32C107BAD00931689 /* OrderViewModelTests.swift */,
+				A4FFB6F92C185ABE00931689 /* AddressTextfieldViewModelTests.swift */,
 			);
 			path = "Spacca NapoliTests";
 			sourceTree = "<group>";
@@ -750,10 +762,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4E072DB2BDD0DB800421C2C /* GeocodeAPIMock.swift in Sources */,
+				A4FFB6FA2C185ABE00931689 /* AddressTextfieldViewModelTests.swift in Sources */,
 				A4D7CF012BC01DE300FA5650 /* Spacca_NapoliTests.swift in Sources */,
 				A4E072D32BDD070D00421C2C /* URLSessionHandlerMock.swift in Sources */,
+				A4FFB6F62C171A4C00931689 /* OrderMenuViewModelTests.swift in Sources */,
 				A4FFB6F22C0F442A00931689 /* ReserveViewModelTests.swift in Sources */,
 				A4E072DD2BDD10A300421C2C /* DeliveryCheckerMock.swift in Sources */,
+				A4FFB6F82C1725BE00931689 /* BasketViewModelTests.swift in Sources */,
+				A4FFB6F42C107BAD00931689 /* OrderViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

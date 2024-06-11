@@ -32,12 +32,14 @@ class GeocodeAPI: GeocodeAPIType {
         decoder: JSONDecoder,
         apiKey: String
     ) async throws -> GeocodeResponse? {
-        let query = [
-            "street": (address.street + "+" + address.building),
-            "city": address.city,
-            "postalCode": address.postalCode,
-            "api_key": apiKey
-        ]
+        var query = address.queryItems
+//        let query = [
+//            "street": (address.street + "+" + address.building),
+//            "city": address.city,
+//            "postalCode": address.postalCode,
+//            "api_key": apiKey
+//        ]
+        query["api_key"] = apiKey
         
         let data = try await handler.performRequest(query: query)
         

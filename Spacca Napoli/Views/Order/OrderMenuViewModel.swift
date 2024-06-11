@@ -27,17 +27,22 @@ final class OrderMenuViewModel: ObservableObject {
         "Desserts" : .pink
     ]
     
-    func onLoad() {
-        getMenu()
+    func onLoad() async {
+        await getMenu()
     }
     
     func onAppear() {
         checkBasket()
     }
     
-    private func getMenu() {
-        Task { @MainActor in
-            self.menu = try await communicator.loadMenu()
+    private func getMenu() async {
+        do {
+            let loadedMenu = try await communicator.loadMenu()
+            DispatchQueue.main.async {
+                self.menu = loadedMenu
+            }
+        } catch {
+            
         }
     }
     

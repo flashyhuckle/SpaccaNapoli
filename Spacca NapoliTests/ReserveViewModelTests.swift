@@ -4,7 +4,6 @@ import XCTest
 
 final class ReserveViewModelTests: XCTestCase {
     
-    
     func testReserveButtonPressedFieldsInvalid() async throws {
         let communicator = ReservationCommunicatorMock()
         let vm = ReserveViewModel(communicator: communicator)

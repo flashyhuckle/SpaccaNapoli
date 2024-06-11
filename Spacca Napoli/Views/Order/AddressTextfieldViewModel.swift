@@ -7,7 +7,6 @@ class AddressTextfieldViewModel: ObservableObject {
     
     @Binding var address: Address {
         didSet {
-            //'if' is required due to possible bug in @Published var didset - otherwise it gets called twice
             if address != oldValue {
                 onChangeAddress()
             }
@@ -50,33 +49,33 @@ class AddressTextfieldViewModel: ObservableObject {
     func getButtonText() -> String {
         switch buttonState {
         case .unchecked:
-            "Check address"
+            AddressButtonText.unchecked
         case .possible:
-            "Delivery possible"
+            AddressButtonText.possible
         case .notPossible:
-            "Delivery not possible"
+            AddressButtonText.notPossible
         }
     }
     
     func getAlertTitle() -> String {
         switch deliveryPossible {
         case .free:
-            return "Delivery is possible"
+            return AddressAlertTitle.free
         case .paid:
-            return "Delivery is possible"
+            return AddressAlertTitle.paid
         case .notPossible:
-            return "Delivery is not possible"
+            return AddressAlertTitle.notPossible
         }
     }
     
     func getAlertMessage() -> String {
         switch deliveryPossible {
         case .free:
-            return "You are close enought for free delivery"
+            return AddressAlertMessage.free
         case .paid:
-            return "You can finish your order now"
+            return AddressAlertMessage.paid
         case .notPossible:
-            return "Address is incorrect or you are too far away"
+            return AddressAlertMessage.notPossible
         }
     }
     
@@ -91,10 +90,12 @@ class AddressTextfieldViewModel: ObservableObject {
         }
     }
     
-    func checkAddress() {
-        Task { @MainActor in
+    func checkAddress() async {
+        do {
             deliveryPossible = try await deliveryChecker.check(address)
             processDelivery()
+        } catch {
+            
         }
     }
     

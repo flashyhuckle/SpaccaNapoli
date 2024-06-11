@@ -32,7 +32,9 @@ struct OrderView: View {
             .withBottomButton(
                 "Place an order",
                 color: vm.isDeliveryPossible ? .neapolitanRed : .neapolitanGray) {
-                    vm.buttonPressed()
+                    Task {
+                        await vm.buttonPressed()
+                    }
                 }
         }
         .contentShape(Rectangle())

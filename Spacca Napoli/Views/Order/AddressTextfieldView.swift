@@ -44,7 +44,9 @@ struct AddressTextfieldView: View {
                 focusedField = .postal
             case .postal:
                 focusedField = nil
-                vm.checkAddress()
+                Task {
+                    await vm.checkAddress()
+                }
             case nil:
                 focusedField = nil
             }
@@ -53,7 +55,9 @@ struct AddressTextfieldView: View {
             vm.getButtonText(),
             color: vm.getButtonColor()
         ) {
-            vm.checkAddress()
+            Task {
+                await vm.checkAddress()
+            }
         }
         .customBackButton(color: .neapolitanRed)
         .onAppear {
