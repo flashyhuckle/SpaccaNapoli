@@ -18,8 +18,8 @@ final class OrderDetailViewModel: ObservableObject {
         observeOrder()
     }
     
-    func refresh() {
-        refreshOrder()
+    func refresh() async {
+        await refreshOrder()
     }
     
     func onDisappear() {
@@ -43,10 +43,12 @@ final class OrderDetailViewModel: ObservableObject {
         return price
     }
     
-    private func refreshOrder() {
-        Task { @MainActor in
+    private func refreshOrder() async {
+        do {
             let refreshedOrder = try await communicator.refresh(order)
                 order.status = refreshedOrder.status
+        } catch {
+            
         }
     }
     

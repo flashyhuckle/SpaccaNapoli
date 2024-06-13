@@ -51,3 +51,24 @@ class Order: Codable, Identifiable {
         self.orderedItems = orderedItems
     }
 }
+
+extension Order {
+    func advanceStatus() -> Self {
+        var order = self
+        switch order.status {
+        case .placed:
+            order.status = .accepted
+        case .accepted:
+            order.status = .inPreparation
+        case .inPreparation:
+            order.status = .inDelivery
+        case .inDelivery:
+            order.status = .delivered
+        case .delivered:
+            order.status = .placed
+        case .cancelled:
+            order.status = .accepted
+        }
+        return order
+    }
+}

@@ -37,10 +37,14 @@ struct OrderListView: View {
         .customBackButton(color: .neapolitanRed)
         
         .onAppear {
-            vm.onAppear()
+            Task {
+                await vm.onAppear()
+            }
         }
         .refreshable {
-            vm.refresh()
+            Task {
+                await vm.refresh()
+            }
         }
     }
 }

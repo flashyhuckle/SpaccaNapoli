@@ -49,14 +49,12 @@ class AddressDetailViewModel: ObservableObject {
         }
     }
     
-    func onAppear() {
-        Task { @MainActor in
-            await getCoordinates()
-        }
+    func onAppear() async {
+        await getCoordinates()
     }
     
     private func getCoordinates() async {
-        let api: GeocodeAPIType = GeocodeAPI()
+//        let api: GeocodeAPIType = GeocodeAPI()
         do {
             if let coordinates = try await api.getCoordinates(for: address) {
                 user = coordinates.CLLC2D

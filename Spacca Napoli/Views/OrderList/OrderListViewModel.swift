@@ -11,18 +11,20 @@ final class OrderListViewModel: ObservableObject {
         self.communicator = communicator
     }
     
-    func onAppear() {
-        loadOrders()
+    func onAppear() async {
+        await loadOrders()
     }
     
-    func refresh() {
-        loadOrders()
+    func refresh() async {
+        await loadOrders()
     }
     
-    private func loadOrders() {
-        Task { @MainActor in
+    private func loadOrders() async {
+        do {
             orders = try await communicator.loadOrders().sorted(by: {$0.placedDate > $1.placedDate})
             isFirstLoading = false
+        } catch {
+            
         }
     }
 }

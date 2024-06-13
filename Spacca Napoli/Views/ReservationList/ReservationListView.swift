@@ -39,10 +39,14 @@ struct ReservationListView: View {
         }
         .customBackButton(color: .neapolitanGray)
         .onAppear {
-            vm.onAppear()
+            Task {
+                await vm.onAppear()
+            }
         }
         .refreshable {
-            vm.refresh()
+            Task {
+                await vm.refresh()
+            }
         }
     }
 }

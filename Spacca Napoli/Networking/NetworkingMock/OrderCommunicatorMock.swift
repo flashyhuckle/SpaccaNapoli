@@ -2,6 +2,7 @@ import Foundation
 
 final class OrderCommunicatorMock: OrderCommunicatorType {
     var orderPlaced = false
+    var orderIsBeingObserved = false
     
     func place(_ order: Order) async throws {
         orderPlaced = true
@@ -12,14 +13,15 @@ final class OrderCommunicatorMock: OrderCommunicatorType {
     }
     
     func refresh(_ order: Order) async throws -> Order {
-        order
+        order.advanceStatus()
     }
     
     func observe(_ order: Order, receive: @escaping ((Order) -> Void)) {
+        orderIsBeingObserved = true
         receive(order)
     }
     
     func stopObserving() {
-        print("stopped observing")
+        orderIsBeingObserved = false
     }
 }

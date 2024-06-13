@@ -51,6 +51,10 @@
 		A44B9D6D2BCE8D66008D9EC7 /* OrderCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B9D6C2BCE8D66008D9EC7 /* OrderCommunicator.swift */; };
 		A44B9D6F2BCE8DC3008D9EC7 /* ReservationCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B9D6E2BCE8DC3008D9EC7 /* ReservationCommunicator.swift */; };
 		A44B9D712BCEC296008D9EC7 /* MenuCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B9D702BCEC296008D9EC7 /* MenuCommunicator.swift */; };
+		A480AB6F2C19E24000F115B3 /* ReservationListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB6E2C19E24000F115B3 /* ReservationListViewModelTests.swift */; };
+		A480AB712C1A287300F115B3 /* OrderListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB702C1A287300F115B3 /* OrderListViewModelTests.swift */; };
+		A480AB742C1ABEC500F115B3 /* OrderDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB732C1ABEC500F115B3 /* OrderDetailViewModelTests.swift */; };
+		A480AB762C1AC3E400F115B3 /* AddressDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB752C1AC3E400F115B3 /* AddressDetailViewModelTests.swift */; };
 		A4A94B632BC42A2B00E163ED /* NavigationPopper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A94B622BC42A2B00E163ED /* NavigationPopper.swift */; };
 		A4A94B652BC4479300E163ED /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A94B642BC4479300E163ED /* OrderListView.swift */; };
 		A4B9608A2BC0894F00CFF624 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B960892BC0894F00CFF624 /* BasketView.swift */; };
@@ -180,6 +184,10 @@
 		A44B9D6C2BCE8D66008D9EC7 /* OrderCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCommunicator.swift; sourceTree = "<group>"; };
 		A44B9D6E2BCE8DC3008D9EC7 /* ReservationCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationCommunicator.swift; sourceTree = "<group>"; };
 		A44B9D702BCEC296008D9EC7 /* MenuCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCommunicator.swift; sourceTree = "<group>"; };
+		A480AB6E2C19E24000F115B3 /* ReservationListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationListViewModelTests.swift; sourceTree = "<group>"; };
+		A480AB702C1A287300F115B3 /* OrderListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewModelTests.swift; sourceTree = "<group>"; };
+		A480AB732C1ABEC500F115B3 /* OrderDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModelTests.swift; sourceTree = "<group>"; };
+		A480AB752C1AC3E400F115B3 /* AddressDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDetailViewModelTests.swift; sourceTree = "<group>"; };
 		A4A94B622BC42A2B00E163ED /* NavigationPopper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPopper.swift; sourceTree = "<group>"; };
 		A4A94B642BC4479300E163ED /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
 		A4B960892BC0894F00CFF624 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
@@ -382,6 +390,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A480AB6D2C19E1E600F115B3 /* OrderTests */ = {
+			isa = PBXGroup;
+			children = (
+				A4FFB6F52C171A4C00931689 /* OrderMenuViewModelTests.swift */,
+				A4FFB6F72C1725BE00931689 /* BasketViewModelTests.swift */,
+				A4FFB6F32C107BAD00931689 /* OrderViewModelTests.swift */,
+				A4FFB6F92C185ABE00931689 /* AddressTextfieldViewModelTests.swift */,
+			);
+			path = OrderTests;
+			sourceTree = "<group>";
+		};
+		A480AB722C1A288A00F115B3 /* OrderListTests */ = {
+			isa = PBXGroup;
+			children = (
+				A480AB702C1A287300F115B3 /* OrderListViewModelTests.swift */,
+				A480AB732C1ABEC500F115B3 /* OrderDetailViewModelTests.swift */,
+				A480AB752C1AC3E400F115B3 /* AddressDetailViewModelTests.swift */,
+			);
+			path = OrderListTests;
+			sourceTree = "<group>";
+		};
 		A4B9608D2BC1D83B00CFF624 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,10 +528,9 @@
 				A4D7CF002BC01DE300FA5650 /* Spacca_NapoliTests.swift */,
 				A4E072D42BDD071100421C2C /* Mock */,
 				A4FFB6F12C0F442A00931689 /* ReserveViewModelTests.swift */,
-				A4FFB6F52C171A4C00931689 /* OrderMenuViewModelTests.swift */,
-				A4FFB6F72C1725BE00931689 /* BasketViewModelTests.swift */,
-				A4FFB6F32C107BAD00931689 /* OrderViewModelTests.swift */,
-				A4FFB6F92C185ABE00931689 /* AddressTextfieldViewModelTests.swift */,
+				A480AB6E2C19E24000F115B3 /* ReservationListViewModelTests.swift */,
+				A480AB6D2C19E1E600F115B3 /* OrderTests */,
+				A480AB722C1A288A00F115B3 /* OrderListTests */,
 			);
 			path = "Spacca NapoliTests";
 			sourceTree = "<group>";
@@ -765,9 +793,13 @@
 				A4FFB6FA2C185ABE00931689 /* AddressTextfieldViewModelTests.swift in Sources */,
 				A4D7CF012BC01DE300FA5650 /* Spacca_NapoliTests.swift in Sources */,
 				A4E072D32BDD070D00421C2C /* URLSessionHandlerMock.swift in Sources */,
+				A480AB742C1ABEC500F115B3 /* OrderDetailViewModelTests.swift in Sources */,
 				A4FFB6F62C171A4C00931689 /* OrderMenuViewModelTests.swift in Sources */,
 				A4FFB6F22C0F442A00931689 /* ReserveViewModelTests.swift in Sources */,
 				A4E072DD2BDD10A300421C2C /* DeliveryCheckerMock.swift in Sources */,
+				A480AB762C1AC3E400F115B3 /* AddressDetailViewModelTests.swift in Sources */,
+				A480AB6F2C19E24000F115B3 /* ReservationListViewModelTests.swift in Sources */,
+				A480AB712C1A287300F115B3 /* OrderListViewModelTests.swift in Sources */,
 				A4FFB6F82C1725BE00931689 /* BasketViewModelTests.swift in Sources */,
 				A4FFB6F42C107BAD00931689 /* OrderViewModelTests.swift in Sources */,
 			);

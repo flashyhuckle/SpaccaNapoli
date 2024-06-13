@@ -10,12 +10,12 @@ final class ReservationListViewModel: ObservableObject {
         self.communicator = communicator
     }
     
-    func onAppear() {
-        getReservations()
+    func onAppear() async {
+        await getReservations()
     }
     
-    func refresh() {
-        getReservations()
+    func refresh() async {
+        await getReservations()
     }
     
     func upcomingReservations() -> [Reservation] {
@@ -26,9 +26,11 @@ final class ReservationListViewModel: ObservableObject {
         reservations.filter({$0.date < Date.now})
     }
     
-    private func getReservations() {
-        Task { @MainActor in
+    private func getReservations() async {
+        do {
             reservations = try await communicator.loadReservations().sorted(by: {$0.date > $1.date})
+        } catch {
+            
         }
     }
 }

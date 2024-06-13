@@ -17,10 +17,10 @@ extension GeocodeResponse {
     }
     
     public static func mockGeocodeResponse() -> GeocodeResponse {
-        guard let decoded = try? JSONDecoder().decode(GeocodeResponse.self, from: self.mockGeocodeData()) else {
+        guard let decoded = try? JSONDecoder().decode([GeocodeResponse].self, from: self.mockGeocodeData()) else {
             fatalError("GeocodeTestData.json couldn't be decoded.")
         }
-        return decoded
+        return decoded[0]
     }
 }
 

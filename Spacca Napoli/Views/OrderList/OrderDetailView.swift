@@ -40,7 +40,9 @@ struct OrderDetailView: View {
             vm.onAppear()
         }
         .refreshable {
-            vm.refresh()
+            Task {
+                await vm.refresh()
+            }
         }
         .onDisappear {
             vm.onDisappear()

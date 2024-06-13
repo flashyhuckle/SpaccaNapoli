@@ -45,7 +45,9 @@ struct AddressDetailView: View {
         .customBackButton(color: .neapolitanRed)
         
         .onAppear {
-            vm.onAppear()
+            Task {
+                await vm.onAppear()
+            }
         }
     }
 }
