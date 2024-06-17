@@ -13,6 +13,8 @@ final class OrderMenuViewModelTests: XCTestCase {
         
         await vm.onLoad()
         
+        sleep(1)
+        
         XCTAssertFalse(vm.menu.items.isEmpty)
         XCTAssertFalse(vm.menu.categories.isEmpty)
     }
@@ -32,6 +34,8 @@ final class OrderMenuViewModelTests: XCTestCase {
         ]
         
         await vm.onLoad()
+        
+        sleep(1)
         
         for category in categories {
             let filteredItems = vm.menuFilteredBy(category)

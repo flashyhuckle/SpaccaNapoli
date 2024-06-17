@@ -54,7 +54,6 @@ class AddressDetailViewModel: ObservableObject {
     }
     
     private func getCoordinates() async {
-//        let api: GeocodeAPIType = GeocodeAPI()
         do {
             if let coordinates = try await api.getCoordinates(for: address) {
                 user = coordinates.CLLC2D

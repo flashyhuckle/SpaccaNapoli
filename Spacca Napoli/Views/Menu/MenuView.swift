@@ -28,7 +28,9 @@ struct MenuView: View {
         .customBackButton(color: .neapolitanGreen)
                 
         .onLoad {
-            vm.onLoad()
+            Task {
+                await vm.onLoad()
+            }
         }
     }
 }
