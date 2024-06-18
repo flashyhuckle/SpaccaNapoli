@@ -56,6 +56,18 @@
 		A480AB742C1ABEC500F115B3 /* OrderDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB732C1ABEC500F115B3 /* OrderDetailViewModelTests.swift */; };
 		A480AB762C1AC3E400F115B3 /* AddressDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB752C1AC3E400F115B3 /* AddressDetailViewModelTests.swift */; };
 		A480AB782C203F9A00F115B3 /* MenuViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB772C203F9A00F115B3 /* MenuViewModelTests.swift */; };
+		A480AB7B2C20465E00F115B3 /* MenuDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB7A2C20465E00F115B3 /* MenuDecodingTests.swift */; };
+		A480AB7E2C20497500F115B3 /* OrderDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB7D2C20497500F115B3 /* OrderDecodingTests.swift */; };
+		A480AB822C204BAF00F115B3 /* ReservationDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB812C204BAF00F115B3 /* ReservationDecodingTests.swift */; };
+		A480AB842C20693200F115B3 /* GeocodeDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB832C20693200F115B3 /* GeocodeDecodingTests.swift */; };
+		A480AB872C20980D00F115B3 /* GeocodeAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB862C20980D00F115B3 /* GeocodeAPITests.swift */; };
+		A480AB8A2C209E8700F115B3 /* DeliveryCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB892C209E8700F115B3 /* DeliveryCheckerTests.swift */; };
+		A480AB8C2C209FDF00F115B3 /* DistanceCalculatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB8B2C209FDF00F115B3 /* DistanceCalculatorMock.swift */; };
+		A480AB8E2C216F0500F115B3 /* DistanceCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB8D2C216F0500F115B3 /* DistanceCalculatorTests.swift */; };
+		A480AB902C21702B00F115B3 /* FirebaseHandlerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB8F2C21702B00F115B3 /* FirebaseHandlerMock.swift */; };
+		A480AB922C2174A100F115B3 /* ReservationCommunicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB912C2174A100F115B3 /* ReservationCommunicatorTests.swift */; };
+		A480AB942C2175C000F115B3 /* OrderCommunicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB932C2175C000F115B3 /* OrderCommunicatorTests.swift */; };
+		A480AB962C21788800F115B3 /* MenuCommunicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480AB952C21788800F115B3 /* MenuCommunicatorTests.swift */; };
 		A4A94B632BC42A2B00E163ED /* NavigationPopper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A94B622BC42A2B00E163ED /* NavigationPopper.swift */; };
 		A4A94B652BC4479300E163ED /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A94B642BC4479300E163ED /* OrderListView.swift */; };
 		A4B9608A2BC0894F00CFF624 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B960892BC0894F00CFF624 /* BasketView.swift */; };
@@ -190,6 +202,18 @@
 		A480AB732C1ABEC500F115B3 /* OrderDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModelTests.swift; sourceTree = "<group>"; };
 		A480AB752C1AC3E400F115B3 /* AddressDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDetailViewModelTests.swift; sourceTree = "<group>"; };
 		A480AB772C203F9A00F115B3 /* MenuViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModelTests.swift; sourceTree = "<group>"; };
+		A480AB7A2C20465E00F115B3 /* MenuDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDecodingTests.swift; sourceTree = "<group>"; };
+		A480AB7D2C20497500F115B3 /* OrderDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDecodingTests.swift; sourceTree = "<group>"; };
+		A480AB812C204BAF00F115B3 /* ReservationDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDecodingTests.swift; sourceTree = "<group>"; };
+		A480AB832C20693200F115B3 /* GeocodeDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeDecodingTests.swift; sourceTree = "<group>"; };
+		A480AB862C20980D00F115B3 /* GeocodeAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeAPITests.swift; sourceTree = "<group>"; };
+		A480AB892C209E8700F115B3 /* DeliveryCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryCheckerTests.swift; sourceTree = "<group>"; };
+		A480AB8B2C209FDF00F115B3 /* DistanceCalculatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculatorMock.swift; sourceTree = "<group>"; };
+		A480AB8D2C216F0500F115B3 /* DistanceCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculatorTests.swift; sourceTree = "<group>"; };
+		A480AB8F2C21702B00F115B3 /* FirebaseHandlerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHandlerMock.swift; sourceTree = "<group>"; };
+		A480AB912C2174A100F115B3 /* ReservationCommunicatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationCommunicatorTests.swift; sourceTree = "<group>"; };
+		A480AB932C2175C000F115B3 /* OrderCommunicatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCommunicatorTests.swift; sourceTree = "<group>"; };
+		A480AB952C21788800F115B3 /* MenuCommunicatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCommunicatorTests.swift; sourceTree = "<group>"; };
 		A4A94B622BC42A2B00E163ED /* NavigationPopper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPopper.swift; sourceTree = "<group>"; };
 		A4A94B642BC4479300E163ED /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
 		A4B960892BC0894F00CFF624 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
@@ -413,12 +437,40 @@
 			path = OrderListTests;
 			sourceTree = "<group>";
 		};
-		A480AB792C203FAB00F115B3 /* Menu */ = {
+		A480AB7C2C20466200F115B3 /* DecodingTests */ = {
+			isa = PBXGroup;
+			children = (
+				A480AB7A2C20465E00F115B3 /* MenuDecodingTests.swift */,
+				A480AB7D2C20497500F115B3 /* OrderDecodingTests.swift */,
+				A480AB812C204BAF00F115B3 /* ReservationDecodingTests.swift */,
+				A480AB832C20693200F115B3 /* GeocodeDecodingTests.swift */,
+			);
+			path = DecodingTests;
+			sourceTree = "<group>";
+		};
+		A480AB852C207BB800F115B3 /* ViewModelTests */ = {
 			isa = PBXGroup;
 			children = (
 				A480AB772C203F9A00F115B3 /* MenuViewModelTests.swift */,
+				A4FFB6F12C0F442A00931689 /* ReserveViewModelTests.swift */,
+				A480AB6E2C19E24000F115B3 /* ReservationListViewModelTests.swift */,
+				A480AB6D2C19E1E600F115B3 /* OrderTests */,
+				A480AB722C1A288A00F115B3 /* OrderListTests */,
 			);
-			path = Menu;
+			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
+		A480AB882C20981300F115B3 /* NetworkingTests */ = {
+			isa = PBXGroup;
+			children = (
+				A480AB862C20980D00F115B3 /* GeocodeAPITests.swift */,
+				A480AB892C209E8700F115B3 /* DeliveryCheckerTests.swift */,
+				A480AB8D2C216F0500F115B3 /* DistanceCalculatorTests.swift */,
+				A480AB912C2174A100F115B3 /* ReservationCommunicatorTests.swift */,
+				A480AB932C2175C000F115B3 /* OrderCommunicatorTests.swift */,
+				A480AB952C21788800F115B3 /* MenuCommunicatorTests.swift */,
+			);
+			path = NetworkingTests;
 			sourceTree = "<group>";
 		};
 		A4B9608D2BC1D83B00CFF624 /* Model */ = {
@@ -537,11 +589,9 @@
 			children = (
 				A4D7CF002BC01DE300FA5650 /* Spacca_NapoliTests.swift */,
 				A4E072D42BDD071100421C2C /* Mock */,
-				A480AB792C203FAB00F115B3 /* Menu */,
-				A4FFB6F12C0F442A00931689 /* ReserveViewModelTests.swift */,
-				A480AB6E2C19E24000F115B3 /* ReservationListViewModelTests.swift */,
-				A480AB6D2C19E1E600F115B3 /* OrderTests */,
-				A480AB722C1A288A00F115B3 /* OrderListTests */,
+				A480AB882C20981300F115B3 /* NetworkingTests */,
+				A480AB7C2C20466200F115B3 /* DecodingTests */,
+				A480AB852C207BB800F115B3 /* ViewModelTests */,
 			);
 			path = "Spacca NapoliTests";
 			sourceTree = "<group>";
@@ -560,7 +610,9 @@
 			children = (
 				A4E072D22BDD070D00421C2C /* URLSessionHandlerMock.swift */,
 				A4E072DA2BDD0DB800421C2C /* GeocodeAPIMock.swift */,
+				A480AB8B2C209FDF00F115B3 /* DistanceCalculatorMock.swift */,
 				A4E072DC2BDD10A300421C2C /* DeliveryCheckerMock.swift */,
+				A480AB8F2C21702B00F115B3 /* FirebaseHandlerMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -800,20 +852,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A480AB872C20980D00F115B3 /* GeocodeAPITests.swift in Sources */,
 				A4E072DB2BDD0DB800421C2C /* GeocodeAPIMock.swift in Sources */,
+				A480AB8E2C216F0500F115B3 /* DistanceCalculatorTests.swift in Sources */,
 				A480AB782C203F9A00F115B3 /* MenuViewModelTests.swift in Sources */,
 				A4FFB6FA2C185ABE00931689 /* AddressTextfieldViewModelTests.swift in Sources */,
 				A4D7CF012BC01DE300FA5650 /* Spacca_NapoliTests.swift in Sources */,
 				A4E072D32BDD070D00421C2C /* URLSessionHandlerMock.swift in Sources */,
+				A480AB922C2174A100F115B3 /* ReservationCommunicatorTests.swift in Sources */,
+				A480AB942C2175C000F115B3 /* OrderCommunicatorTests.swift in Sources */,
 				A480AB742C1ABEC500F115B3 /* OrderDetailViewModelTests.swift in Sources */,
 				A4FFB6F62C171A4C00931689 /* OrderMenuViewModelTests.swift in Sources */,
+				A480AB822C204BAF00F115B3 /* ReservationDecodingTests.swift in Sources */,
+				A480AB8C2C209FDF00F115B3 /* DistanceCalculatorMock.swift in Sources */,
+				A480AB8A2C209E8700F115B3 /* DeliveryCheckerTests.swift in Sources */,
+				A480AB7B2C20465E00F115B3 /* MenuDecodingTests.swift in Sources */,
 				A4FFB6F22C0F442A00931689 /* ReserveViewModelTests.swift in Sources */,
 				A4E072DD2BDD10A300421C2C /* DeliveryCheckerMock.swift in Sources */,
+				A480AB842C20693200F115B3 /* GeocodeDecodingTests.swift in Sources */,
 				A480AB762C1AC3E400F115B3 /* AddressDetailViewModelTests.swift in Sources */,
+				A480AB962C21788800F115B3 /* MenuCommunicatorTests.swift in Sources */,
 				A480AB6F2C19E24000F115B3 /* ReservationListViewModelTests.swift in Sources */,
 				A480AB712C1A287300F115B3 /* OrderListViewModelTests.swift in Sources */,
 				A4FFB6F82C1725BE00931689 /* BasketViewModelTests.swift in Sources */,
+				A480AB902C21702B00F115B3 /* FirebaseHandlerMock.swift in Sources */,
 				A4FFB6F42C107BAD00931689 /* OrderViewModelTests.swift in Sources */,
+				A480AB7E2C20497500F115B3 /* OrderDecodingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

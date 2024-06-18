@@ -1,7 +1,7 @@
 import Foundation
 @testable import Spacca_Napoli
 
-final class URLSessionHandlerMockData: URLSessionHandlerType {
+final class URLSessionHandlerMockGeocodeData: URLSessionHandlerType {
     func performRequest(query: [String : String]?) async throws -> Data {
         GeocodeResponse.mockGeocodeData()
     }
@@ -32,9 +32,9 @@ final class URLSessionHandlerMockBadResponse: URLSessionHandlerType {
 }
 
 final class URLSessionHandlerMockBadStatusCode: URLSessionHandlerType {
-    let statusCode: Int
+    var statusCode: Int
     
-    init(statusCode: Int) {
+    init(statusCode: Int = 400) {
         self.statusCode = statusCode
     }
     

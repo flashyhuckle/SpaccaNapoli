@@ -16,19 +16,21 @@ enum DeliveryOption {
 
 final class DeliveryChecker: DeliveryCheckerType {
     private let api: GeocodeAPIType
+    private let distanceCalculator: DistanceCalculatorType
     
     init(
-        api: GeocodeAPIType = GeocodeAPI()
+        api: GeocodeAPIType = GeocodeAPI(),
+        distanceCalculator: DistanceCalculatorType = DistanceCalculator()
     ) {
         self.api = api
+        self.distanceCalculator = distanceCalculator
     }
     
     func check(_ address: Address) async throws -> DeliveryOption {
-        guard let coordinates = try await api.getCoordinates(for: address) else {
+        guard let coordinates = try? await api.getCoordinates(for: address) else {
             return .notPossible
-            throw DeliveryCheckerError.addressNotFound
         }
-        let distance = DistanceCalculator.calculateDistance(from: coordinates)
+        let distance = distanceCalculator.calculateDistance(from: coordinates)
         switch distance {
         case ..<2000:
             return .free
