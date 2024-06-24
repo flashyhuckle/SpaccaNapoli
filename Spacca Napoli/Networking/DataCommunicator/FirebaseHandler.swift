@@ -7,12 +7,15 @@ protocol FirebaseHandlerType {
     func refreshOrder(_ order: Order) async throws -> Order
     
     func observeOrder(_ order: Order, onReceive: @escaping ((Order) -> Void))
-    func stopObserving()
+    func stopObservingOrder()
     
     func placeReservation(_ reservation: Reservation) async throws
     func loadReservations() async throws -> [Reservation]
     
     func loadMenu() async throws -> Menu
+    
+    func observeDelivery(_ order: Order, onReceive: @escaping ((Delivery) -> Void))
+    func stopObservingDelivery()
 }
 
 final class FirebaseHandler: FirebaseHandlerType {
@@ -27,13 +30,17 @@ final class FirebaseHandler: FirebaseHandlerType {
     private let menuCollection = "Menu"
     private let menuKey = "Menu"
     
+    private let deliveryCollection = "Delivery"
+    private let deliveryKey = "Delivery"
+    
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
     
     static let shared = FirebaseHandler()
     private init() {}
     
-    var listener: (any ListenerRegistration)?
+    var orderListener: (any ListenerRegistration)?
+    var deliveryListener: (any ListenerRegistration)?
 }
 
 //Order handling
@@ -82,7 +89,7 @@ extension FirebaseHandler {
     
     #warning("error inside closure?")
     func observeOrder(_ order: Order, onReceive: @escaping ((Order) -> Void)) {
-        listener = db.collection(orderCollection).document(order.id.uuidString)
+        orderListener = db.collection(orderCollection).document(order.id.uuidString)
             .addSnapshotListener { [weak self] documentSnapshot, error in
                 guard let self = self else { return }
                 guard let document = documentSnapshot else {
@@ -98,8 +105,8 @@ extension FirebaseHandler {
             }
     }
     
-    func stopObserving() {
-        listener?.remove()
+    func stopObservingOrder() {
+        orderListener?.remove()
     }
 }
 
@@ -146,5 +153,29 @@ extension FirebaseHandler {
         } catch {
             throw error
         }
+    }
+}
+
+//Delivery handling
+extension FirebaseHandler {
+    func observeDelivery(_ order: Order, onReceive: @escaping ((Delivery) -> Void)) {
+        deliveryListener = db.collection(deliveryCollection).document(order.id.uuidString)
+            .addSnapshotListener { [weak self] documentSnapshot, error in
+                guard let self = self else { return }
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                guard let data = document.data() else {
+                    print("Document data was empty.")
+                    return
+                }
+                guard let decoded = try? self.decoder.decode(Delivery.self, from: data[self.deliveryKey] as! Data) else { return }
+                onReceive(decoded)
+            }
+    }
+    
+    func stopObservingDelivery() {
+        deliveryListener?.remove()
     }
 }

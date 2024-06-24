@@ -1,18 +1,5 @@
 import Foundation
 
-class Order2: Codable, Identifiable {
-    var id: UUID
-    var placedDateInt: Int
-    var status: OrderStatus
-    var address: Address
-    var deliveryCost: Int
-    var orderedItems: [MenuItem]
-    
-    var placedDate: Date {
-        Date(timeIntervalSince1970: TimeInterval(placedDateInt))
-    }
-}
-
 @Observable
 class Order: Codable, Identifiable {
     var id: UUID

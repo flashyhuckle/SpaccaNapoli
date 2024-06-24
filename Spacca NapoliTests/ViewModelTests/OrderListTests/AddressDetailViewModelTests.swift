@@ -7,7 +7,7 @@ final class AddressDetailViewModelTests: XCTestCase {
     
     func testOnAppear() async {
         let api = GeocodeAPIMock()
-        let vm = AddressDetailViewModel(address: Order.mockOrder().address, api: api)
+        let vm = AddressDetailViewModel(order: Order.mockOrder(), api: api)
         
         await vm.onAppear()
         

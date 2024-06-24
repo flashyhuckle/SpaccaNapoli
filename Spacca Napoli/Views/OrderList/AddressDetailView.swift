@@ -33,7 +33,7 @@ struct AddressDetailView: View {
             
             VStack {
                 Spacer()
-                AddressView(address: vm.address)
+                AddressView(address: vm.order.address)
                     .padding()
                     .background(.neapolitanGray.opacity(0.7))
                     .clipShape(RoundedRectangle(cornerRadius: 25))
@@ -53,5 +53,5 @@ struct AddressDetailView: View {
 }
 
 #Preview {
-    AddressDetailView(vm: AddressDetailViewModel(address: Order.mockOrder().address))
+    AddressDetailView(vm: AddressDetailViewModel(order: Order.mockOrder()))
 }

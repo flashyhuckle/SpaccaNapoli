@@ -92,8 +92,11 @@ class AddressTextfieldViewModel: ObservableObject {
     
     func checkAddress() async {
         do {
-            deliveryPossible = try await deliveryChecker.check(address)
-            processDelivery()
+            let deliveryOption = try await deliveryChecker.check(address)
+            DispatchQueue.main.async {
+                self.deliveryPossible = deliveryOption
+                self.processDelivery()
+            }
         } catch {
             
         }

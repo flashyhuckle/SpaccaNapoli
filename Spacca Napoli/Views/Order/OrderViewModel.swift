@@ -49,7 +49,9 @@ final class OrderViewModel: ObservableObject {
         if isDeliveryPossible {
             await placeOrder()
         } else {
-            isAlertVisible = true
+            DispatchQueue.main.async {
+                self.isAlertVisible = true
+            }
         }
     }
     
@@ -73,7 +75,9 @@ final class OrderViewModel: ObservableObject {
         let order = Order(address: address, deliveryCost: deliveryCost, orderedItems: basket.items)
         do {
             try await communicator.place(order)
-            isAlertVisible = true
+            DispatchQueue.main.async {
+                self.isAlertVisible = true
+            }
         } catch {
             
         }

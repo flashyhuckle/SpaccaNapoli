@@ -17,7 +17,7 @@ struct ReservationListSubview: View {
                     
                 Text("\(reservation.numberOfPeople)")
             }
-            Spacer()
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
             Text(reservation.status.rawValue)
                 .frame(maxWidth: 75, maxHeight: 15)
                 .lineLimit(1)

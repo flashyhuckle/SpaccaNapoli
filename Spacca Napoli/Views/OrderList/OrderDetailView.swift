@@ -16,7 +16,7 @@ struct OrderDetailView: View {
                     
                     Section(content: {
                         NavigationLink {
-                            AddressDetailView(vm: AddressDetailViewModel(address: vm.order.address))
+                            AddressDetailView(vm: AddressDetailViewModel(order: vm.order))
                         } label: {
                             AddressView(address: vm.order.address)
                         }
@@ -30,7 +30,9 @@ struct OrderDetailView: View {
                         SectionHeaderView(text: "Status", color: .neapolitanRed)
                     })
                 }
-                
+            }
+            .withBottomButton("Add to widget") {
+                vm.widgetButtonPressed()
             }
         }
         .navigationBarTitleDisplayMode(.inline)
@@ -53,6 +55,6 @@ struct OrderDetailView: View {
 
 #Preview {
     PreviewBindingWrapper(wrappedBinding: Order.mockOrder()) { orderBinding in
-        OrderDetailView(vm: OrderDetailViewModel(order: orderBinding))
+        OrderDetailView(vm: OrderDetailViewModel(order: orderBinding, communicator: OrderCommunicatorMock()))
     }
 }

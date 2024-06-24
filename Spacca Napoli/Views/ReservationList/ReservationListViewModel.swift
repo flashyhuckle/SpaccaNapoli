@@ -28,7 +28,10 @@ final class ReservationListViewModel: ObservableObject {
     
     private func getReservations() async {
         do {
-            reservations = try await communicator.loadReservations().sorted(by: {$0.date > $1.date})
+            let loadedReservations = try await communicator.loadReservations().sorted(by: {$0.date > $1.date})
+            DispatchQueue.main.async {
+                self.reservations = loadedReservations
+            }
         } catch {
             
         }

@@ -44,7 +44,7 @@ struct AddressTextfieldView: View {
                 focusedField = .postal
             case .postal:
                 focusedField = nil
-                Task {
+                Task { @MainActor in
                     await vm.checkAddress()
                 }
             case nil:

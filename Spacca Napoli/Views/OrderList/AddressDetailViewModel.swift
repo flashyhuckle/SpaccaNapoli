@@ -2,8 +2,9 @@ import MapKit
 import SwiftUI
 
 class AddressDetailViewModel: ObservableObject {
-    let address: Address
+    let order: Order
     private let api: GeocodeAPIType
+    private let communicator: DeliveryCommunicatorType
     
     @Published var position = MapCameraPosition.region(
         MKCoordinateRegion(
@@ -13,6 +14,7 @@ class AddressDetailViewModel: ObservableObject {
     )
     
     private var user: CLLocationCoordinate2D?
+    private var driver: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: Constants.spaccaLatitude, longitude: Constants.spaccaLongitude)
     private var route: MKRoute?
     
     @Published var markerArray = [Marker("Spacca", systemImage: "fork.knife", coordinate: CLLocationCoordinate2D(latitude: Constants.spaccaLatitude, longitude: Constants.spaccaLongitude))]
@@ -20,21 +22,26 @@ class AddressDetailViewModel: ObservableObject {
     @Published var routeArray = [MapPolyline]()
     
     init(
-        address: Address,
-        api: GeocodeAPIType = GeocodeAPI()
+        order: Order,
+        api: GeocodeAPIType = GeocodeAPI(),
+        communicator: DeliveryCommunicatorType = DeliveryCommunicator()
     ) {
-        self.address = address
+        self.order = order
         self.api = api
+        self.communicator = communicator
     }
     
     func updateUI() {
         withAnimation {
             if let user {
+                if markerArray.count > 1 {
+                    markerArray.removeLast()
+                }
                 markerArray.append(Marker("You", systemImage: "person", coordinate: user))
-                let lat = (Constants.spaccaLatitude + user.latitude) / 2
-                let lon = (Constants.spaccaLongitude + user.longitude) / 2
-                let latDel = abs(Constants.spaccaLatitude - user.latitude) * 1.3
-                let lonDel = abs(Constants.spaccaLongitude - user.longitude) * 1.3
+                let lat = (driver.latitude + user.latitude) / 2
+                let lon = (driver.longitude + user.longitude) / 2
+                let latDel = abs(driver.latitude - user.latitude) * 1.3
+                let lonDel = abs(driver.longitude - user.longitude) * 1.3
                 
                 position = MapCameraPosition.region(
                     MKCoordinateRegion(
@@ -44,23 +51,38 @@ class AddressDetailViewModel: ObservableObject {
                 )
             }
             if let route {
+                routeArray.removeAll()
                 routeArray.append(MapPolyline(route))
             }
         }
     }
     
     func onAppear() async {
-        await getCoordinates()
+        observeDriverCoordinates()
+        await getUserCoordinates()
     }
     
-    private func getCoordinates() async {
+    private func getUserCoordinates() async {
         do {
-            if let coordinates = try await api.getCoordinates(for: address) {
+            if let coordinates = try await api.getCoordinates(for: order.address) {
                 user = coordinates.CLLC2D
                 try await getRoute(to: coordinates.CLLC2D)
             }
         } catch {
             print(error)
+        }
+    }
+    
+    private func observeDriverCoordinates() {
+        communicator.observe(order) { delivery in
+            self.markerArray[0] = (Marker("Driver", systemImage: "bicycle.circle", coordinate: delivery.CLLC2D))
+            self.driver = delivery.CLLC2D
+            
+            Task {
+                if let user = self.user {
+                    try await self.getRoute(to: user)
+                }
+            }
         }
     }
     
@@ -71,7 +93,7 @@ class AddressDetailViewModel: ObservableObject {
         }
         
         let request = MKDirections.Request()
-        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: Constants.spaccaLatitude, longitude: Constants.spaccaLongitude)))
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: driver))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: destination))
         
         let directions = MKDirections(request: request)

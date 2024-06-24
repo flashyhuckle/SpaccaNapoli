@@ -21,8 +21,11 @@ final class OrderListViewModel: ObservableObject {
     
     private func loadOrders() async {
         do {
-            orders = try await communicator.loadOrders().sorted(by: {$0.placedDate > $1.placedDate})
-            isFirstLoading = false
+            let loadedOrders = try await communicator.loadOrders().sorted(by: {$0.placedDate > $1.placedDate})
+            DispatchQueue.main.async {
+                self.orders = loadedOrders
+                self.isFirstLoading = false
+            }
         } catch {
             
         }

@@ -2,6 +2,7 @@ import Foundation
 @testable import Spacca_Napoli
 
 final class FirebaseHandlerMock: FirebaseHandlerType {
+    
     var orderPlaced = false
     
     func placeOrder(_ order: Spacca_Napoli.Order) async throws {
@@ -23,7 +24,7 @@ final class FirebaseHandlerMock: FirebaseHandlerType {
         onReceive(order.advanceStatus())
     }
     
-    func stopObserving() {
+    func stopObservingOrder() {
         orderIsObserved = false
     }
     
@@ -41,5 +42,15 @@ final class FirebaseHandlerMock: FirebaseHandlerType {
         Menu.mockMenuResponse()
     }
     
+    var deliveryIsObserver = false
+    
+    func observeDelivery(_ order: Spacca_Napoli.Order, onReceive: @escaping ((Spacca_Napoli.Delivery) -> Void)) {
+        #warning("add onreceive")
+        deliveryIsObserver = true
+    }
+    
+    func stopObservingDelivery() {
+        deliveryIsObserver = false
+    }
     
 }

@@ -26,6 +26,10 @@ final class OrderDetailViewModel: ObservableObject {
         stopObserving()
     }
     
+    func widgetButtonPressed() {
+        
+    }
+    
     func itemsTotal() -> Int {
         var price = 0
         for item in order.orderedItems {

@@ -19,7 +19,7 @@ struct OrderProgressView: View {
 }
 
 #Preview {
-    OrderProgressView(status: .constant(OrderStatus.inDelivery))
+    OrderProgressView(status: .constant(OrderStatus.placed))
 }
 
 struct OrderProgressSubview: View {

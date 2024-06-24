@@ -44,8 +44,12 @@ final class ReserveViewModel: ObservableObject {
         return min...max
     }
     
-    func dateRange() -> PartialRangeFrom<Date> {
-        Date.tomorrow...
+    func dateRange() -> ClosedRange<Date> {
+        let dateFrom = Date.tomorrow
+        guard let dateTo = Calendar.current.date(byAdding: .month, value: 1, to: dateFrom) else {
+            return dateFrom...dateFrom
+        }
+        return dateFrom...dateTo
     }
     
     func createDate() -> Date {

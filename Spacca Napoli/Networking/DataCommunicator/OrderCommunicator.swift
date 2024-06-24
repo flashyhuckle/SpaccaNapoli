@@ -38,6 +38,6 @@ extension OrderCommunicator: OrderCommunicatorType {
     }
     
     func stopObserving() {
-        handler.stopObserving()
+        handler.stopObservingOrder()
     }
 }
