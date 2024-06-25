@@ -41,7 +41,7 @@ struct OrderListSubview: View {
     
     private func statusColor() -> Color {
         switch order.status {
-        case .placed, .accepted, .inPreparation, .inDelivery:
+        case .placed, .accepted, .inPreparation, .ready, .inDelivery:
                 .green
         case .delivered:
                 .gray

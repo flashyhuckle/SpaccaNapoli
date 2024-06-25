@@ -48,6 +48,8 @@ extension Order {
         case .accepted:
             order.status = .inPreparation
         case .inPreparation:
+            order.status = .ready
+        case .ready:
             order.status = .inDelivery
         case .inDelivery:
             order.status = .delivered

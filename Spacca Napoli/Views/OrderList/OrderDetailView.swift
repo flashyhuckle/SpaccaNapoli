@@ -31,7 +31,7 @@ struct OrderDetailView: View {
                     })
                 }
             }
-            .withBottomButton("Add to widget") {
+            .withBottomButton("Add to widget", color: .gray) {
                 vm.widgetButtonPressed()
             }
         }

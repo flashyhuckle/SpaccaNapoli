@@ -11,6 +11,7 @@ struct OrderProgressView: View {
                 OrderProgressSubview(status: $status, expectedStatus: .placed)
                 OrderProgressSubview(status: $status, expectedStatus: .accepted)
                 OrderProgressSubview(status: $status, expectedStatus: .inPreparation)
+                OrderProgressSubview(status: $status, expectedStatus: .ready)
                 OrderProgressSubview(status: $status, expectedStatus: .inDelivery)
                 OrderProgressSubview(status: $status, expectedStatus: .delivered)
             }
@@ -54,10 +55,12 @@ struct OrderProgressSubview: View {
             satisfied = checkArray(statusArray[0...1], status: expectedStatus)
         case .inPreparation:
             satisfied = checkArray(statusArray[0...2], status: expectedStatus)
-        case .inDelivery:
+        case .ready:
             satisfied = checkArray(statusArray[0...3], status: expectedStatus)
-        case .delivered:
+        case .inDelivery:
             satisfied = checkArray(statusArray[0...4], status: expectedStatus)
+        case .delivered:
+            satisfied = checkArray(statusArray[0...5], status: expectedStatus)
         case .cancelled:
             satisfied = false
         }
@@ -76,6 +79,7 @@ struct OrderProgressSubview: View {
             case .placed: "Order has been placed"
             case .accepted: "Restaurant accepted your order"
             case .inPreparation: "Restaurant is preparing your order"
+            case .ready: "Order is waiting for delivery"
             case .inDelivery: "Your order is on the way"
             case .delivered: "Your order is delivered"
             case .cancelled: "Your order has been cancelled"
