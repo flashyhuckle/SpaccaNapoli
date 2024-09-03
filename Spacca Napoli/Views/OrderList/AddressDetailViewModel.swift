@@ -34,10 +34,11 @@ class AddressDetailViewModel: ObservableObject {
     func updateUI() {
         withAnimation {
             if let user {
-                if markerArray.count > 1 {
-                    markerArray.removeLast()
+                if markerArray.count == 1 {
+//                    markerArray.removeLast()
+                    markerArray.append(Marker("You", systemImage: "person", coordinate: user))
                 }
-                markerArray.append(Marker("You", systemImage: "person", coordinate: user))
+                
                 let lat = (driver.latitude + user.latitude) / 2
                 let lon = (driver.longitude + user.longitude) / 2
                 let latDel = abs(driver.latitude - user.latitude) * 1.3

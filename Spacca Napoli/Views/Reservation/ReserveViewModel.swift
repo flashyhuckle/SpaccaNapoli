@@ -104,4 +104,8 @@ final class ReserveViewModel: ObservableObject {
             ReservationAlertMessage.badData
         }
     }
+    
+    func clearAllData() {
+        #warning("clear all fields after placing reservation")
+    }
 }

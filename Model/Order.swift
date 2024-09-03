@@ -41,7 +41,7 @@ class Order: Codable, Identifiable {
 
 extension Order {
     func advanceStatus() -> Self {
-        var order = self
+        let order = self
         switch order.status {
         case .placed:
             order.status = .accepted

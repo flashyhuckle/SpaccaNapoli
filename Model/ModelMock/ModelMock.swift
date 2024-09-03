@@ -1,12 +1,13 @@
 import Foundation
 
-final class ModelMock {
-    
-}
+//final class ModelMock {
+//    
+//}
 
 extension GeocodeResponse {
     public static func mockGeocodeData() -> Data {
-        let bundle = Bundle(for: ModelMock.self)
+//        let bundle = Bundle(for: ModelMock.self)
+        let bundle = Bundle.main
         guard let path = bundle.path(forResource: "GeocodeTestData", ofType: "json") else {
             fatalError("GeocodeTestData.json not found.")
         }
@@ -26,7 +27,8 @@ extension GeocodeResponse {
 
 extension Menu {
     public static func mockMenuData() -> Data {
-        let bundle = Bundle(for: ModelMock.self)
+//        let bundle = Bundle(for: ModelMock.self)
+        let bundle = Bundle.main
         guard let path = bundle.path(forResource: "MenuTestData", ofType: "json") else {
             fatalError("MenuTestData.json not found.")
         }
@@ -53,7 +55,8 @@ extension Menu {
 
 extension Order {
     public static func mockOrderData() -> Data {
-        let bundle = Bundle(for: ModelMock.self)
+//        let bundle = Bundle(for: ModelMock.self)
+        let bundle = Bundle.main
         guard let path = bundle.path(forResource: "OrderTestData", ofType: "json") else {
             fatalError("OrderTestData.json not found.")
         }
@@ -80,7 +83,8 @@ extension Order {
 
 extension Reservation {
     public static func mockReservationData() -> Data {
-        let bundle = Bundle(for: ModelMock.self)
+//        let bundle = Bundle(for: ModelMock.self)
+        let bundle = Bundle.main
         guard let path = bundle.path(forResource: "ReservationTestData", ofType: "json") else {
             fatalError("ReservationTestData.json not found.")
         }
